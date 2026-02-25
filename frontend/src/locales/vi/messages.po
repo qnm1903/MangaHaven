@@ -1,0 +1,1187 @@
+msgid ""
+msgstr ""
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"MIME-Version: 1.0\n"
+"X-Generator: @lingui/cli\n"
+"Language: vi\n"
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: \n"
+"PO-Revision-Date: \n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"Plural-Forms: \n"
+
+#. placeholder {0}: totalChapterCount === 1 ? 'chapter' : 'chapters'
+#. placeholder {0}: volumeChapters.length === 1 ? 'chapter' : 'chapters'
+#: src/pages/MangaDetail.tsx:881
+#: src/pages/MangaDetail.tsx:914
+msgid "{0}"
+msgstr "{0}"
+
+#. placeholder {0}: history.length
+#: src/pages/ReadingHistory.tsx:121
+msgid "{0} chapters read · saved on this device"
+msgstr "{0} chương đã đọc · lưu trên thiết bị này"
+
+#. placeholder {0}: totalResults.toLocaleString()
+#: src/pages/AdvancedSearch.tsx:329
+msgid "{0} results found"
+msgstr "Tìm thấy {0} kết quả"
+
+#: src/pages/Dashboard.tsx:56
+#: src/pages/LatestUpdates.tsx:43
+#: src/pages/ReadingHistory.tsx:95
+msgid "{days}d ago"
+msgstr "{days} ngày trước"
+
+#: src/pages/Dashboard.tsx:54
+#: src/pages/LatestUpdates.tsx:41
+#: src/pages/ReadingHistory.tsx:93
+msgid "{hours}h ago"
+msgstr "{hours} giờ trước"
+
+#: src/pages/Dashboard.tsx:52
+msgid "{minutes} min ago"
+msgstr "{minutes} phút trước"
+
+#: src/pages/LatestUpdates.tsx:39
+#: src/pages/ReadingHistory.tsx:91
+msgid "{minutes}m ago"
+msgstr "{minutes} phút trước"
+
+#. placeholder {0}: total !== 1 ? 's' : ''
+#: src/pages/LatestUpdates.tsx:180
+msgid "{total} chapter update{0} found"
+msgstr "Tìm thấy {total} cập nhật chương"
+
+#: src/pages/Dashboard.tsx:282
+msgid "A collection of manga recently added to the catalog."
+msgstr "Bộ sưu tập manga mới thêm vào danh mục."
+
+#: src/pages/Dashboard.tsx:149
+msgid "A collection of newly uploaded chapters"
+msgstr "Tập hợp các chương mới được tải lên"
+
+#: src/components/layout/Sidebar.tsx:212
+msgid "Account"
+msgstr "Tài khoản"
+
+#: src/pages/Auth.tsx:136
+msgid "Account created successfully!"
+msgstr "Tạo tài khoản thành công!"
+
+#: src/pages/Profile.tsx:453
+msgid "Account Security"
+msgstr "Bảo mật tài khoản"
+
+#: src/components/FollowButton.tsx:45
+msgid "Added to your library. You'll see updates in your feed."
+msgstr "Đã thêm vào thư viện. Bạn sẽ thấy cập nhật trong luồng."
+
+#: src/pages/MangaDetail.tsx:417
+msgid "Additional options will be available in a future update."
+msgstr "Các tùy chọn bổ sung sẽ có trong bản cập nhật tới."
+
+#: src/components/layout/Sidebar.tsx:36
+#: src/pages/AdvancedSearch.tsx:156
+msgid "Advanced Search"
+msgstr "Tìm kiếm nâng cao"
+
+#. placeholder {0}: history.length
+#: src/pages/ReadingHistory.tsx:137
+msgid "All {0} records will be permanently deleted. This action cannot be undone."
+msgstr "Tất cả {0} bản ghi sẽ bị xóa vĩnh viễn. Hành động này không thể hoàn tác."
+
+#: src/pages/LatestUpdates.tsx:30
+msgid "All time"
+msgstr "Toàn thời gian"
+
+#: src/pages/MangaDetail.tsx:738
+msgid "Alternative Titles"
+msgstr "Tiêu đề khác"
+
+#: src/pages/Dashboard.tsx:45
+msgid "An unknown error occurred."
+msgstr "Đã xảy ra lỗi không xác định."
+
+#: src/pages/MangaDetail.tsx:560
+msgid "Artist"
+msgstr "Họa sĩ"
+
+#: src/pages/MangaDetail.tsx:567
+#~ msgid "Artist page is not yet available."
+#~ msgstr "Trang họa sĩ chưa khả dụng."
+
+#: src/pages/Settings.tsx:103
+msgid "At least one language must be selected."
+msgstr "Phải chọn ít nhất một ngôn ngữ."
+
+#: src/pages/Auth.tsx:142
+msgid "Authentication Error"
+msgstr "Lỗi xác thực"
+
+#: src/pages/Auth.tsx:139
+msgid "Authentication failed. Please try again."
+msgstr "Xác thực thất bại. Vui lòng thử lại."
+
+#: src/pages/MangaDetail.tsx:540
+msgid "Author"
+msgstr "Tác giả"
+
+#: src/pages/MangaDetail.tsx:547
+#~ msgid "Author page is not yet available."
+#~ msgstr "Trang tác giả chưa khả dụng."
+
+#: src/pages/AdvancedSearch.tsx:221
+msgid "Authors"
+msgstr "Tác giả"
+
+#: src/pages/Profile.tsx:144
+msgid "Avatar removed successfully!"
+msgstr "Đã xóa ảnh đại diện thành công!"
+
+#: src/pages/Profile.tsx:130
+msgid "Avatar updated successfully!"
+msgstr "Đã cập nhật ảnh đại diện thành công!"
+
+#: src/pages/AuthorDetail.tsx:164
+#: src/pages/GroupDetail.tsx:196
+#: src/pages/MangaDetail.tsx:287
+#: src/pages/MangaDetail.tsx:465
+msgid "Back"
+msgstr "Quay lại"
+
+#: src/pages/Favorites.tsx:225
+#: src/pages/LatestUpdates.tsx:358
+msgid "Browse Manga"
+msgstr "Khám phá Manga"
+
+#: src/pages/Favorites.tsx:222
+msgid "Browse manga and click \"Follow\" to add them to your library!"
+msgstr "Khám phá manga và nhấn \"Theo dõi\" để thêm vào thư viện!"
+
+#: src/pages/Auth.tsx:344
+msgid "By continuing, you agree to our <0>Terms</0> and <1>Privacy Policy</1>"
+msgstr "Bằng cách tiếp tục, bạn đồng ý với <0>Điều khoản</0> và <1>Chính sách bảo mật</1>"
+
+#: src/pages/Profile.tsx:426
+#: src/pages/ReadingHistory.tsx:141
+msgid "Cancel"
+msgstr "Hủy"
+
+#: src/pages/Profile.tsx:507
+msgid "Change Password"
+msgstr "Đổi mật khẩu"
+
+#: src/pages/Profile.tsx:455
+msgid "Change your password to protect your account"
+msgstr "Thay đổi mật khẩu để bảo vệ tài khoản của bạn"
+
+#: src/pages/Profile.tsx:504
+msgid "Changing..."
+msgstr "Đang thay đổi..."
+
+#: src/pages/Settings.tsx:74
+msgid "Chapter Language"
+msgstr "Ngôn ngữ chương"
+
+#: src/pages/MangaDetail.tsx:879
+msgid "Chapter List"
+msgstr "Danh sách chương"
+
+#: src/pages/MangaDetail.tsx:393
+msgid "Chapter ready"
+msgstr "Chương sẵn sàng"
+
+#: src/pages/Settings.tsx:81
+msgid "Chapter translation language"
+msgstr "Ngôn ngữ bản dịch chương"
+
+#: src/pages/MangaDetail.tsx:155
+#: src/pages/MangaDetail.tsx:658
+msgid "Chapters"
+msgstr "Chương"
+
+#: src/pages/MangaDetail.tsx:897
+msgid "Chapters have not been published yet."
+msgstr "Chương chưa được xuất bản."
+
+#: src/pages/MangaDetail.tsx:383
+msgid "Chapters unavailable"
+msgstr "Không có chương"
+
+#: src/pages/Settings.tsx:233
+msgid "Choose the display language for the application interface."
+msgstr "Chọn ngôn ngữ hiển thị cho giao diện ứng dụng."
+
+#: src/pages/ReadingHistory.tsx:130
+#: src/pages/ReadingHistory.tsx:143
+msgid "Clear all"
+msgstr "Xóa tất cả"
+
+#: src/pages/AdvancedSearch.tsx:383
+msgid "Clear all filters"
+msgstr "Xóa tất cả bộ lọc"
+
+#: src/pages/ReadingHistory.tsx:135
+msgid "Clear reading history?"
+msgstr "Xóa lịch sử đọc?"
+
+#: src/pages/MangaDetail.tsx:407
+msgid "Clipboard error"
+msgstr "Lỗi clipboard"
+
+#: src/pages/Dashboard.tsx:246
+#: src/pages/LatestUpdates.tsx:292
+#: src/pages/MangaDetail.tsx:547
+#: src/pages/MangaDetail.tsx:567
+#: src/pages/MangaDetail.tsx:972
+#: src/pages/ReadingHistory.tsx:243
+#~ msgid "Coming soon"
+#~ msgstr "Sắp ra mắt"
+
+#: src/pages/MangaDetail.tsx:156
+msgid "Comments"
+msgstr "Bình luận"
+
+#: src/pages/MangaDetail.tsx:1010
+msgid "Comments coming soon"
+msgstr "Bình luận sắp ra mắt"
+
+#: src/pages/MangaDetail.tsx:1012
+msgid "Community discussion will be available in a future update."
+msgstr "Thảo luận cộng đồng sẽ có trong bản cập nhật tới."
+
+#: src/pages/MangaDetail.tsx:610
+msgid "Community Score"
+msgstr "Điểm cộng đồng"
+
+#: src/pages/Favorites.tsx:79
+msgid "Completed"
+msgstr "Hoàn thành"
+
+#: src/pages/Profile.tsx:483
+msgid "Confirm New Password"
+msgstr "Xác nhận mật khẩu mới"
+
+#: src/pages/Auth.tsx:293
+msgid "Confirm Password"
+msgstr "Xác nhận mật khẩu"
+
+#: src/pages/AdvancedSearch.tsx:268
+msgid "Content Rating"
+msgstr "Đánh giá nội dung"
+
+#: src/pages/Profile.tsx:245
+msgid "Could not load profile"
+msgstr "Không thể tải hồ sơ"
+
+#: src/pages/Profile.tsx:66
+msgid "Could not load profile information"
+msgstr "Không thể tải thông tin hồ sơ"
+
+#: src/pages/Auth.tsx:322
+msgid "Create Account"
+msgstr "Tạo tài khoản"
+
+#: src/pages/Auth.tsx:162
+msgid "Create your account"
+msgstr "Tạo tài khoản của bạn"
+
+#: src/pages/Auth.tsx:319
+msgid "Creating account..."
+msgstr "Đang tạo tài khoản..."
+
+#: src/pages/Profile.tsx:461
+msgid "Current Password"
+msgstr "Mật khẩu hiện tại"
+
+#: src/pages/Settings.tsx:114
+msgid "Customize your manga reading experience"
+msgstr "Tùy chỉnh trải nghiệm đọc manga của bạn"
+
+#: src/pages/Settings.tsx:66
+msgid "Customize your reading experience"
+msgstr "Tùy chỉnh trải nghiệm đọc của bạn"
+
+#: src/components/layout/Sidebar.tsx:31
+msgid "Dashboard"
+msgstr "Trang chủ"
+
+#: src/pages/Settings.tsx:77
+msgid "Default translation language for chapter lists and home page."
+msgstr "Ngôn ngữ bản dịch mặc định cho danh sách chương và trang chủ."
+
+#: src/pages/AdvancedSearch.tsx:289
+#: src/pages/MangaDetail.tsx:772
+msgid "Demographic"
+msgstr "Nhân khẩu"
+
+#: src/pages/GroupDetail.tsx:296
+#: src/pages/GroupDetail.tsx:432
+msgid "Description"
+msgstr "Mô tả"
+
+#: src/pages/GroupDetail.tsx:315
+#: src/pages/GroupDetail.tsx:454
+#~ msgid "Discord"
+#~ msgstr ""
+
+#: src/pages/Profile.tsx:362
+msgid "Display Name"
+msgstr "Tên hiển thị"
+
+#: src/pages/Profile.tsx:441
+msgid "Edit Profile"
+msgstr "Chỉnh sửa hồ sơ"
+
+#: src/pages/Auth.tsx:247
+#: src/pages/Profile.tsx:375
+msgid "Email"
+msgstr "Email"
+
+#: src/pages/Auth.tsx:86
+msgid "Email is invalid"
+msgstr "Email không hợp lệ"
+
+#: src/pages/Auth.tsx:84
+msgid "Email is required"
+msgstr "Email là bắt buộc"
+
+#: src/pages/Profile.tsx:467
+msgid "Enter current password"
+msgstr "Nhập mật khẩu hiện tại"
+
+#: src/pages/Profile.tsx:370
+msgid "Enter display name"
+msgstr "Nhập tên hiển thị"
+
+#: src/pages/Profile.tsx:382
+msgid "Enter email address"
+msgstr "Nhập địa chỉ email"
+
+#: src/pages/Profile.tsx:478
+msgid "Enter new password (at least 6 characters)"
+msgstr "Nhập mật khẩu mới (ít nhất 6 ký tự)"
+
+#: src/pages/Auth.tsx:235
+msgid "Enter your name"
+msgstr "Nhập tên của bạn"
+
+#: src/components/FollowButton.tsx:49
+msgid "Error"
+msgstr "Lỗi"
+
+#: src/pages/Profile.tsx:119
+msgid "Failed to change password. Please check your current password."
+msgstr "Không thể đổi mật khẩu. Vui lòng kiểm tra mật khẩu hiện tại."
+
+#: src/pages/MangaDetail.tsx:893
+msgid "Failed to load chapters. Please try again later."
+msgstr "Không thể tải chương. Vui lòng thử lại sau."
+
+#: src/pages/LatestUpdates.tsx:187
+msgid "Failed to load feed. Please try again."
+msgstr "Không thể tải luồng. Vui lòng thử lại."
+
+#: src/pages/Favorites.tsx:104
+msgid "Failed to load your library. Please try again."
+msgstr "Không thể tải thư viện. Vui lòng thử lại."
+
+#: src/pages/Profile.tsx:147
+msgid "Failed to remove avatar"
+msgstr "Không thể xóa ảnh đại diện"
+
+#: src/pages/Profile.tsx:87
+msgid "Failed to update profile"
+msgstr "Không thể cập nhật hồ sơ"
+
+#: src/pages/Profile.tsx:133
+msgid "Failed to upload avatar"
+msgstr "Không thể tải lên ảnh đại diện"
+
+#: src/components/layout/Sidebar.tsx:41
+msgid "Favorites"
+msgstr "Yêu thích"
+
+#: src/pages/Settings.tsx:39
+msgid "Feature in development"
+msgstr "Tính năng đang phát triển"
+
+#: src/pages/Dashboard.tsx:118
+msgid "Featured Manga"
+msgstr "Manga nổi bật"
+
+#: src/pages/Profile.tsx:165
+msgid "File size must not exceed 5MB"
+msgstr "Kích thước tệp không được vượt quá 5MB"
+
+#: src/pages/AdvancedSearch.tsx:184
+msgid "Filters"
+msgstr "Bộ lọc"
+
+#: src/pages/ReadingHistory.tsx:160
+msgid "Find manga to read"
+msgstr "Tìm manga để đọc"
+
+#: src/pages/AdvancedSearch.tsx:157
+msgid "Find manga with powerful filtering options"
+msgstr "Tìm manga với các tùy chọn lọc mạnh mẽ"
+
+#: src/pages/Settings.tsx:188
+msgid "Fit Horizontal"
+msgstr "Vừa ngang"
+
+#: src/pages/Settings.tsx:176
+msgid "Fit Vertical"
+msgstr "Vừa dọc"
+
+#: src/pages/GroupDetail.tsx:281
+#: src/pages/GroupDetail.tsx:417
+msgid "Focused Languages"
+msgstr "Ngôn ngữ dịch"
+
+#: src/components/FollowButton.tsx:81
+#: src/pages/GroupDetail.tsx:257
+#: src/pages/GroupDetail.tsx:381
+msgid "Follow"
+msgstr "Theo dõi"
+
+#: src/pages/LatestUpdates.tsx:354
+msgid "Follow some manga to see their latest chapters here!"
+msgstr "Theo dõi manga để xem các chương mới nhất tại đây!"
+
+#: src/components/FollowButton.tsx:73
+msgid "Following"
+msgstr "Đang theo dõi"
+
+#: src/components/FollowButton.tsx:45
+msgid "Following!"
+msgstr "Đã theo dõi!"
+
+#: src/components/FollowButton.tsx:59
+msgid "Following..."
+msgstr "Đang theo dõi..."
+
+#: src/pages/Auth.tsx:228
+msgid "Full Name"
+msgstr "Họ và tên"
+
+#: src/pages/MangaDetail.tsx:342
+msgid "Go Back"
+msgstr "Quay lại"
+
+#: src/pages/Auth.tsx:54
+#: src/pages/Auth.tsx:66
+msgid "Google Login Error"
+msgstr "Lỗi đăng nhập Google"
+
+#: src/pages/Auth.tsx:51
+msgid "Google login failed. Please try again."
+msgstr "Đăng nhập Google thất bại. Vui lòng thử lại."
+
+#: src/pages/GroupDetail.tsx:439
+msgid "Group ID"
+msgstr "ID nhóm"
+
+#: src/pages/GroupDetail.tsx:265
+msgid "Group Information"
+msgstr "Thông tin nhóm"
+
+#: src/pages/GroupDetail.tsx:270
+#: src/pages/GroupDetail.tsx:405
+msgid "Group Leader"
+msgstr "Trưởng nhóm"
+
+#: src/pages/Settings.tsx:207
+msgid "Hide"
+msgstr "Ẩn"
+
+#: src/pages/Auth.tsx:279
+#: src/pages/Auth.tsx:280
+msgid "Hide password"
+msgstr "Ẩn mật khẩu"
+
+#: src/pages/AdvancedSearch.tsx:53
+msgid "Highest Rated"
+msgstr "Đánh giá cao nhất"
+
+#: src/pages/ReadingHistory.tsx:107
+msgid "History cleared"
+msgstr "Đã xóa lịch sử"
+
+#: src/pages/Settings.tsx:164
+msgid "Image Fit"
+msgstr "Vừa ảnh"
+
+#: src/pages/Settings.tsx:151
+msgid "Image gap (px)"
+msgstr "Khoảng cách ảnh (px)"
+
+#: src/pages/GroupDetail.tsx:374
+msgid "Inactive"
+msgstr "Ngưng hoạt động"
+
+#: src/pages/AuthorDetail.tsx:233
+#: src/pages/GroupDetail.tsx:399
+#: src/pages/MangaDetail.tsx:690
+msgid "Information"
+msgstr "Thông tin"
+
+#: src/pages/Settings.tsx:230
+msgid "Interface Language"
+msgstr "Ngôn ngữ giao diện"
+
+#. placeholder {0}: formatDate(profile.createdAt)
+#: src/pages/Profile.tsx:311
+msgid "Joined {0}"
+msgstr "Tham gia {0}"
+
+#: src/pages/ReadingHistory.tsx:90
+msgid "just now"
+msgstr "vừa xong"
+
+#: src/pages/Dashboard.tsx:51
+msgid "Just now"
+msgstr "Vừa xong"
+
+#: src/pages/Settings.tsx:237
+msgid "Language"
+msgstr "Ngôn ngữ"
+
+#: src/pages/MangaDetail.tsx:721
+msgid "Languages"
+msgstr "Ngôn ngữ có bản dịch"
+
+#: src/pages/MangaDetail.tsx:729
+msgid "Last Updated"
+msgstr "Cập nhật lần cuối"
+
+#: src/pages/AdvancedSearch.tsx:51
+msgid "Latest Update"
+msgstr "Cập nhật mới nhất"
+
+#: src/components/layout/Sidebar.tsx:46
+#: src/pages/Dashboard.tsx:146
+#: src/pages/Favorites.tsx:52
+#: src/pages/LatestUpdates.tsx:145
+msgid "Latest Updates"
+msgstr "Cập nhật mới nhất"
+
+#: src/pages/MangaDetail.tsx:402
+msgid "Link copied"
+msgstr "Đã sao chép liên kết"
+
+#: src/pages/GroupDetail.tsx:240
+msgid "Local"
+msgstr "Nội bộ"
+
+#: src/pages/Auth.tsx:35
+msgid "Login Error"
+msgstr "Lỗi đăng nhập"
+
+#: src/pages/Auth.tsx:67
+msgid "Login was interrupted. Please try again."
+msgstr "Đăng nhập bị gián đoạn. Vui lòng thử lại."
+
+#: src/pages/Profile.tsx:262
+msgid "Manage your personal information and account settings"
+msgstr "Quản lý thông tin cá nhân và cài đặt tài khoản"
+
+#: src/pages/Dashboard.tsx:423
+msgid "Manga that many readers are following this month."
+msgstr "Manga được nhiều độc giả theo dõi trong tháng này."
+
+#: src/pages/Favorites.tsx:46
+msgid "Manga you're following"
+msgstr "Manga bạn đang theo dõi"
+
+#: src/pages/GroupDetail.tsx:249
+#: src/pages/GroupDetail.tsx:371
+msgid "members"
+msgstr "thành viên"
+
+#: src/pages/MangaDetail.tsx:521
+msgid "More"
+msgstr "Thêm"
+
+#: src/pages/MangaDetail.tsx:416
+msgid "More actions coming soon"
+msgstr "Thêm tính năng sắp ra mắt"
+
+#: src/pages/AdvancedSearch.tsx:52
+msgid "Most Popular"
+msgstr "Phổ biến nhất"
+
+#: src/pages/Favorites.tsx:45
+#: src/pages/LatestUpdates.tsx:153
+msgid "My Library"
+msgstr "Thư viện"
+
+#: src/pages/Profile.tsx:259
+msgid "My Profile"
+msgstr "Hồ sơ của tôi"
+
+#: src/pages/Auth.tsx:97
+msgid "Name is required"
+msgstr "Tên là bắt buộc"
+
+#: src/components/layout/Sidebar.tsx:198
+msgid "Navigation"
+msgstr "Điều hướng"
+
+#: src/pages/LatestUpdates.tsx:147
+msgid "New chapters from manga you follow"
+msgstr "Chương mới từ manga bạn theo dõi"
+
+#: src/pages/Profile.tsx:472
+msgid "New Password"
+msgstr "Mật khẩu mới"
+
+#: src/pages/Profile.tsx:100
+msgid "New password must be at least 6 characters"
+msgstr "Mật khẩu mới phải có ít nhất 6 ký tự"
+
+#: src/pages/Dashboard.tsx:279
+msgid "New Series"
+msgstr "Series mới"
+
+#: src/pages/AdvancedSearch.tsx:54
+msgid "Newest Added"
+msgstr "Mới thêm nhất"
+
+#: src/pages/AdvancedSearch.tsx:406
+#: src/pages/Favorites.tsx:209
+#: src/pages/LatestUpdates.tsx:341
+msgid "Next"
+msgstr "Tiếp theo"
+
+#: src/pages/LatestUpdates.tsx:355
+msgid "No chapters found for the selected time range."
+msgstr "Không tìm thấy chương trong khoảng thời gian đã chọn."
+
+#: src/pages/Auth.tsx:36
+msgid "No credential received from Google."
+msgstr "Không nhận được thông tin đăng nhập từ Google."
+
+#: src/pages/MangaDetail.tsx:963
+msgid "No group"
+msgstr "Không có nhóm"
+
+#: src/pages/AuthorDetail.tsx:333
+#: src/pages/Favorites.tsx:220
+msgid "No manga followed yet"
+msgstr "Chưa theo dõi manga nào"
+
+#: src/pages/Dashboard.tsx:182
+msgid "No new chapters yet. Try again in a few minutes."
+msgstr "Chưa có chương mới. Thử lại sau vài phút."
+
+#: src/pages/Dashboard.tsx:309
+msgid "No new manga. Refresh or check back in a few minutes."
+msgstr "Chưa có manga mới. Làm mới hoặc quay lại sau vài phút."
+
+#: src/pages/MangaDetail.tsx:1023
+msgid "No related titles found."
+msgstr "Không tìm thấy tiêu đề liên quan."
+
+#: src/pages/AdvancedSearch.tsx:378
+msgid "No results found"
+msgstr "Không tìm thấy kết quả"
+
+#: src/pages/Dashboard.tsx:259
+msgid "No scanlation group info"
+msgstr "Không có thông tin nhóm dịch"
+
+#: src/pages/LatestUpdates.tsx:351
+msgid "No updates yet"
+msgstr "Chưa có cập nhật"
+
+#: src/pages/MangaDetail.tsx:902
+msgid "No Volume"
+msgstr "Không có tập"
+
+#: src/pages/GroupDetail.tsx:373
+msgid "Official"
+msgstr "Chính thức"
+
+#: src/pages/Favorites.tsx:91
+msgid "Ongoing"
+msgstr "Đang tiến hành"
+
+#. placeholder {0}: mangaDexUtils.formatChapterNumber(earliestChapter)
+#: src/pages/MangaDetail.tsx:394
+msgid "Opening {0}."
+msgstr "Đang mở {0}."
+
+#: src/pages/Auth.tsx:219
+msgid "or continue with email"
+msgstr "hoặc tiếp tục với email"
+
+#: src/pages/MangaDetail.tsx:717
+msgid "Original Language"
+msgstr "Ngôn ngữ gốc"
+
+#. placeholder {0}: filters.page
+#: src/pages/AdvancedSearch.tsx:399
+msgid "Page {0} of {totalPages}"
+msgstr "Trang {0} / {totalPages}"
+
+#: src/pages/Favorites.tsx:202
+#: src/pages/LatestUpdates.tsx:334
+msgid "Page {page}"
+msgstr "Trang {page}"
+
+#: src/pages/Auth.tsx:265
+msgid "Password"
+msgstr "Mật khẩu"
+
+#: src/pages/Profile.tsx:116
+msgid "Password changed successfully!"
+msgstr "Đổi mật khẩu thành công!"
+
+#: src/pages/Auth.tsx:90
+msgid "Password is required"
+msgstr "Mật khẩu là bắt buộc"
+
+#: src/pages/Auth.tsx:92
+msgid "Password must be at least 6 characters"
+msgstr "Mật khẩu phải có ít nhất 6 ký tự"
+
+#: src/pages/Auth.tsx:102
+#: src/pages/Profile.tsx:95
+msgid "Passwords do not match"
+msgstr "Mật khẩu không khớp"
+
+#: src/pages/Profile.tsx:342
+#: src/pages/Profile.tsx:354
+msgid "Personal Information"
+msgstr "Thông tin cá nhân"
+
+#: src/pages/MangaDetail.tsx:1129
+msgid "Personalized recommendations will be available in a future update."
+msgstr "Gợi ý cá nhân hóa sẽ có trong bản cập nhật tới."
+
+#: src/pages/AuthorDetail.tsx:269
+msgid "Pixiv"
+msgstr "Pixiv"
+
+#: src/pages/Auth.tsx:100
+msgid "Please confirm your password"
+msgstr "Vui lòng xác nhận mật khẩu"
+
+#: src/pages/Profile.tsx:159
+msgid "Please select an image file"
+msgstr "Vui lòng chọn tệp ảnh"
+
+#: src/pages/Profile.tsx:214
+msgid "Please sign in to view your profile"
+msgstr "Vui lòng đăng nhập để xem hồ sơ"
+
+#: src/pages/AdvancedSearch.tsx:396
+#: src/pages/Favorites.tsx:200
+#: src/pages/LatestUpdates.tsx:332
+msgid "Previous"
+msgstr "Trước"
+
+#: src/components/layout/Sidebar.tsx:59
+msgid "Profile"
+msgstr "Hồ sơ"
+
+#: src/pages/Profile.tsx:84
+msgid "Profile updated successfully!"
+msgstr "Cập nhật hồ sơ thành công!"
+
+#: src/pages/AdvancedSearch.tsx:247
+msgid "Publication Status"
+msgstr "Trạng thái xuất bản"
+
+#: src/pages/AdvancedSearch.tsx:310
+#: src/pages/MangaDetail.tsx:713
+msgid "Publication Year"
+msgstr "Năm xuất bản"
+
+#: src/pages/Dashboard.tsx:421
+msgid "Rankings"
+msgstr "Xếp hạng"
+
+#: src/pages/Profile.tsx:489
+msgid "Re-enter new password"
+msgstr "Nhập lại mật khẩu mới"
+
+#: src/pages/MangaDetail.tsx:787
+msgid "Read or Buy"
+msgstr "Đọc hoặc Mua"
+
+#: src/pages/Settings.tsx:195
+msgid "Reader Header"
+msgstr "Thanh tiêu đề đọc"
+
+#: src/pages/Settings.tsx:111
+msgid "Reader Settings"
+msgstr "Cài đặt đọc truyện"
+
+#: src/pages/MangaDetail.tsx:649
+msgid "Readers"
+msgstr "Độc giả"
+
+#: src/components/layout/Sidebar.tsx:51
+#: src/pages/Dashboard.tsx:329
+#: src/pages/ReadingHistory.tsx:117
+msgid "Reading History"
+msgstr "Lịch sử đọc"
+
+#: src/pages/ReadingHistory.tsx:122
+msgid "Reading history is saved on this device"
+msgstr "Lịch sử đọc được lưu trên thiết bị này"
+
+#: src/pages/ReadingHistory.tsx:157
+msgid "Reading history will appear here after you open a chapter."
+msgstr "Lịch sử đọc sẽ xuất hiện ở đây sau khi bạn mở một chương."
+
+#: src/pages/Settings.tsx:120
+msgid "Reading Mode"
+msgstr "Chế độ đọc"
+
+#: src/pages/MangaDetail.tsx:158
+msgid "Recommendations"
+msgstr "Gợi ý"
+
+#: src/pages/MangaDetail.tsx:1127
+msgid "Recommendations coming soon"
+msgstr "Gợi ý sắp ra mắt"
+
+#: src/pages/MangaDetail.tsx:157
+msgid "Related"
+msgstr "Liên quan"
+
+#: src/pages/MangaDetail.tsx:1020
+msgid "Related Titles"
+msgstr "Tựa đề liên quan"
+
+#: src/pages/AdvancedSearch.tsx:50
+msgid "Relevance"
+msgstr "Liên quan"
+
+#: src/pages/Profile.tsx:329
+msgid "Remove avatar"
+msgstr "Xóa ảnh đại diện"
+
+#: src/components/FollowButton.tsx:40
+msgid "Removed from your library."
+msgstr "Đã xóa khỏi thư viện."
+
+#: src/pages/AdvancedSearch.tsx:201
+msgid "Reset All Filters"
+msgstr "Đặt lại tất cả bộ lọc"
+
+#: src/pages/Favorites.tsx:106
+#: src/pages/LatestUpdates.tsx:189
+#: src/pages/MangaDetail.tsx:330
+#: src/pages/Profile.tsx:247
+msgid "Retry"
+msgstr "Thử lại"
+
+#: src/pages/Profile.tsx:398
+msgid "Role"
+msgstr "Vai trò"
+
+#: src/pages/Profile.tsx:405
+msgid "Role cannot be changed"
+msgstr "Vai trò không thể thay đổi"
+
+#: src/pages/Profile.tsx:435
+msgid "Save Changes"
+msgstr "Lưu thay đổi"
+
+#: src/pages/Profile.tsx:432
+msgid "Saving..."
+msgstr "Đang lưu..."
+
+#: src/pages/AdvancedSearch.tsx:234
+msgid "Scanlation Group"
+msgstr "Nhóm dịch"
+
+#: src/pages/LatestUpdates.tsx:293
+#~ msgid "Scanlation group pages are not set up yet."
+#~ msgstr "Trang nhóm dịch chưa được thiết lập."
+
+#: src/pages/Dashboard.tsx:246
+#: src/pages/MangaDetail.tsx:972
+#: src/pages/ReadingHistory.tsx:244
+#~ msgid "Scanlation group pages are not supported yet."
+#~ msgstr "Trang nhóm dịch chưa được hỗ trợ."
+
+#: src/pages/AdvancedSearch.tsx:175
+msgid "Search"
+msgstr "Tìm kiếm"
+
+#: src/pages/AdvancedSearch.tsx:169
+msgid "Search manga titles..."
+msgstr "Tìm kiếm tên manga..."
+
+#: src/pages/AdvancedSearch.tsx:329
+msgid "Searching..."
+msgstr "Đang tìm kiếm..."
+
+#: src/pages/Profile.tsx:346
+msgid "Security"
+msgstr "Bảo mật"
+
+#. placeholder {0}: fullHistory.length - HISTORY_RECENT_MAX
+#: src/pages/Dashboard.tsx:408
+msgid "See {0} more chapters →"
+msgstr "Xem thêm {0} chương →"
+
+#. placeholder {0}: fullHistory.length
+#: src/pages/Dashboard.tsx:336
+msgid "See all ({0})"
+msgstr "Xem tất cả ({0})"
+
+#: src/components/layout/Sidebar.tsx:64
+#: src/pages/Settings.tsx:65
+msgid "Settings"
+msgstr "Cài đặt"
+
+#: src/pages/MangaDetail.tsx:513
+msgid "Share"
+msgstr "Chia sẻ"
+
+#: src/pages/MangaDetail.tsx:403
+msgid "Share this manga with your friends."
+msgstr "Chia sẻ manga này với bạn bè."
+
+#: src/pages/Settings.tsx:219
+msgid "Show"
+msgstr "Hiển thị"
+
+#: src/pages/Auth.tsx:279
+#: src/pages/Auth.tsx:280
+msgid "Show password"
+msgstr "Hiển thị mật khẩu"
+
+#: src/pages/Dashboard.tsx:331
+msgid "Shows up to the last 10 chapters from this device."
+msgstr "Hiển thị tới 10 chương cuối từ thiết bị này."
+
+#: src/components/layout/Sidebar.tsx:277
+#: src/components/layout/Sidebar.tsx:284
+#: src/pages/Auth.tsx:180
+#: src/pages/Auth.tsx:322
+#: src/pages/Profile.tsx:217
+msgid "Sign In"
+msgstr "Đăng nhập"
+
+#: src/components/layout/Sidebar.tsx:255
+#: src/components/layout/Sidebar.tsx:261
+msgid "Sign Out"
+msgstr "Đăng xuất"
+
+#: src/pages/Auth.tsx:192
+msgid "Sign Up"
+msgstr "Đăng ký"
+
+#: src/pages/Auth.tsx:319
+msgid "Signing in..."
+msgstr "Đang đăng nhập..."
+
+#: src/pages/Settings.tsx:132
+msgid "Single Page"
+msgstr "Từng trang"
+
+#: src/pages/MangaDetail.tsx:322
+msgid "Something went wrong while contacting the server."
+msgstr "Đã xảy ra lỗi khi liên hệ máy chủ."
+
+#: src/components/FollowButton.tsx:48
+msgid "Something went wrong."
+msgstr "Đã xảy ra lỗi."
+
+#: src/pages/AdvancedSearch.tsx:336
+msgid "Sort by"
+msgstr "Sắp xếp theo"
+
+#: src/pages/MangaDetail.tsx:709
+msgid "Status"
+msgstr "Trạng thái"
+
+#: src/pages/Auth.tsx:47
+msgid "Successfully signed in with Google."
+msgstr "Đăng nhập Google thành công."
+
+#: src/pages/Auth.tsx:136
+msgid "Successfully signed in!"
+msgstr "Đăng nhập thành công!"
+
+#: src/pages/MangaDetail.tsx:665
+msgid "Synopsis"
+msgstr "Tóm tắt"
+
+#: src/pages/AdvancedSearch.tsx:208
+msgid "Tags"
+msgstr "Thẻ"
+
+#: src/pages/Dashboard.tsx:427
+msgid "The rankings feature will be available soon."
+msgstr "Tính năng xếp hạng sắp ra mắt."
+
+#: src/pages/LatestUpdates.tsx:33
+msgid "This month"
+msgstr "Tháng này"
+
+#: src/pages/Settings.tsx:40
+msgid "This reading mode will be available soon."
+msgstr "Chế độ đọc này sắp có."
+
+#: src/pages/MangaDetail.tsx:384
+msgid "This series does not have readable chapters yet."
+msgstr "Series này chưa có chương có thể đọc."
+
+#: src/pages/LatestUpdates.tsx:32
+msgid "This week"
+msgstr "Tuần này"
+
+#: src/pages/Profile.tsx:387
+msgid "Timezone"
+msgstr "Múi giờ"
+
+#: src/pages/LatestUpdates.tsx:31
+msgid "Today"
+msgstr "Hôm nay"
+
+#: src/pages/Dashboard.tsx:121
+msgid "Top 10 trending new manga this month"
+msgstr "Top 10 manga mới nổi bật tháng này"
+
+#: src/pages/Favorites.tsx:67
+msgid "Total Following"
+msgstr "Tổng đang theo dõi"
+
+#: src/pages/MangaDetail.tsx:808
+msgid "Track"
+msgstr "Theo dõi tiến độ"
+
+#: src/pages/MangaDetail.tsx:672
+msgid "Translate to Vietnamese"
+msgstr "Dịch sang Tiếng Việt"
+
+#: src/pages/MangaDetail.tsx:423
+msgid "Translation coming soon"
+msgstr "Bản dịch sắp ra mắt"
+
+#: src/pages/AdvancedSearch.tsx:380
+msgid "Try adjusting your search or filters"
+msgstr "Hãy thử điều chỉnh tìm kiếm hoặc bộ lọc"
+
+#: src/pages/GroupDetail.tsx:466
+#~ msgid "Twitter"
+#~ msgstr ""
+
+#: src/pages/Dashboard.tsx:42
+#: src/pages/GroupDetail.tsx:195
+msgid "Unable to load data."
+msgstr "Không thể tải dữ liệu."
+
+#: src/pages/Dashboard.tsx:134
+msgid "Unable to load featured data"
+msgstr "Không thể tải dữ liệu nổi bật"
+
+#: src/pages/AuthorDetail.tsx:163
+#: src/pages/MangaDetail.tsx:320
+msgid "Unable to load this manga"
+msgstr "Không thể tải manga này"
+
+#: src/components/FollowButton.tsx:40
+msgid "Unfollowed"
+msgstr "Đã bỏ theo dõi"
+
+#: src/components/FollowButton.tsx:59
+msgid "Unfollowing..."
+msgstr "Đang bỏ theo dõi..."
+
+#: src/components/dashboard/LatestMangaCard.tsx:45
+msgid "unknown"
+msgstr "không rõ"
+
+#: src/pages/Profile.tsx:356
+msgid "Update your personal details"
+msgstr "Cập nhật thông tin cá nhân của bạn"
+
+#: src/pages/GroupDetail.tsx:245
+msgid "uploads"
+msgstr "tải lên"
+
+#: src/pages/Profile.tsx:189
+msgid "User"
+msgstr "Người dùng"
+
+#: src/pages/Settings.tsx:144
+msgid "Vertical Scroll"
+msgstr "Trượt dọc"
+
+#: src/pages/MangaDetail.tsx:424
+msgid "Vietnamese translation will be available in a future release."
+msgstr "Bản dịch tiếng Việt sẽ có trong phiên bản tới."
+
+#: src/pages/Favorites.tsx:173
+msgid "View"
+msgstr "Xem"
+
+#: src/pages/AuthorDetail.tsx:223
+#: src/pages/GroupDetail.tsx:390
+msgid "View on"
+msgstr "Xem trên"
+
+#: src/pages/MangaDetail.tsx:902
+msgid "Volume "
+msgstr "Tập "
+
+#: src/pages/MangaDetail.tsx:408
+msgid "We could not copy the link. Please copy it manually."
+msgstr "Không thể sao chép liên kết. Vui lòng sao chép thủ công."
+
+#: src/pages/MangaDetail.tsx:339
+msgid "We could not find this manga. It may have been removed."
+msgstr "Không tìm thấy manga này. Có thể nó đã bị xóa."
+
+#: src/pages/AuthorDetail.tsx:245
+#: src/pages/GroupDetail.tsx:315
+#: src/pages/GroupDetail.tsx:459
+msgid "Website"
+msgstr "Trang web"
+
+#: src/pages/Auth.tsx:162
+msgid "Welcome back"
+msgstr "Chào mừng trở lại"
+
+#: src/pages/Auth.tsx:46
+#: src/pages/Auth.tsx:135
+msgid "Welcome!"
+msgstr "Chào mừng!"
+
+#: src/pages/GroupDetail.tsx:307
+#: src/pages/GroupDetail.tsx:451
+msgid "Where To Find"
+msgstr "Tìm nhóm ở"
+
+#: src/pages/AuthorDetail.tsx:211
+msgid "works"
+msgstr "tác phẩm"
+
+#: src/pages/AuthorDetail.tsx:280
+msgid "Works"
+msgstr "Tác phẩm"
+
+#: src/pages/Dashboard.tsx:346
+msgid "You haven't read any manga recently."
+msgstr "Bạn chưa đọc manga nào gần đây."
+
+#: src/pages/ReadingHistory.tsx:156
+msgid "You haven't read any manga yet"
+msgstr "Bạn chưa đọc manga nào"
+
+#: src/pages/ReadingHistory.tsx:107
+msgid "Your reading history has been deleted."
+msgstr "Lịch sử đọc của bạn đã bị xóa."

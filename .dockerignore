@@ -1,0 +1,39 @@
+.git
+.gitignore
+.env
+.env.*
+.env.example
+.agents/
+.agent/
+.github/
+.vscode/
+
+# compiled outputs (will be built inside container)
+**/dist
+**/build
+**/*.tsbuildinfo
+
+# dependencies (will be installed inside container)
+**/node_modules
+
+# test & dev files
+**/vitest.config.ts
+**/*.test.ts
+**/*.spec.ts
+**/test/
+**/docs/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# logs
+logs/
+*.log
+
+# deployment scripts
+deploy.sh
+setup-vps.sh
+ecosystem.config.js
+DEPLOY.md
+docker-compose.yml

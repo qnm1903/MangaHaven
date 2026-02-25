@@ -1,0 +1,425 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+  output = "../node_modules/.prisma/client"
+}
+
+datasource db {
+  provider = "postgresql"
+}
+
+// Enums
+enum UserRole {
+  USER
+  ADMIN
+  MODERATOR
+}
+
+enum SenderType {
+  USER
+  BOT
+}
+
+enum MangaStatus {
+  ONGOING
+  COMPLETED
+  HIATUS
+  CANCELLED
+}
+
+enum NotificationType {
+  NEW_CHAPTER
+  COMMENT_REPLY
+  FAVORITE_UPDATE
+  SYSTEM
+}
+
+enum MangaSourceType {
+  MANGADEX
+  LOCAL
+}
+
+// User and Authentication Models
+model User {
+  id               String             @id @default(uuid())
+  email            String             @unique
+  passwordHash     String?
+  displayName      String?
+  role             UserRole           @default(USER)
+  avatarPublicId   String?            // Cloudinary public_id
+  profilePicture   String?            // URL for profile picture (Google, etc.)
+  emailVerified    Boolean            @default(false)
+  isActive         Boolean            @default(true)
+  timezone         String             @default("UTC") // User's timezone (e.g., "America/New_York", "Asia/Tokyo")
+  lastLoginAt      DateTime?          @db.Timestamptz
+  
+  // OAuth Integration IDs
+  googleId         String?            @unique // Google OAuth user ID
+  
+  // Relations
+  oauthProviders   OAuthProvider[]
+  refreshTokens    RefreshToken[]
+  sessions         Session[]
+  comments         Comment[]
+  readHistory      ReadHistory[]
+  favorites        Favorite[]
+  submittedManga   SubmittedManga[]
+  notifications    Notification[]
+  chatSessions     ChatSession[]
+  eventLogs        EventLog[]
+  preferences      UserPreferences?
+  
+  // Translation Group Relations
+  createdGroups    TranslationGroup[] @relation("GroupCreator")
+  memberOfGroups   GroupMember[]
+  
+  createdAt        DateTime           @default(now()) @db.Timestamptz
+  updatedAt        DateTime           @updatedAt @db.Timestamptz
+
+  @@map("users")
+}
+
+model UserPreferences {
+  id                   String   @id @default(uuid())
+  userId               String   @unique
+  readingMode          String   @default("single_page") // single_page, double_page, webtoon
+  autoMarkAsRead       Boolean  @default(true)
+  preferredLanguages   String[] @default(["en"])
+  contentRatingFilter  String[] @default(["safe", "suggestive"])
+  createdAt            DateTime @default(now())
+  updatedAt            DateTime @updatedAt
+
+  // Relations
+  user                 User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@map("UserPreferences")
+}
+
+model OAuthProvider {
+  id           String    @id @default(uuid())
+  provider     String    // google, facebook, github, etc.
+  providerId   String    // User ID from OAuth provider
+  accessToken  String?   @db.Text
+  refreshToken String?   @db.Text
+  expiresAt    DateTime? @db.Timestamptz
+  
+  user         User      @relation(fields: [userId], references: [id], onDelete: Cascade)
+  userId       String
+  
+  createdAt    DateTime  @default(now()) @db.Timestamptz
+  updatedAt    DateTime  @updatedAt @db.Timestamptz
+
+  @@unique([provider, providerId])
+  @@map("oauth_providers")
+}
+
+model RefreshToken {
+  id        String   @id @default(uuid())
+  token     String   @unique @db.Text
+  user      User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  userId    String
+  expiresAt DateTime @db.Timestamptz
+  createdAt DateTime @default(now()) @db.Timestamptz
+
+  @@map("refresh_tokens")
+}
+
+model Session {
+  id        String   @id @default(uuid())
+  user      User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  userId    String
+  userAgent String?  @db.Text
+  ip        String?
+  isActive  Boolean  @default(true)
+  createdAt DateTime @default(now()) @db.Timestamptz
+  expiresAt DateTime @db.Timestamptz
+
+  @@map("sessions")
+}
+
+// Translation Groups
+model TranslationGroup {
+  id              String           @id @default(uuid())
+  name            String           @unique
+  description     String?          @db.Text
+  logoPublicId    String?          // Cloudinary public_id for group logo
+  isActive        Boolean          @default(true)
+  
+  // Future: Link to MangaDex group (for claim feature)
+  mangadexGroupId String?          @unique
+  website         String?
+  discord         String?
+  focusedLanguages String[]        @default([])
+  
+  createdBy       User             @relation("GroupCreator", fields: [createdById], references: [id])
+  createdById     String
+  
+  members         GroupMember[]
+  submittedManga  SubmittedManga[]
+  
+  createdAt       DateTime         @default(now()) @db.Timestamptz
+  updatedAt       DateTime         @updatedAt @db.Timestamptz
+
+  @@map("translation_groups")
+}
+
+model GroupMember {
+  id      String           @id @default(uuid())
+  user    User             @relation(fields: [userId], references: [id], onDelete: Cascade)
+  userId  String
+  group   TranslationGroup @relation(fields: [groupId], references: [id], onDelete: Cascade)
+  groupId String
+  role    String           @default("MEMBER") // MEMBER, MODERATOR, ADMIN
+  
+  joinedAt DateTime        @default(now()) @db.Timestamptz
+
+  @@unique([userId, groupId])
+  @@map("group_members")
+}
+
+// Manga and Content Models
+model SubmittedManga {
+  id               String             @id @default(uuid())
+  title            String
+  description      String?            @db.Text
+  coverPublicId    String?            // Cloudinary public_id
+  status           MangaStatus        @default(ONGOING)
+  sourceUrl        String?            @db.Text
+  externalId       String?            // ID from external API (MangaDex, etc.)
+  views            Int                @default(0)
+  rating           Float?
+  totalChapters    Int                @default(0)
+  
+  postedBy         User               @relation(fields: [postedById], references: [id])
+  postedById       String
+  group            TranslationGroup?  @relation(fields: [groupId], references: [id])
+  groupId          String?
+  
+  // Relations
+  mangaTags        MangaTag[]
+  chapterImages    ChapterImage[]
+  readHistory      ReadHistory[]
+  favorites        Favorite[]
+  eventLogs        EventLog[]
+  
+  createdAt        DateTime           @default(now()) @db.Timestamptz
+  updatedAt        DateTime           @updatedAt @db.Timestamptz
+
+  @@index([title])
+  @@index([status])
+  @@index([createdAt])
+  @@map("submitted_manga")
+}
+
+model Tag {
+  id        Int        @id @default(autoincrement())
+  name      String     @unique
+  slug      String     @unique
+  color     String?    // Hex color for UI
+  mangaTags MangaTag[]
+  
+  createdAt DateTime   @default(now()) @db.Timestamptz
+
+  @@map("tags")
+}
+
+model MangaTag {
+  manga   SubmittedManga @relation(fields: [mangaId], references: [id], onDelete: Cascade)
+  mangaId String
+  tag     Tag            @relation(fields: [tagId], references: [id], onDelete: Cascade)
+  tagId   Int
+
+  @@id([mangaId, tagId])
+  @@map("manga_tags")
+}
+
+model ChapterImage {
+  id            String         @id @default(uuid())
+  manga         SubmittedManga @relation(fields: [mangaId], references: [id], onDelete: Cascade)
+  mangaId       String
+  chapterNumber Float          // Support for decimal chapters like 1.5
+  pageNumber    Int
+  imagePublicId String         // Cloudinary public_id
+  imageUrl      String?        @db.Text // Direct URL for faster access
+  width         Int?
+  height        Int?
+  
+  createdAt     DateTime       @default(now()) @db.Timestamptz
+
+  @@unique([mangaId, chapterNumber, pageNumber])
+  @@index([mangaId, chapterNumber])
+  @@map("chapter_images")
+}
+
+// User Interaction Models
+model Comment {
+  id        String          @id @default(uuid())
+  user      User            @relation(fields: [userId], references: [id], onDelete: Cascade)
+  userId    String
+  mangaId   String          // MangaDex UUID or local SubmittedManga UUID
+  chapterId String?         // MangaDex chapter UUID or local chapter ID
+  sourceType MangaSourceType @default(MANGADEX)
+  content   String          @db.Text
+  isEdited  Boolean         @default(false)
+  
+  // Nested comments support
+  parentId  String?
+  parent    Comment?       @relation("CommentReplies", fields: [parentId], references: [id])
+  replies   Comment[]      @relation("CommentReplies")
+  
+  createdAt DateTime       @default(now()) @db.Timestamptz
+  updatedAt DateTime       @updatedAt @db.Timestamptz
+
+  @@index([mangaId])
+  @@index([mangaId, chapterId])
+  @@index([sourceType, mangaId])
+  @@index([userId])
+  @@map("comments")
+}
+
+model ReadHistory {
+  id             String         @id @default(uuid())
+  user           User           @relation(fields: [userId], references: [id], onDelete: Cascade)
+  userId         String
+  manga          SubmittedManga @relation(fields: [mangaId], references: [id], onDelete: Cascade)
+  mangaId        String
+  chapterNumber  Float?         // Last chapter read
+  pageNumber     Int?           // Last page read
+  progress       Float?         // Progress percentage (0-100)
+  readTime       Int?           // Time spent reading in seconds
+  
+  lastReadAt     DateTime       @default(now()) @db.Timestamptz
+  createdAt      DateTime       @default(now()) @db.Timestamptz
+
+  @@unique([userId, mangaId])
+  @@index([userId])
+  @@index([lastReadAt])
+  @@map("read_history")
+}
+
+model Favorite {
+  id              String          @id @default(uuid())
+  user            User            @relation(fields: [userId], references: [id], onDelete: Cascade)
+  userId          String
+  manga           SubmittedManga? @relation(fields: [mangaId], references: [id], onDelete: Cascade)
+  mangaId         String?         // null when source = MANGADEX
+  externalMangaId String?         // MangaDex UUID, null when source = LOCAL
+  mangaSource     MangaSourceType @default(LOCAL)
+
+  createdAt DateTime @default(now()) @db.Timestamptz
+
+  // Two separate unique constraints (not one composite) to handle NULL safely in PostgreSQL
+  // PostgreSQL: NULL != NULL in unique index, so composite @@unique would allow duplicates
+  @@unique([userId, mangaId])          // LOCAL manga: prevents duplicate local follows
+  @@unique([userId, externalMangaId])  // MANGADEX manga: prevents duplicate external follows
+  @@index([userId])
+  @@index([userId, mangaSource])
+  @@map("favorites")
+}
+
+model Notification {
+  id          String           @id @default(uuid())
+  user        User             @relation(fields: [userId], references: [id], onDelete: Cascade)
+  userId      String
+  type        NotificationType
+  title       String
+  message     String           @db.Text
+  payload     Json?            // Additional data
+  read        Boolean          @default(false)
+  scheduledAt DateTime?        @db.Timestamptz // For scheduled notifications
+  
+  createdAt   DateTime         @default(now()) @db.Timestamptz
+
+  @@index([userId, read])
+  @@index([createdAt])
+  @@index([scheduledAt])
+  @@map("notifications")
+}
+
+// Chat System Models
+model ChatSession {
+  id        String        @id @default(uuid())
+  user      User          @relation(fields: [userId], references: [id], onDelete: Cascade)
+  userId    String
+  title     String?
+  metadata  Json?         // Store session context, preferences, etc.
+  isActive  Boolean       @default(true)
+  
+  messages  ChatMessage[]
+  
+  createdAt DateTime      @default(now()) @db.Timestamptz
+  updatedAt DateTime      @updatedAt @db.Timestamptz
+
+  @@index([userId])
+  @@map("chat_sessions")
+}
+
+model ChatMessage {
+  id         String      @id @default(uuid())
+  session    ChatSession @relation(fields: [sessionId], references: [id], onDelete: Cascade)
+  sessionId  String
+  sender     SenderType
+  content    String      @db.Text
+  tokensUsed Int?        // For AI usage tracking
+  metadata   Json?       // Store additional message data
+  
+  createdAt  DateTime    @default(now()) @db.Timestamptz
+
+  @@index([sessionId])
+  @@map("chat_messages")
+}
+
+// Analytics and Logging
+model EventLog {
+  id        String         @id @default(uuid())
+  user      User?          @relation(fields: [userId], references: [id], onDelete: SetNull)
+  userId    String?
+  manga     SubmittedManga? @relation(fields: [mangaId], references: [id], onDelete: SetNull)
+  mangaId   String?
+  
+  eventType String         // VIEW, SEARCH, DOWNLOAD, etc.
+  action    String         // Specific action taken
+  metadata  Json?          // Additional event data
+  ip        String?
+  userAgent String?        @db.Text
+  
+  createdAt DateTime       @default(now()) @db.Timestamptz
+
+  @@index([eventType])
+  @@index([createdAt])
+  @@index([userId])
+  @@map("event_logs")
+}
+
+// Search and Recommendation Cache
+model SearchCache {
+  id        String   @id @default(uuid())
+  query     String   @unique
+  results   Json     // Cached search results
+  hitCount  Int      @default(1)
+  
+  createdAt DateTime @default(now()) @db.Timestamptz
+  updatedAt DateTime @updatedAt @db.Timestamptz
+
+  @@index([query])
+  @@map("search_cache")
+}
+
+model RecommendationCache {
+  id           String   @id @default(uuid())
+  userId       String
+  mangaId      String
+  score        Float
+  algorithm    String   // collaborative, content-based, hybrid
+  metadata     Json?
+  
+  createdAt    DateTime @default(now()) @db.Timestamptz
+  updatedAt    DateTime @updatedAt @db.Timestamptz
+
+  @@unique([userId, mangaId, algorithm])
+  @@index([userId])
+  @@index([score])
+  @@map("recommendation_cache")
+}

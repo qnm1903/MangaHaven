@@ -1,0 +1,1187 @@
+msgid ""
+msgstr ""
+"POT-Creation-Date: 2026-02-24 14:09+0700\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: @lingui/cli\n"
+"Language: en\n"
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: \n"
+"PO-Revision-Date: \n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"Plural-Forms: \n"
+
+#. placeholder {0}: totalChapterCount === 1 ? 'chapter' : 'chapters'
+#. placeholder {0}: volumeChapters.length === 1 ? 'chapter' : 'chapters'
+#: src/pages/MangaDetail.tsx:881
+#: src/pages/MangaDetail.tsx:914
+msgid "{0}"
+msgstr "{0}"
+
+#. placeholder {0}: history.length
+#: src/pages/ReadingHistory.tsx:121
+msgid "{0} chapters read · saved on this device"
+msgstr "{0} chapters read · saved on this device"
+
+#. placeholder {0}: totalResults.toLocaleString()
+#: src/pages/AdvancedSearch.tsx:329
+msgid "{0} results found"
+msgstr "{0} results found"
+
+#: src/pages/Dashboard.tsx:56
+#: src/pages/LatestUpdates.tsx:43
+#: src/pages/ReadingHistory.tsx:95
+msgid "{days}d ago"
+msgstr "{days}d ago"
+
+#: src/pages/Dashboard.tsx:54
+#: src/pages/LatestUpdates.tsx:41
+#: src/pages/ReadingHistory.tsx:93
+msgid "{hours}h ago"
+msgstr "{hours}h ago"
+
+#: src/pages/Dashboard.tsx:52
+msgid "{minutes} min ago"
+msgstr "{minutes} min ago"
+
+#: src/pages/LatestUpdates.tsx:39
+#: src/pages/ReadingHistory.tsx:91
+msgid "{minutes}m ago"
+msgstr "{minutes}m ago"
+
+#. placeholder {0}: total !== 1 ? 's' : ''
+#: src/pages/LatestUpdates.tsx:180
+msgid "{total} chapter update{0} found"
+msgstr "{total} chapter update{0} found"
+
+#: src/pages/Dashboard.tsx:282
+msgid "A collection of manga recently added to the catalog."
+msgstr "A collection of manga recently added to the catalog."
+
+#: src/pages/Dashboard.tsx:149
+msgid "A collection of newly uploaded chapters"
+msgstr "A collection of newly uploaded chapters"
+
+#: src/components/layout/Sidebar.tsx:212
+msgid "Account"
+msgstr "Account"
+
+#: src/pages/Auth.tsx:136
+msgid "Account created successfully!"
+msgstr "Account created successfully!"
+
+#: src/pages/Profile.tsx:453
+msgid "Account Security"
+msgstr "Account Security"
+
+#: src/components/FollowButton.tsx:45
+msgid "Added to your library. You'll see updates in your feed."
+msgstr "Added to your library. You'll see updates in your feed."
+
+#: src/pages/MangaDetail.tsx:417
+msgid "Additional options will be available in a future update."
+msgstr "Additional options will be available in a future update."
+
+#: src/components/layout/Sidebar.tsx:36
+#: src/pages/AdvancedSearch.tsx:156
+msgid "Advanced Search"
+msgstr "Advanced Search"
+
+#. placeholder {0}: history.length
+#: src/pages/ReadingHistory.tsx:137
+msgid "All {0} records will be permanently deleted. This action cannot be undone."
+msgstr "All {0} records will be permanently deleted. This action cannot be undone."
+
+#: src/pages/LatestUpdates.tsx:30
+msgid "All time"
+msgstr "All time"
+
+#: src/pages/MangaDetail.tsx:738
+msgid "Alternative Titles"
+msgstr "Alternative Titles"
+
+#: src/pages/Dashboard.tsx:45
+msgid "An unknown error occurred."
+msgstr "An unknown error occurred."
+
+#: src/pages/MangaDetail.tsx:560
+msgid "Artist"
+msgstr "Artist"
+
+#: src/pages/MangaDetail.tsx:567
+#~ msgid "Artist page is not yet available."
+#~ msgstr "Artist page is not yet available."
+
+#: src/pages/Settings.tsx:103
+msgid "At least one language must be selected."
+msgstr "At least one language must be selected."
+
+#: src/pages/Auth.tsx:142
+msgid "Authentication Error"
+msgstr "Authentication Error"
+
+#: src/pages/Auth.tsx:139
+msgid "Authentication failed. Please try again."
+msgstr "Authentication failed. Please try again."
+
+#: src/pages/MangaDetail.tsx:540
+msgid "Author"
+msgstr "Author"
+
+#: src/pages/MangaDetail.tsx:547
+#~ msgid "Author page is not yet available."
+#~ msgstr "Author page is not yet available."
+
+#: src/pages/AdvancedSearch.tsx:221
+msgid "Authors"
+msgstr "Authors"
+
+#: src/pages/Profile.tsx:144
+msgid "Avatar removed successfully!"
+msgstr "Avatar removed successfully!"
+
+#: src/pages/Profile.tsx:130
+msgid "Avatar updated successfully!"
+msgstr "Avatar updated successfully!"
+
+#: src/pages/AuthorDetail.tsx:164
+#: src/pages/GroupDetail.tsx:196
+#: src/pages/MangaDetail.tsx:287
+#: src/pages/MangaDetail.tsx:465
+msgid "Back"
+msgstr "Back"
+
+#: src/pages/Favorites.tsx:225
+#: src/pages/LatestUpdates.tsx:358
+msgid "Browse Manga"
+msgstr "Browse Manga"
+
+#: src/pages/Favorites.tsx:222
+msgid "Browse manga and click \"Follow\" to add them to your library!"
+msgstr "Browse manga and click \"Follow\" to add them to your library!"
+
+#: src/pages/Auth.tsx:344
+msgid "By continuing, you agree to our <0>Terms</0> and <1>Privacy Policy</1>"
+msgstr "By continuing, you agree to our <0>Terms</0> and <1>Privacy Policy</1>"
+
+#: src/pages/Profile.tsx:426
+#: src/pages/ReadingHistory.tsx:141
+msgid "Cancel"
+msgstr "Cancel"
+
+#: src/pages/Profile.tsx:507
+msgid "Change Password"
+msgstr "Change Password"
+
+#: src/pages/Profile.tsx:455
+msgid "Change your password to protect your account"
+msgstr "Change your password to protect your account"
+
+#: src/pages/Profile.tsx:504
+msgid "Changing..."
+msgstr "Changing..."
+
+#: src/pages/Settings.tsx:74
+msgid "Chapter Language"
+msgstr "Chapter Language"
+
+#: src/pages/MangaDetail.tsx:879
+msgid "Chapter List"
+msgstr "Chapter List"
+
+#: src/pages/MangaDetail.tsx:393
+msgid "Chapter ready"
+msgstr "Chapter ready"
+
+#: src/pages/Settings.tsx:81
+msgid "Chapter translation language"
+msgstr "Chapter translation language"
+
+#: src/pages/MangaDetail.tsx:155
+#: src/pages/MangaDetail.tsx:658
+msgid "Chapters"
+msgstr "Chapters"
+
+#: src/pages/MangaDetail.tsx:897
+msgid "Chapters have not been published yet."
+msgstr "Chapters have not been published yet."
+
+#: src/pages/MangaDetail.tsx:383
+msgid "Chapters unavailable"
+msgstr "Chapters unavailable"
+
+#: src/pages/Settings.tsx:233
+msgid "Choose the display language for the application interface."
+msgstr "Choose the display language for the application interface."
+
+#: src/pages/ReadingHistory.tsx:130
+#: src/pages/ReadingHistory.tsx:143
+msgid "Clear all"
+msgstr "Clear all"
+
+#: src/pages/AdvancedSearch.tsx:383
+msgid "Clear all filters"
+msgstr "Clear all filters"
+
+#: src/pages/ReadingHistory.tsx:135
+msgid "Clear reading history?"
+msgstr "Clear reading history?"
+
+#: src/pages/MangaDetail.tsx:407
+msgid "Clipboard error"
+msgstr "Clipboard error"
+
+#: src/pages/Dashboard.tsx:246
+#: src/pages/LatestUpdates.tsx:292
+#: src/pages/MangaDetail.tsx:547
+#: src/pages/MangaDetail.tsx:567
+#: src/pages/MangaDetail.tsx:972
+#: src/pages/ReadingHistory.tsx:243
+#~ msgid "Coming soon"
+#~ msgstr "Coming soon"
+
+#: src/pages/MangaDetail.tsx:156
+msgid "Comments"
+msgstr "Comments"
+
+#: src/pages/MangaDetail.tsx:1010
+msgid "Comments coming soon"
+msgstr "Comments coming soon"
+
+#: src/pages/MangaDetail.tsx:1012
+msgid "Community discussion will be available in a future update."
+msgstr "Community discussion will be available in a future update."
+
+#: src/pages/MangaDetail.tsx:610
+msgid "Community Score"
+msgstr "Community Score"
+
+#: src/pages/Favorites.tsx:79
+msgid "Completed"
+msgstr "Completed"
+
+#: src/pages/Profile.tsx:483
+msgid "Confirm New Password"
+msgstr "Confirm New Password"
+
+#: src/pages/Auth.tsx:293
+msgid "Confirm Password"
+msgstr "Confirm Password"
+
+#: src/pages/AdvancedSearch.tsx:268
+msgid "Content Rating"
+msgstr "Content Rating"
+
+#: src/pages/Profile.tsx:245
+msgid "Could not load profile"
+msgstr "Could not load profile"
+
+#: src/pages/Profile.tsx:66
+msgid "Could not load profile information"
+msgstr "Could not load profile information"
+
+#: src/pages/Auth.tsx:322
+msgid "Create Account"
+msgstr "Create Account"
+
+#: src/pages/Auth.tsx:162
+msgid "Create your account"
+msgstr "Create your account"
+
+#: src/pages/Auth.tsx:319
+msgid "Creating account..."
+msgstr "Creating account..."
+
+#: src/pages/Profile.tsx:461
+msgid "Current Password"
+msgstr "Current Password"
+
+#: src/pages/Settings.tsx:114
+msgid "Customize your manga reading experience"
+msgstr "Customize your manga reading experience"
+
+#: src/pages/Settings.tsx:66
+msgid "Customize your reading experience"
+msgstr "Customize your reading experience"
+
+#: src/components/layout/Sidebar.tsx:31
+msgid "Dashboard"
+msgstr "Dashboard"
+
+#: src/pages/Settings.tsx:77
+msgid "Default translation language for chapter lists and home page."
+msgstr "Default translation language for chapter lists and home page."
+
+#: src/pages/AdvancedSearch.tsx:289
+#: src/pages/MangaDetail.tsx:772
+msgid "Demographic"
+msgstr "Demographic"
+
+#: src/pages/GroupDetail.tsx:296
+#: src/pages/GroupDetail.tsx:432
+msgid "Description"
+msgstr "Description"
+
+#: src/pages/GroupDetail.tsx:315
+#: src/pages/GroupDetail.tsx:454
+#~ msgid "Discord"
+#~ msgstr "Discord"
+
+#: src/pages/Profile.tsx:362
+msgid "Display Name"
+msgstr "Display Name"
+
+#: src/pages/Profile.tsx:441
+msgid "Edit Profile"
+msgstr "Edit Profile"
+
+#: src/pages/Auth.tsx:247
+#: src/pages/Profile.tsx:375
+msgid "Email"
+msgstr "Email"
+
+#: src/pages/Auth.tsx:86
+msgid "Email is invalid"
+msgstr "Email is invalid"
+
+#: src/pages/Auth.tsx:84
+msgid "Email is required"
+msgstr "Email is required"
+
+#: src/pages/Profile.tsx:467
+msgid "Enter current password"
+msgstr "Enter current password"
+
+#: src/pages/Profile.tsx:370
+msgid "Enter display name"
+msgstr "Enter display name"
+
+#: src/pages/Profile.tsx:382
+msgid "Enter email address"
+msgstr "Enter email address"
+
+#: src/pages/Profile.tsx:478
+msgid "Enter new password (at least 6 characters)"
+msgstr "Enter new password (at least 6 characters)"
+
+#: src/pages/Auth.tsx:235
+msgid "Enter your name"
+msgstr "Enter your name"
+
+#: src/components/FollowButton.tsx:49
+msgid "Error"
+msgstr "Error"
+
+#: src/pages/Profile.tsx:119
+msgid "Failed to change password. Please check your current password."
+msgstr "Failed to change password. Please check your current password."
+
+#: src/pages/MangaDetail.tsx:893
+msgid "Failed to load chapters. Please try again later."
+msgstr "Failed to load chapters. Please try again later."
+
+#: src/pages/LatestUpdates.tsx:187
+msgid "Failed to load feed. Please try again."
+msgstr "Failed to load feed. Please try again."
+
+#: src/pages/Favorites.tsx:104
+msgid "Failed to load your library. Please try again."
+msgstr "Failed to load your library. Please try again."
+
+#: src/pages/Profile.tsx:147
+msgid "Failed to remove avatar"
+msgstr "Failed to remove avatar"
+
+#: src/pages/Profile.tsx:87
+msgid "Failed to update profile"
+msgstr "Failed to update profile"
+
+#: src/pages/Profile.tsx:133
+msgid "Failed to upload avatar"
+msgstr "Failed to upload avatar"
+
+#: src/components/layout/Sidebar.tsx:41
+msgid "Favorites"
+msgstr "Favorites"
+
+#: src/pages/Settings.tsx:39
+msgid "Feature in development"
+msgstr "Feature in development"
+
+#: src/pages/Dashboard.tsx:118
+msgid "Featured Manga"
+msgstr "Featured Manga"
+
+#: src/pages/Profile.tsx:165
+msgid "File size must not exceed 5MB"
+msgstr "File size must not exceed 5MB"
+
+#: src/pages/AdvancedSearch.tsx:184
+msgid "Filters"
+msgstr "Filters"
+
+#: src/pages/ReadingHistory.tsx:160
+msgid "Find manga to read"
+msgstr "Find manga to read"
+
+#: src/pages/AdvancedSearch.tsx:157
+msgid "Find manga with powerful filtering options"
+msgstr "Find manga with powerful filtering options"
+
+#: src/pages/Settings.tsx:188
+msgid "Fit Horizontal"
+msgstr "Fit Horizontal"
+
+#: src/pages/Settings.tsx:176
+msgid "Fit Vertical"
+msgstr "Fit Vertical"
+
+#: src/pages/GroupDetail.tsx:281
+#: src/pages/GroupDetail.tsx:417
+msgid "Focused Languages"
+msgstr "Focused Languages"
+
+#: src/components/FollowButton.tsx:81
+#: src/pages/GroupDetail.tsx:257
+#: src/pages/GroupDetail.tsx:381
+msgid "Follow"
+msgstr "Follow"
+
+#: src/pages/LatestUpdates.tsx:354
+msgid "Follow some manga to see their latest chapters here!"
+msgstr "Follow some manga to see their latest chapters here!"
+
+#: src/components/FollowButton.tsx:73
+msgid "Following"
+msgstr "Following"
+
+#: src/components/FollowButton.tsx:45
+msgid "Following!"
+msgstr "Following!"
+
+#: src/components/FollowButton.tsx:59
+msgid "Following..."
+msgstr "Following..."
+
+#: src/pages/Auth.tsx:228
+msgid "Full Name"
+msgstr "Full Name"
+
+#: src/pages/MangaDetail.tsx:342
+msgid "Go Back"
+msgstr "Go Back"
+
+#: src/pages/Auth.tsx:54
+#: src/pages/Auth.tsx:66
+msgid "Google Login Error"
+msgstr "Google Login Error"
+
+#: src/pages/Auth.tsx:51
+msgid "Google login failed. Please try again."
+msgstr "Google login failed. Please try again."
+
+#: src/pages/GroupDetail.tsx:439
+msgid "Group ID"
+msgstr "Group ID"
+
+#: src/pages/GroupDetail.tsx:265
+msgid "Group Information"
+msgstr "Group Information"
+
+#: src/pages/GroupDetail.tsx:270
+#: src/pages/GroupDetail.tsx:405
+msgid "Group Leader"
+msgstr "Group Leader"
+
+#: src/pages/Settings.tsx:207
+msgid "Hide"
+msgstr "Hide"
+
+#: src/pages/Auth.tsx:279
+#: src/pages/Auth.tsx:280
+msgid "Hide password"
+msgstr "Hide password"
+
+#: src/pages/AdvancedSearch.tsx:53
+msgid "Highest Rated"
+msgstr "Highest Rated"
+
+#: src/pages/ReadingHistory.tsx:107
+msgid "History cleared"
+msgstr "History cleared"
+
+#: src/pages/Settings.tsx:164
+msgid "Image Fit"
+msgstr "Image Fit"
+
+#: src/pages/Settings.tsx:151
+msgid "Image gap (px)"
+msgstr "Image gap (px)"
+
+#: src/pages/GroupDetail.tsx:374
+msgid "Inactive"
+msgstr "Inactive"
+
+#: src/pages/AuthorDetail.tsx:233
+#: src/pages/GroupDetail.tsx:399
+#: src/pages/MangaDetail.tsx:690
+msgid "Information"
+msgstr "Information"
+
+#: src/pages/Settings.tsx:230
+msgid "Interface Language"
+msgstr "Interface Language"
+
+#. placeholder {0}: formatDate(profile.createdAt)
+#: src/pages/Profile.tsx:311
+msgid "Joined {0}"
+msgstr "Joined {0}"
+
+#: src/pages/ReadingHistory.tsx:90
+msgid "just now"
+msgstr "just now"
+
+#: src/pages/Dashboard.tsx:51
+msgid "Just now"
+msgstr "Just now"
+
+#: src/pages/Settings.tsx:237
+msgid "Language"
+msgstr "Language"
+
+#: src/pages/MangaDetail.tsx:721
+msgid "Languages"
+msgstr "Languages"
+
+#: src/pages/MangaDetail.tsx:729
+msgid "Last Updated"
+msgstr "Last Updated"
+
+#: src/pages/AdvancedSearch.tsx:51
+msgid "Latest Update"
+msgstr "Latest Update"
+
+#: src/components/layout/Sidebar.tsx:46
+#: src/pages/Dashboard.tsx:146
+#: src/pages/Favorites.tsx:52
+#: src/pages/LatestUpdates.tsx:145
+msgid "Latest Updates"
+msgstr "Latest Updates"
+
+#: src/pages/MangaDetail.tsx:402
+msgid "Link copied"
+msgstr "Link copied"
+
+#: src/pages/GroupDetail.tsx:240
+msgid "Local"
+msgstr "Local"
+
+#: src/pages/Auth.tsx:35
+msgid "Login Error"
+msgstr "Login Error"
+
+#: src/pages/Auth.tsx:67
+msgid "Login was interrupted. Please try again."
+msgstr "Login was interrupted. Please try again."
+
+#: src/pages/Profile.tsx:262
+msgid "Manage your personal information and account settings"
+msgstr "Manage your personal information and account settings"
+
+#: src/pages/Dashboard.tsx:423
+msgid "Manga that many readers are following this month."
+msgstr "Manga that many readers are following this month."
+
+#: src/pages/Favorites.tsx:46
+msgid "Manga you're following"
+msgstr "Manga you're following"
+
+#: src/pages/GroupDetail.tsx:249
+#: src/pages/GroupDetail.tsx:371
+msgid "members"
+msgstr "members"
+
+#: src/pages/MangaDetail.tsx:521
+msgid "More"
+msgstr "More"
+
+#: src/pages/MangaDetail.tsx:416
+msgid "More actions coming soon"
+msgstr "More actions coming soon"
+
+#: src/pages/AdvancedSearch.tsx:52
+msgid "Most Popular"
+msgstr "Most Popular"
+
+#: src/pages/Favorites.tsx:45
+#: src/pages/LatestUpdates.tsx:153
+msgid "My Library"
+msgstr "My Library"
+
+#: src/pages/Profile.tsx:259
+msgid "My Profile"
+msgstr "My Profile"
+
+#: src/pages/Auth.tsx:97
+msgid "Name is required"
+msgstr "Name is required"
+
+#: src/components/layout/Sidebar.tsx:198
+msgid "Navigation"
+msgstr "Navigation"
+
+#: src/pages/LatestUpdates.tsx:147
+msgid "New chapters from manga you follow"
+msgstr "New chapters from manga you follow"
+
+#: src/pages/Profile.tsx:472
+msgid "New Password"
+msgstr "New Password"
+
+#: src/pages/Profile.tsx:100
+msgid "New password must be at least 6 characters"
+msgstr "New password must be at least 6 characters"
+
+#: src/pages/Dashboard.tsx:279
+msgid "New Series"
+msgstr "New Series"
+
+#: src/pages/AdvancedSearch.tsx:54
+msgid "Newest Added"
+msgstr "Newest Added"
+
+#: src/pages/AdvancedSearch.tsx:406
+#: src/pages/Favorites.tsx:209
+#: src/pages/LatestUpdates.tsx:341
+msgid "Next"
+msgstr "Next"
+
+#: src/pages/LatestUpdates.tsx:355
+msgid "No chapters found for the selected time range."
+msgstr "No chapters found for the selected time range."
+
+#: src/pages/Auth.tsx:36
+msgid "No credential received from Google."
+msgstr "No credential received from Google."
+
+#: src/pages/MangaDetail.tsx:963
+msgid "No group"
+msgstr "No group"
+
+#: src/pages/AuthorDetail.tsx:333
+#: src/pages/Favorites.tsx:220
+msgid "No manga followed yet"
+msgstr "No manga followed yet"
+
+#: src/pages/Dashboard.tsx:182
+msgid "No new chapters yet. Try again in a few minutes."
+msgstr "No new chapters yet. Try again in a few minutes."
+
+#: src/pages/Dashboard.tsx:309
+msgid "No new manga. Refresh or check back in a few minutes."
+msgstr "No new manga. Refresh or check back in a few minutes."
+
+#: src/pages/MangaDetail.tsx:1023
+msgid "No related titles found."
+msgstr "No related titles found."
+
+#: src/pages/AdvancedSearch.tsx:378
+msgid "No results found"
+msgstr "No results found"
+
+#: src/pages/Dashboard.tsx:259
+msgid "No scanlation group info"
+msgstr "No scanlation group info"
+
+#: src/pages/LatestUpdates.tsx:351
+msgid "No updates yet"
+msgstr "No updates yet"
+
+#: src/pages/MangaDetail.tsx:902
+msgid "No Volume"
+msgstr "No Volume"
+
+#: src/pages/GroupDetail.tsx:373
+msgid "Official"
+msgstr "Official"
+
+#: src/pages/Favorites.tsx:91
+msgid "Ongoing"
+msgstr "Ongoing"
+
+#. placeholder {0}: mangaDexUtils.formatChapterNumber(earliestChapter)
+#: src/pages/MangaDetail.tsx:394
+msgid "Opening {0}."
+msgstr "Opening {0}."
+
+#: src/pages/Auth.tsx:219
+msgid "or continue with email"
+msgstr "or continue with email"
+
+#: src/pages/MangaDetail.tsx:717
+msgid "Original Language"
+msgstr "Original Language"
+
+#. placeholder {0}: filters.page
+#: src/pages/AdvancedSearch.tsx:399
+msgid "Page {0} of {totalPages}"
+msgstr "Page {0} of {totalPages}"
+
+#: src/pages/Favorites.tsx:202
+#: src/pages/LatestUpdates.tsx:334
+msgid "Page {page}"
+msgstr "Page {page}"
+
+#: src/pages/Auth.tsx:265
+msgid "Password"
+msgstr "Password"
+
+#: src/pages/Profile.tsx:116
+msgid "Password changed successfully!"
+msgstr "Password changed successfully!"
+
+#: src/pages/Auth.tsx:90
+msgid "Password is required"
+msgstr "Password is required"
+
+#: src/pages/Auth.tsx:92
+msgid "Password must be at least 6 characters"
+msgstr "Password must be at least 6 characters"
+
+#: src/pages/Auth.tsx:102
+#: src/pages/Profile.tsx:95
+msgid "Passwords do not match"
+msgstr "Passwords do not match"
+
+#: src/pages/Profile.tsx:342
+#: src/pages/Profile.tsx:354
+msgid "Personal Information"
+msgstr "Personal Information"
+
+#: src/pages/MangaDetail.tsx:1129
+msgid "Personalized recommendations will be available in a future update."
+msgstr "Personalized recommendations will be available in a future update."
+
+#: src/pages/AuthorDetail.tsx:269
+msgid "Pixiv"
+msgstr "Pixiv"
+
+#: src/pages/Auth.tsx:100
+msgid "Please confirm your password"
+msgstr "Please confirm your password"
+
+#: src/pages/Profile.tsx:159
+msgid "Please select an image file"
+msgstr "Please select an image file"
+
+#: src/pages/Profile.tsx:214
+msgid "Please sign in to view your profile"
+msgstr "Please sign in to view your profile"
+
+#: src/pages/AdvancedSearch.tsx:396
+#: src/pages/Favorites.tsx:200
+#: src/pages/LatestUpdates.tsx:332
+msgid "Previous"
+msgstr "Previous"
+
+#: src/components/layout/Sidebar.tsx:59
+msgid "Profile"
+msgstr "Profile"
+
+#: src/pages/Profile.tsx:84
+msgid "Profile updated successfully!"
+msgstr "Profile updated successfully!"
+
+#: src/pages/AdvancedSearch.tsx:247
+msgid "Publication Status"
+msgstr "Publication Status"
+
+#: src/pages/AdvancedSearch.tsx:310
+#: src/pages/MangaDetail.tsx:713
+msgid "Publication Year"
+msgstr "Publication Year"
+
+#: src/pages/Dashboard.tsx:421
+msgid "Rankings"
+msgstr "Rankings"
+
+#: src/pages/Profile.tsx:489
+msgid "Re-enter new password"
+msgstr "Re-enter new password"
+
+#: src/pages/MangaDetail.tsx:787
+msgid "Read or Buy"
+msgstr "Read or Buy"
+
+#: src/pages/Settings.tsx:195
+msgid "Reader Header"
+msgstr "Reader Header"
+
+#: src/pages/Settings.tsx:111
+msgid "Reader Settings"
+msgstr "Reader Settings"
+
+#: src/pages/MangaDetail.tsx:649
+msgid "Readers"
+msgstr "Readers"
+
+#: src/components/layout/Sidebar.tsx:51
+#: src/pages/Dashboard.tsx:329
+#: src/pages/ReadingHistory.tsx:117
+msgid "Reading History"
+msgstr "Reading History"
+
+#: src/pages/ReadingHistory.tsx:122
+msgid "Reading history is saved on this device"
+msgstr "Reading history is saved on this device"
+
+#: src/pages/ReadingHistory.tsx:157
+msgid "Reading history will appear here after you open a chapter."
+msgstr "Reading history will appear here after you open a chapter."
+
+#: src/pages/Settings.tsx:120
+msgid "Reading Mode"
+msgstr "Reading Mode"
+
+#: src/pages/MangaDetail.tsx:158
+msgid "Recommendations"
+msgstr "Recommendations"
+
+#: src/pages/MangaDetail.tsx:1127
+msgid "Recommendations coming soon"
+msgstr "Recommendations coming soon"
+
+#: src/pages/MangaDetail.tsx:157
+msgid "Related"
+msgstr "Related"
+
+#: src/pages/MangaDetail.tsx:1020
+msgid "Related Titles"
+msgstr "Related Titles"
+
+#: src/pages/AdvancedSearch.tsx:50
+msgid "Relevance"
+msgstr "Relevance"
+
+#: src/pages/Profile.tsx:329
+msgid "Remove avatar"
+msgstr "Remove avatar"
+
+#: src/components/FollowButton.tsx:40
+msgid "Removed from your library."
+msgstr "Removed from your library."
+
+#: src/pages/AdvancedSearch.tsx:201
+msgid "Reset All Filters"
+msgstr "Reset All Filters"
+
+#: src/pages/Favorites.tsx:106
+#: src/pages/LatestUpdates.tsx:189
+#: src/pages/MangaDetail.tsx:330
+#: src/pages/Profile.tsx:247
+msgid "Retry"
+msgstr "Retry"
+
+#: src/pages/Profile.tsx:398
+msgid "Role"
+msgstr "Role"
+
+#: src/pages/Profile.tsx:405
+msgid "Role cannot be changed"
+msgstr "Role cannot be changed"
+
+#: src/pages/Profile.tsx:435
+msgid "Save Changes"
+msgstr "Save Changes"
+
+#: src/pages/Profile.tsx:432
+msgid "Saving..."
+msgstr "Saving..."
+
+#: src/pages/AdvancedSearch.tsx:234
+msgid "Scanlation Group"
+msgstr "Scanlation Group"
+
+#: src/pages/LatestUpdates.tsx:293
+#~ msgid "Scanlation group pages are not set up yet."
+#~ msgstr "Scanlation group pages are not set up yet."
+
+#: src/pages/Dashboard.tsx:246
+#: src/pages/MangaDetail.tsx:972
+#: src/pages/ReadingHistory.tsx:244
+#~ msgid "Scanlation group pages are not supported yet."
+#~ msgstr "Scanlation group pages are not supported yet."
+
+#: src/pages/AdvancedSearch.tsx:175
+msgid "Search"
+msgstr "Search"
+
+#: src/pages/AdvancedSearch.tsx:169
+msgid "Search manga titles..."
+msgstr "Search manga titles..."
+
+#: src/pages/AdvancedSearch.tsx:329
+msgid "Searching..."
+msgstr "Searching..."
+
+#: src/pages/Profile.tsx:346
+msgid "Security"
+msgstr "Security"
+
+#. placeholder {0}: fullHistory.length - HISTORY_RECENT_MAX
+#: src/pages/Dashboard.tsx:408
+msgid "See {0} more chapters →"
+msgstr "See {0} more chapters →"
+
+#. placeholder {0}: fullHistory.length
+#: src/pages/Dashboard.tsx:336
+msgid "See all ({0})"
+msgstr "See all ({0})"
+
+#: src/components/layout/Sidebar.tsx:64
+#: src/pages/Settings.tsx:65
+msgid "Settings"
+msgstr "Settings"
+
+#: src/pages/MangaDetail.tsx:513
+msgid "Share"
+msgstr "Share"
+
+#: src/pages/MangaDetail.tsx:403
+msgid "Share this manga with your friends."
+msgstr "Share this manga with your friends."
+
+#: src/pages/Settings.tsx:219
+msgid "Show"
+msgstr "Show"
+
+#: src/pages/Auth.tsx:279
+#: src/pages/Auth.tsx:280
+msgid "Show password"
+msgstr "Show password"
+
+#: src/pages/Dashboard.tsx:331
+msgid "Shows up to the last 10 chapters from this device."
+msgstr "Shows up to the last 10 chapters from this device."
+
+#: src/components/layout/Sidebar.tsx:277
+#: src/components/layout/Sidebar.tsx:284
+#: src/pages/Auth.tsx:180
+#: src/pages/Auth.tsx:322
+#: src/pages/Profile.tsx:217
+msgid "Sign In"
+msgstr "Sign In"
+
+#: src/components/layout/Sidebar.tsx:255
+#: src/components/layout/Sidebar.tsx:261
+msgid "Sign Out"
+msgstr "Sign Out"
+
+#: src/pages/Auth.tsx:192
+msgid "Sign Up"
+msgstr "Sign Up"
+
+#: src/pages/Auth.tsx:319
+msgid "Signing in..."
+msgstr "Signing in..."
+
+#: src/pages/Settings.tsx:132
+msgid "Single Page"
+msgstr "Single Page"
+
+#: src/pages/MangaDetail.tsx:322
+msgid "Something went wrong while contacting the server."
+msgstr "Something went wrong while contacting the server."
+
+#: src/components/FollowButton.tsx:48
+msgid "Something went wrong."
+msgstr "Something went wrong."
+
+#: src/pages/AdvancedSearch.tsx:336
+msgid "Sort by"
+msgstr "Sort by"
+
+#: src/pages/MangaDetail.tsx:709
+msgid "Status"
+msgstr "Status"
+
+#: src/pages/Auth.tsx:47
+msgid "Successfully signed in with Google."
+msgstr "Successfully signed in with Google."
+
+#: src/pages/Auth.tsx:136
+msgid "Successfully signed in!"
+msgstr "Successfully signed in!"
+
+#: src/pages/MangaDetail.tsx:665
+msgid "Synopsis"
+msgstr "Synopsis"
+
+#: src/pages/AdvancedSearch.tsx:208
+msgid "Tags"
+msgstr "Tags"
+
+#: src/pages/Dashboard.tsx:427
+msgid "The rankings feature will be available soon."
+msgstr "The rankings feature will be available soon."
+
+#: src/pages/LatestUpdates.tsx:33
+msgid "This month"
+msgstr "This month"
+
+#: src/pages/Settings.tsx:40
+msgid "This reading mode will be available soon."
+msgstr "This reading mode will be available soon."
+
+#: src/pages/MangaDetail.tsx:384
+msgid "This series does not have readable chapters yet."
+msgstr "This series does not have readable chapters yet."
+
+#: src/pages/LatestUpdates.tsx:32
+msgid "This week"
+msgstr "This week"
+
+#: src/pages/Profile.tsx:387
+msgid "Timezone"
+msgstr "Timezone"
+
+#: src/pages/LatestUpdates.tsx:31
+msgid "Today"
+msgstr "Today"
+
+#: src/pages/Dashboard.tsx:121
+msgid "Top 10 trending new manga this month"
+msgstr "Top 10 trending new manga this month"
+
+#: src/pages/Favorites.tsx:67
+msgid "Total Following"
+msgstr "Total Following"
+
+#: src/pages/MangaDetail.tsx:808
+msgid "Track"
+msgstr "Track"
+
+#: src/pages/MangaDetail.tsx:672
+msgid "Translate to Vietnamese"
+msgstr "Translate to Vietnamese"
+
+#: src/pages/MangaDetail.tsx:423
+msgid "Translation coming soon"
+msgstr "Translation coming soon"
+
+#: src/pages/AdvancedSearch.tsx:380
+msgid "Try adjusting your search or filters"
+msgstr "Try adjusting your search or filters"
+
+#: src/pages/GroupDetail.tsx:466
+#~ msgid "Twitter"
+#~ msgstr "Twitter"
+
+#: src/pages/Dashboard.tsx:42
+#: src/pages/GroupDetail.tsx:195
+msgid "Unable to load data."
+msgstr "Unable to load data."
+
+#: src/pages/Dashboard.tsx:134
+msgid "Unable to load featured data"
+msgstr "Unable to load featured data"
+
+#: src/pages/AuthorDetail.tsx:163
+#: src/pages/MangaDetail.tsx:320
+msgid "Unable to load this manga"
+msgstr "Unable to load this manga"
+
+#: src/components/FollowButton.tsx:40
+msgid "Unfollowed"
+msgstr "Unfollowed"
+
+#: src/components/FollowButton.tsx:59
+msgid "Unfollowing..."
+msgstr "Unfollowing..."
+
+#: src/components/dashboard/LatestMangaCard.tsx:45
+msgid "unknown"
+msgstr "unknown"
+
+#: src/pages/Profile.tsx:356
+msgid "Update your personal details"
+msgstr "Update your personal details"
+
+#: src/pages/GroupDetail.tsx:245
+msgid "uploads"
+msgstr "uploads"
+
+#: src/pages/Profile.tsx:189
+msgid "User"
+msgstr "User"
+
+#: src/pages/Settings.tsx:144
+msgid "Vertical Scroll"
+msgstr "Vertical Scroll"
+
+#: src/pages/MangaDetail.tsx:424
+msgid "Vietnamese translation will be available in a future release."
+msgstr "Vietnamese translation will be available in a future release."
+
+#: src/pages/Favorites.tsx:173
+msgid "View"
+msgstr "View"
+
+#: src/pages/AuthorDetail.tsx:223
+#: src/pages/GroupDetail.tsx:390
+msgid "View on"
+msgstr "View on"
+
+#: src/pages/MangaDetail.tsx:902
+msgid "Volume "
+msgstr "Volume "
+
+#: src/pages/MangaDetail.tsx:408
+msgid "We could not copy the link. Please copy it manually."
+msgstr "We could not copy the link. Please copy it manually."
+
+#: src/pages/MangaDetail.tsx:339
+msgid "We could not find this manga. It may have been removed."
+msgstr "We could not find this manga. It may have been removed."
+
+#: src/pages/AuthorDetail.tsx:245
+#: src/pages/GroupDetail.tsx:315
+#: src/pages/GroupDetail.tsx:459
+msgid "Website"
+msgstr "Website"
+
+#: src/pages/Auth.tsx:162
+msgid "Welcome back"
+msgstr "Welcome back"
+
+#: src/pages/Auth.tsx:46
+#: src/pages/Auth.tsx:135
+msgid "Welcome!"
+msgstr "Welcome!"
+
+#: src/pages/GroupDetail.tsx:307
+#: src/pages/GroupDetail.tsx:451
+msgid "Where To Find"
+msgstr "Where To Find"
+
+#: src/pages/AuthorDetail.tsx:211
+msgid "works"
+msgstr "works"
+
+#: src/pages/AuthorDetail.tsx:280
+msgid "Works"
+msgstr "Works"
+
+#: src/pages/Dashboard.tsx:346
+msgid "You haven't read any manga recently."
+msgstr "You haven't read any manga recently."
+
+#: src/pages/ReadingHistory.tsx:156
+msgid "You haven't read any manga yet"
+msgstr "You haven't read any manga yet"
+
+#: src/pages/ReadingHistory.tsx:107
+msgid "Your reading history has been deleted."
+msgstr "Your reading history has been deleted."

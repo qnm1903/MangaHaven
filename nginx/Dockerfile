@@ -20,7 +20,10 @@ RUN cd frontend && npm run build
 # ---- Runner stage ----
 FROM nginx:1.26-alpine
 
-COPY nginx/nginx.conf /etc/nginx/conf.d/default.conf
+# Bake HTTP-only config:
+#   - Railway: dùng file này (Railway tự handle HTTPS bên ngoài)
+#   - DO VPS:  docker-compose.yml sẽ mount nginx/nginx.conf (HTTPS) đè lên
+COPY nginx/nginx-http-only.conf /etc/nginx/conf.d/default.conf
 COPY --from=builder /app/frontend/dist /usr/share/nginx/html
 
-EXPOSE 80 443
+EXPOSE 80

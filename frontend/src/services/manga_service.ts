@@ -30,10 +30,13 @@ const MangaAttributesSchema = z.object({
   year: z.number().nullable(),
   contentRating: z.enum(['safe', 'suggestive', 'erotica', 'pornographic']),
   tags: z.array(TagSchema),
+  state: z.string(),
+  chapterNumbersResetOnNewVolume: z.boolean(),
   createdAt: z.string(),
   updatedAt: z.string(),
   version: z.number(),
   availableTranslatedLanguages: z.array(z.string().nullable()).nullable().optional(),
+  coverPublicId: z.string().nullable().optional(),
 });
 
 // Relationship schema
@@ -65,6 +68,8 @@ const MangaSchema = z.object({
 
 // Manga list schema
 const MangaListSchema = z.object({
+  result: z.string().optional(),
+  response: z.string().optional(),
   data: z.array(MangaSchema),
   limit: z.number(),
   offset: z.number(),
@@ -77,7 +82,7 @@ const ChapterAttributesSchema = z.object({
   volume: z.string().nullable().optional(),
   chapter: z.string().nullable().optional(),
   pages: z.number().nullable().optional().transform((val) => val ?? 0),
-  translatedLanguage: z.string().nullable(),
+  translatedLanguage: z.string().catch(''),
   uploader: z.string().nullable().optional(),
   externalUrl: z.string().nullable().optional(),
   version: z.number().nullable().optional().transform((val) => val ?? 1),
@@ -169,9 +174,7 @@ export type BackendResponse<T> = {
   error?: string;
 };
 
-// ============================================================================
 // Helpers
-// ============================================================================
 
 interface ApiErrorResponse {
   message: string;

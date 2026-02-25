@@ -14,6 +14,7 @@ services:
       - ./.env
     environment:
       NODE_ENV: production
+      FRONTEND_URL: http://localhost
     # Không expose ra ngoài, chỉ nginx mới gọi qua Docker network
     expose:
       - "5000"
@@ -24,7 +25,7 @@ services:
       dockerfile: nginx/Dockerfile
       # VITE_* là build-time, Vite cần biết khi build - lấy từ .env
       args:
-        VITE_BACKEND_URL: ${VITE_BACKEND_URL}
+        VITE_BACKEND_URL: http://localhost
         VITE_OAUTH_CLIENT_ID: ${VITE_OAUTH_CLIENT_ID}
     container_name: manga_nginx
     restart: unless-stopped
@@ -37,5 +38,6 @@ services:
       # Certs từ Certbot trên host → mount vào container
       - /etc/letsencrypt:/etc/letsencrypt:ro
       - /var/www/certbot:/var/www/certbot:ro
-      # Mount nginx.conf từ host → thay DOMAIN không cần rebuild image
-      - ./nginx/nginx.conf:/etc/nginx/conf.d/default.conf:ro
+      # Local: dùng http-only config (không cần SSL cert)
+      # VPS sau khi có cert: đổi thành ./nginx/nginx.conf
+      - ./nginx/nginx-http-only.conf:/etc/nginx/conf.d/default.conf:ro

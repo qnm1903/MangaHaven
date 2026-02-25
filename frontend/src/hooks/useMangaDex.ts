@@ -1,6 +1,9 @@
 import { useQuery, type UseQueryOptions } from '@tanstack/react-query';
 import mangaService from '@/services/manga_service';
 
+// Re-export types from manga_service for convenience
+export type { Manga, Tag, MangaList } from '@/services/manga_service';
+
 // Search params interface
 export interface SearchMangaParams {
   title?: string;

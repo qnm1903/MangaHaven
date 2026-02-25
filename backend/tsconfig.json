@@ -110,6 +110,7 @@
     "swc": true
   },
   "include": [
+    "server.ts",
     "src/**/*"
   ],
   "exclude": [

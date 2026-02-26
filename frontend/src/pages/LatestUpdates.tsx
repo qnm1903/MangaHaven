@@ -24,6 +24,7 @@ import { LanguageFlag } from '@/components/LanguageFlag';
 import { useAtomValue } from 'jotai';
 import { chapterLanguagesAtom } from '@/store/settingsAtoms';
 import { readingHistoryAtom } from '@/store/historyAtoms';
+import { AuthGuard } from '@/components/auth/AuthGuard';
 
 
 const DATE_RANGE_OPTIONS = [
@@ -113,7 +114,7 @@ function MangaCover({ coverUrl, title }: { coverUrl: string | null; title: strin
     );
 }
 
-const LatestUpdates: React.FC = () => {
+const LatestUpdatesContent: React.FC = () => {
     const [page, setPage] = useState(1);
     const [dateRange, setDateRange] = useState<FeedParams['dateRange']>(undefined);
     const limit = 20;
@@ -371,5 +372,11 @@ const LatestUpdates: React.FC = () => {
         </div>
     );
 };
+
+const LatestUpdates: React.FC = () => (
+    <AuthGuard>
+        <LatestUpdatesContent />
+    </AuthGuard>
+);
 
 export default LatestUpdates;

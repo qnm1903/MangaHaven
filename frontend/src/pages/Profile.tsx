@@ -15,6 +15,7 @@ import { useToast } from '../hooks/use_sonner_toast'
 import { useAuth } from '../hooks/useAuth'
 import { useSetAtom } from 'jotai'
 import { updateUserAtom } from '../store/authAtoms'
+import { AuthGuard } from '../components/auth/AuthGuard'
 
 
 interface PasswordChangeData {
@@ -23,7 +24,7 @@ interface PasswordChangeData {
   confirmNewPassword: string
 }
 
-const Profile = () => {
+const ProfileContent = () => {
   const { user, loading: authLoading } = useAuth()
   const { success, error } = useToast()
   const updateUser = useSetAtom(updateUserAtom)
@@ -211,22 +212,6 @@ const Profile = () => {
               <div className="h-64 bg-muted rounded"></div>
             </div>
           </div>
-        </div>
-      </div>
-    )
-  }
-
-  // Redirect to login if not authenticated
-  if (!user) {
-    return (
-      <div className="container mx-auto py-8">
-        <div className="max-w-4xl mx-auto text-center">
-          <h1 className="text-2xl font-bold text-foreground mb-4">
-            <Trans>Please sign in to view your profile</Trans>
-          </h1>
-          <Button onClick={() => window.location.href = '/auth'}>
-            <Trans>Sign In</Trans>
-          </Button>
         </div>
       </div>
     )
@@ -539,5 +524,11 @@ const Profile = () => {
     </div>
   )
 }
+
+const Profile = () => (
+  <AuthGuard message={<Trans>Sign in to view your profile</Trans>}>
+    <ProfileContent />
+  </AuthGuard>
+)
 
 export default Profile

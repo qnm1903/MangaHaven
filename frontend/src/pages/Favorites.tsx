@@ -8,10 +8,11 @@ import { Button } from '@/components/ui/button';
 import { Skeleton } from '@/components/ui/skeleton';
 import { Heart, BookOpen, Calendar, Rss, RefreshCw } from 'lucide-react';
 import { followService, type FollowedManga } from '@/services/follow_service';
+import { AuthGuard } from '@/components/auth/AuthGuard';
 
 import FollowButton from '@/components/FollowButton';
 
-const Favorites: React.FC = () => {
+const FavoritesContent: React.FC = () => {
   const [page, setPage] = useState(1);
   const limit = 20;
 
@@ -231,5 +232,11 @@ const Favorites: React.FC = () => {
     </div>
   );
 };
+
+const Favorites: React.FC = () => (
+  <AuthGuard>
+    <FavoritesContent />
+  </AuthGuard>
+);
 
 export default Favorites;

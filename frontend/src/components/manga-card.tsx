@@ -50,6 +50,7 @@ const MangaCardComponent: React.FC<MangaCardProps> = ({ manga, onClick }) => {
                 }`}
               onLoad={() => setImageLoaded(true)}
               onError={handleError}
+              referrerPolicy="no-referrer"
               loading="lazy"
             />
             {!imageLoaded && <div className="aspect-[3/4] w-full animate-pulse bg-muted" />}

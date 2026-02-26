@@ -242,32 +242,33 @@ export const SearchBar: React.FC<SearchBarProps> = ({
                                     onClick={() => handleResultClick(manga)}
                                     className={`flex w-full items-center gap-3 p-3 text-left transition-colors hover:bg-muted/50 ${isSelected ? 'bg-muted' : ''}`}
                                 >
-                                        {/* Cover Thumbnail */}
-                                        <img
-                                            src={coverUrl}
-                                            alt=""
-                                            className="h-14 w-10 rounded object-cover"
-                                            loading="lazy"
-                                            onError={(e) => {
-                                                (e.target as HTMLImageElement).src = PLACEHOLDER_COVER;
-                                            }}
-                                        />
+                                    {/* Cover Thumbnail */}
+                                    <img
+                                        src={coverUrl}
+                                        alt=""
+                                        className="h-14 w-10 rounded object-cover"
+                                        loading="lazy"
+                                        referrerPolicy="no-referrer"
+                                        onError={(e) => {
+                                            (e.target as HTMLImageElement).src = PLACEHOLDER_COVER;
+                                        }}
+                                    />
 
-                                        {/* Manga Info */}
-                                        <div className="min-w-0 flex-1">
-                                            <h4 className="truncate font-medium">{title}</h4>
-                                            <p className="truncate text-sm text-muted-foreground">by {author}</p>
-                                            <div className="mt-1 flex gap-1">
+                                    {/* Manga Info */}
+                                    <div className="min-w-0 flex-1">
+                                        <h4 className="truncate font-medium">{title}</h4>
+                                        <p className="truncate text-sm text-muted-foreground">by {author}</p>
+                                        <div className="mt-1 flex gap-1">
+                                            <Badge variant="outline" className="text-xs">
+                                                {manga.attributes.status}
+                                            </Badge>
+                                            {manga.attributes.year && (
                                                 <Badge variant="outline" className="text-xs">
-                                                    {manga.attributes.status}
+                                                    {manga.attributes.year}
                                                 </Badge>
-                                                {manga.attributes.year && (
-                                                    <Badge variant="outline" className="text-xs">
-                                                        {manga.attributes.year}
-                                                    </Badge>
-                                                )}
-                                            </div>
+                                            )}
                                         </div>
+                                    </div>
                                 </button>
                             );
                         })}

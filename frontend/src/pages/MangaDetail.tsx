@@ -94,18 +94,18 @@ const RELATED_LABELS: Record<string, string> = {
 };
 
 const EXTERNAL_LINK_CONFIGS: Record<string, { label: string; buildUrl: (id: string) => string; category: 'buy' | 'track' }> = {
-  mdx:   { label: 'MangaDex',        category: 'buy',   buildUrl: (id) => `https://mangadex.org/title/${id}` },
-  raw:   { label: 'Official Raw',    category: 'buy',   buildUrl: (id) => id.startsWith('http') ? id : `https://mangadex.org` },
-  engtl: { label: 'Official English', category: 'buy',  buildUrl: (id) => id.startsWith('http') ? id : `https://mangadex.org` },
-  amz:   { label: 'Amazon',           category: 'buy',   buildUrl: (id) => id.startsWith('http') ? id : `https://www.amazon.co.jp/dp/${id}` },
-  cdj:   { label: 'CDJapan',          category: 'buy',   buildUrl: (id) => id.startsWith('http') ? id : `https://www.cdjapan.co.jp/product/${id}` },
-  ebj:   { label: 'eBookJapan',       category: 'buy',   buildUrl: (id) => id.startsWith('http') ? id : `https://ebookjapan.yahoo.co.jp/books/${id}.html` },
-  bw:    { label: 'Book☆Walker',      category: 'buy',   buildUrl: (id) => id.startsWith('http') ? id : `https://bookwalker.jp/${id}` },
-  mu:    { label: 'MangaUpdates',     category: 'track', buildUrl: (id) => `https://www.mangaupdates.com/series/${id}` },
-  ap:    { label: 'Anime-Planet',     category: 'track', buildUrl: (id) => `https://www.anime-planet.com/manga/${id}` },
-  al:    { label: 'AniList',          category: 'track', buildUrl: (id) => `https://anilist.co/manga/${id}` },
-  kt:    { label: 'Kitsu',            category: 'track', buildUrl: (id) => `https://kitsu.app/manga/${id}` },
-  mal:   { label: 'MyAnimeList',      category: 'track', buildUrl: (id) => `https://myanimelist.net/manga/${id}` },
+  mdx: { label: 'MangaDex', category: 'buy', buildUrl: (id) => `https://mangadex.org/title/${id}` },
+  raw: { label: 'Official Raw', category: 'buy', buildUrl: (id) => id.startsWith('http') ? id : `https://mangadex.org` },
+  engtl: { label: 'Official English', category: 'buy', buildUrl: (id) => id.startsWith('http') ? id : `https://mangadex.org` },
+  amz: { label: 'Amazon', category: 'buy', buildUrl: (id) => id.startsWith('http') ? id : `https://www.amazon.co.jp/dp/${id}` },
+  cdj: { label: 'CDJapan', category: 'buy', buildUrl: (id) => id.startsWith('http') ? id : `https://www.cdjapan.co.jp/product/${id}` },
+  ebj: { label: 'eBookJapan', category: 'buy', buildUrl: (id) => id.startsWith('http') ? id : `https://ebookjapan.yahoo.co.jp/books/${id}.html` },
+  bw: { label: 'Book☆Walker', category: 'buy', buildUrl: (id) => id.startsWith('http') ? id : `https://bookwalker.jp/${id}` },
+  mu: { label: 'MangaUpdates', category: 'track', buildUrl: (id) => `https://www.mangaupdates.com/series/${id}` },
+  ap: { label: 'Anime-Planet', category: 'track', buildUrl: (id) => `https://www.anime-planet.com/manga/${id}` },
+  al: { label: 'AniList', category: 'track', buildUrl: (id) => `https://anilist.co/manga/${id}` },
+  kt: { label: 'Kitsu', category: 'track', buildUrl: (id) => `https://kitsu.app/manga/${id}` },
+  mal: { label: 'MyAnimeList', category: 'track', buildUrl: (id) => `https://myanimelist.net/manga/${id}` },
 };
 
 const MangaDetail: React.FC = () => {
@@ -472,6 +472,7 @@ const MangaDetail: React.FC = () => {
             src={coverImageUrl}
             alt=""
             className="h-full w-full object-cover opacity-20 dark:opacity-35"
+            referrerPolicy="no-referrer"
           />
           <div className="absolute inset-0 bg-gradient-to-br from-background/90 via-background/70 to-background/40 dark:from-neutral-950 dark:via-neutral-950/80 dark:to-neutral-900/40" />
         </div>
@@ -483,6 +484,7 @@ const MangaDetail: React.FC = () => {
                 src={coverImageUrl}
                 alt={mangaTitle}
                 className="h-[380px] w-[260px] object-cover"
+                referrerPolicy="no-referrer"
                 onError={(event) => {
                   (event.target as HTMLImageElement).src = '/placeholder-manga-cover.jpg';
                 }}
@@ -617,7 +619,7 @@ const MangaDetail: React.FC = () => {
                   {(() => {
                     const dist = mangaEntity.statistics?.rating?.distribution;
                     if (!dist) return <p className="text-xs text-muted-foreground">No distribution data</p>;
-                    const entries = [10,9,8,7,6,5,4,3,2,1].map(n => ({ star: n, count: dist[String(n)] ?? 0 }));
+                    const entries = [10, 9, 8, 7, 6, 5, 4, 3, 2, 1].map(n => ({ star: n, count: dist[String(n)] ?? 0 }));
                     const maxCount = Math.max(...entries.map(e => e.count), 1);
                     const total = entries.reduce((s, e) => s + e.count, 0);
                     return (
@@ -872,264 +874,265 @@ const MangaDetail: React.FC = () => {
                 )}
               >
 
-              {/* ── Chapters Tab ── */}
-              {activeTab === 'chapters' && (
-                <div className="space-y-6">
-                  <div className="flex items-center justify-between">
-                    <h2 className="text-2xl font-bold text-foreground"><Trans>Chapter List</Trans></h2>
-                    <span className="text-sm text-muted-foreground">
-                      {totalChapterCount} <Trans>{totalChapterCount === 1 ? 'chapter' : 'chapters'}</Trans>
-                    </span>
-                  </div>
+                {/* ── Chapters Tab ── */}
+                {activeTab === 'chapters' && (
+                  <div className="space-y-6">
+                    <div className="flex items-center justify-between">
+                      <h2 className="text-2xl font-bold text-foreground"><Trans>Chapter List</Trans></h2>
+                      <span className="text-sm text-muted-foreground">
+                        {totalChapterCount} <Trans>{totalChapterCount === 1 ? 'chapter' : 'chapters'}</Trans>
+                      </span>
+                    </div>
 
-                  {isChapterLoading ? (
-                    <div className="grid gap-4 sm:grid-cols-2">
-                      {Array.from({ length: 8 }).map((_, index) => (
-                        <Skeleton key={index} className="h-20 rounded-xl" />
-                      ))}
-                    </div>
-                  ) : chapterError ? (
-                    <div className="rounded-xl border border-red-200 bg-red-50 p-6 text-center text-red-600">
-                      <Trans>Failed to load chapters. Please try again later.</Trans>
-                    </div>
-                  ) : totalChapterCount === 0 ? (
-                    <div className="rounded-xl border border-dashed border-border bg-muted/30 p-6 text-center text-muted-foreground">
-                      <Trans>Chapters have not been published yet.</Trans>
-                    </div>
-                  ) : (
-                    <div className="space-y-5">
-                      {volumeEntries.map(([volumeLabel, volumeChapters]) => {
-                        const safeLabel = volumeLabel === 'No Volume' ? t`No Volume` : t`Volume ` + volumeLabel;
-                        return (
-                          <div
-                            key={volumeLabel}
-                            className="rounded-2xl border border-border bg-muted/20 p-5 shadow-sm"
-                          >
-                            <div className="mb-4 flex items-center justify-between">
-                              <div className="flex items-center gap-3">
-                                <Book className="h-5 w-5 text-muted-foreground" />
-                                <p className="text-lg font-semibold text-foreground">{safeLabel}</p>
+                    {isChapterLoading ? (
+                      <div className="grid gap-4 sm:grid-cols-2">
+                        {Array.from({ length: 8 }).map((_, index) => (
+                          <Skeleton key={index} className="h-20 rounded-xl" />
+                        ))}
+                      </div>
+                    ) : chapterError ? (
+                      <div className="rounded-xl border border-red-200 bg-red-50 p-6 text-center text-red-600">
+                        <Trans>Failed to load chapters. Please try again later.</Trans>
+                      </div>
+                    ) : totalChapterCount === 0 ? (
+                      <div className="rounded-xl border border-dashed border-border bg-muted/30 p-6 text-center text-muted-foreground">
+                        <Trans>Chapters have not been published yet.</Trans>
+                      </div>
+                    ) : (
+                      <div className="space-y-5">
+                        {volumeEntries.map(([volumeLabel, volumeChapters]) => {
+                          const safeLabel = volumeLabel === 'No Volume' ? t`No Volume` : t`Volume ` + volumeLabel;
+                          return (
+                            <div
+                              key={volumeLabel}
+                              className="rounded-2xl border border-border bg-muted/20 p-5 shadow-sm"
+                            >
+                              <div className="mb-4 flex items-center justify-between">
+                                <div className="flex items-center gap-3">
+                                  <Book className="h-5 w-5 text-muted-foreground" />
+                                  <p className="text-lg font-semibold text-foreground">{safeLabel}</p>
+                                </div>
+                                <span className="text-xs font-medium uppercase tracking-wide text-muted-foreground">
+                                  {volumeChapters.length} <Trans>{volumeChapters.length === 1 ? 'chapter' : 'chapters'}</Trans>
+                                </span>
                               </div>
-                              <span className="text-xs font-medium uppercase tracking-wide text-muted-foreground">
-                                {volumeChapters.length} <Trans>{volumeChapters.length === 1 ? 'chapter' : 'chapters'}</Trans>
-                              </span>
-                            </div>
-                            <div className="grid gap-3 sm:grid-cols-2">
-                              {volumeChapters.map((chapterItem) => {
-                                const chapterTitle = mangaDexUtils.formatChapterNumber(chapterItem);
-                                const chapterDate = mangaDexUtils.formatDate(
-                                  chapterItem.attributes.publishAt,
-                                  'en-US'
-                                );
-                                const isSelected = selectedChapterIdentifier === chapterItem.id;
-                                const chapterClasses = [
-                                  'group flex items-center justify-between rounded-2xl border px-4 py-3 text-left shadow-sm transition',
-                                  isSelected
-                                    ? 'border-primary bg-primary/10 shadow-md'
-                                    : 'border-transparent bg-card hover:border-primary/30 hover:bg-accent/50',
-                                ].join(' ');
-                                return (
-                                  <button
-                                    key={chapterItem.id}
-                                    type="button"
-                                    onClick={() => {
-                                      const ext = chapterItem.attributes.externalUrl;
-                                      if (ext) {
-                                        window.open(ext, '_blank', 'noopener,noreferrer');
-                                      } else {
-                                        navigate({ to: '/chapter/$chapterId', params: { chapterId: chapterItem.id } });
-                                      }
-                                    }}
-                                    className={chapterClasses}
-                                  >
-                                    <div>
-                                      <p className="font-medium text-foreground flex items-center gap-1.5 min-w-0">
-                                        <LanguageFlag languageCode={chapterItem.attributes.translatedLanguage} className="h-3 w-4 shrink-0" />
-                                        {chapterItem.attributes.externalUrl && (
-                                          <SquareArrowOutUpRight className="h-3 w-3 shrink-0 text-blue-500" />
-                                        )}
-                                        <span className="truncate">{chapterTitle}</span>
-                                      </p>
-                                      <div className="mt-1 flex items-center gap-2 text-xs text-muted-foreground">
-                                        <span>{chapterDate}</span>
-                                        {(() => {
-                                          const groupRels = (chapterItem.relationships?.filter((r) => r.type === 'scanlation_group') ?? [])
-                                            .map((r) => ({ id: r.id, name: (r.attributes as { name?: string } | undefined)?.name }))
-                                            .filter((g): g is { id: string; name: string } => !!g.name);
-                                          if (groupRels.length === 0) return (
-                                            <>
-                                              <span className="text-border">·</span>
-                                              <Users className="h-3 w-3" />
-                                              <span className="text-muted-foreground italic"><Trans>No group</Trans></span>
-                                            </>
-                                          );
-                                          return (
-                                            <>
-                                              <span className="text-border">·</span>
-                                              {groupRels.map((gr) => (
-                                                <button
-                                                  key={gr.id}
-                                                  type="button"
-                                                  onClick={(e) => {
-                                                    e.stopPropagation();
-                                                    navigate({ to: '/group/mangadex/$groupId', params: { groupId: gr.id } });
-                                                  }}
-                                                  className="flex items-center gap-1 hover:underline text-muted-foreground hover:text-primary transition-colors"
-                                                >
-                                                  <Users className="h-3 w-3" />
-                                                  <span className="line-clamp-1 max-w-[120px]">{gr.name}</span>
-                                                </button>
-                                              ))}
-                                            </>
-                                          );
-                                        })()}
-                                      </div>
-                                    </div>
-                                    {readChapterIds.has(chapterItem.id)
-                                      ? <EyeOff className="h-4 w-4 flex-shrink-0 text-muted-foreground/40 transition" />
-                                      : <Eye className="h-4 w-4 flex-shrink-0 text-foreground/70 transition group-hover:text-primary" />
-                                    }
-                                  </button>
-                                );
-                              })}
-                            </div>
-                          </div>
-                        );
-                      })}
-                    </div>
-                  )}
-                </div>
-              )}
-
-              {/* ── Comments Tab ── */}
-              {activeTab === 'comments' && (
-                <div className="flex flex-col items-center justify-center gap-4 py-16 text-center">
-                  <div className="rounded-full bg-muted p-4">
-                    <Users className="h-8 w-8 text-muted-foreground" />
-                  </div>
-                  <p className="text-lg font-semibold text-foreground"><Trans>Comments coming soon</Trans></p>
-                  <p className="text-sm text-muted-foreground">
-                    <Trans>Community discussion will be available in a future update.</Trans>
-                  </p>
-                </div>
-              )}
-
-              {/* ── Related Tab ── */}
-              {activeTab === 'related' && (
-                <div className="space-y-6">
-                  <h2 className="text-2xl font-bold text-foreground"><Trans>Related Titles</Trans></h2>
-                  {relatedItems.length === 0 ? (
-                    <div className="rounded-xl border border-dashed border-border bg-muted/30 p-8 text-center text-muted-foreground">
-                      <Trans>No related titles found.</Trans>
-                    </div>
-                  ) : (
-                    <div className="space-y-8">
-                      {Object.entries(relatedByGroup)
-                        .sort(([a], [b]) => {
-                          const pa = RELATED_PRIORITY[a] ?? 500;
-                          const pb = RELATED_PRIORITY[b] ?? 500;
-                          return pa - pb;
-                        })
-                        .map(([group, items]) => (
-                        <div key={group} className="space-y-3">
-                          <h3 className="text-base font-semibold capitalize text-foreground">
-                            {RELATED_LABELS[group] ?? group}
-                          </h3>
-                          <div className="space-y-3">
-                            {items.map(({ id, queryIndex }) => {
-                              const q = relatedQueries[queryIndex];
-                              const relManga = (q?.data as { data?: { data?: Manga } } | undefined)?.data?.data;
-                              const coverUrl = relManga ? mangaDexUtils.getCoverArt(relManga) : null;
-                              const title = relManga ? mangaDexUtils.getTitle(relManga.attributes.title) : null;
-                              const status = relManga?.attributes?.status;
-                              const description = relManga
-                                ? mangaDexUtils.getDescription(relManga.attributes.description)
-                                : null;
-                              const tags = relManga?.attributes?.tags ?? [];
-                              if (q?.isLoading) return <Skeleton key={id} className="h-32 rounded-xl" />;
-                              // Orphaned relation (manga deleted/private on MangaDex) — skip silently.
-                              if (q?.isError || !relManga) return null;
-                              return (
-                                <button
-                                  key={relManga.id}
-                                  type="button"
-                                  onClick={() =>
-                                    navigate({
-                                      to: '/manga/$mangaId',
-                                      params: { mangaId: relManga.id },
-                                    })
-                                  }
-                                  className="flex w-full gap-4 rounded-xl border border-border bg-card p-4 text-left transition hover:border-primary/40 hover:bg-accent/30"
-                                >
-                                  <div className="shrink-0 overflow-hidden rounded-lg">
-                                    {coverUrl ? (
-                                      <img
-                                        src={coverUrl}
-                                        alt={title ?? ''}
-                                        className="h-[120px] w-[80px] object-cover"
-                                      />
-                                    ) : (
-                                      <div className="flex h-[120px] w-[80px] items-center justify-center bg-muted">
-                                        <BookOpen className="h-6 w-6 text-muted-foreground/40" />
-                                      </div>
-                                    )}
-                                  </div>
-                                  <div className="min-w-0 flex-1 space-y-1.5">
-                                    <div className="flex flex-wrap items-start justify-between gap-2">
-                                      <p className="font-semibold text-foreground line-clamp-1">{title}</p>
-                                      {status && (
-                                        <span
-                                          className={cn(
-                                            'shrink-0 rounded-full px-2 py-0.5 text-xs font-medium',
-                                            status === 'ongoing' && 'bg-sky-500/10 text-sky-600 dark:text-sky-400',
-                                            status === 'completed' && 'bg-emerald-500/10 text-emerald-600 dark:text-emerald-400',
-                                            status === 'hiatus' && 'bg-amber-500/10 text-amber-600 dark:text-amber-400',
-                                            status === 'cancelled' && 'bg-red-500/10 text-red-600 dark:text-red-400',
+                              <div className="grid gap-3 sm:grid-cols-2">
+                                {volumeChapters.map((chapterItem) => {
+                                  const chapterTitle = mangaDexUtils.formatChapterNumber(chapterItem);
+                                  const chapterDate = mangaDexUtils.formatDate(
+                                    chapterItem.attributes.publishAt,
+                                    'en-US'
+                                  );
+                                  const isSelected = selectedChapterIdentifier === chapterItem.id;
+                                  const chapterClasses = [
+                                    'group flex items-center justify-between rounded-2xl border px-4 py-3 text-left shadow-sm transition',
+                                    isSelected
+                                      ? 'border-primary bg-primary/10 shadow-md'
+                                      : 'border-transparent bg-card hover:border-primary/30 hover:bg-accent/50',
+                                  ].join(' ');
+                                  return (
+                                    <button
+                                      key={chapterItem.id}
+                                      type="button"
+                                      onClick={() => {
+                                        const ext = chapterItem.attributes.externalUrl;
+                                        if (ext) {
+                                          window.open(ext, '_blank', 'noopener,noreferrer');
+                                        } else {
+                                          navigate({ to: '/chapter/$chapterId', params: { chapterId: chapterItem.id } });
+                                        }
+                                      }}
+                                      className={chapterClasses}
+                                    >
+                                      <div>
+                                        <p className="font-medium text-foreground flex items-center gap-1.5 min-w-0">
+                                          <LanguageFlag languageCode={chapterItem.attributes.translatedLanguage} className="h-3 w-4 shrink-0" />
+                                          {chapterItem.attributes.externalUrl && (
+                                            <SquareArrowOutUpRight className="h-3 w-3 shrink-0 text-blue-500" />
                                           )}
-                                        >
-                                          {status.charAt(0).toUpperCase() + status.slice(1)}
-                                        </span>
-                                      )}
-                                    </div>
-                                    {tags.length > 0 && (
-                                      <div className="flex flex-wrap gap-1">
-                                        {tags.slice(0, 6).map((tag) => (
-                                          <span
-                                            key={tag.id}
-                                            className="rounded-sm border border-border/50 bg-muted/60 px-1.5 py-0.5 text-[11px] font-medium uppercase tracking-wide text-muted-foreground"
-                                          >
-                                            {mangaDexUtils.getTitle(tag.attributes.name)}
-                                          </span>
-                                        ))}
+                                          <span className="truncate">{chapterTitle}</span>
+                                        </p>
+                                        <div className="mt-1 flex items-center gap-2 text-xs text-muted-foreground">
+                                          <span>{chapterDate}</span>
+                                          {(() => {
+                                            const groupRels = (chapterItem.relationships?.filter((r) => r.type === 'scanlation_group') ?? [])
+                                              .map((r) => ({ id: r.id, name: (r.attributes as { name?: string } | undefined)?.name }))
+                                              .filter((g): g is { id: string; name: string } => !!g.name);
+                                            if (groupRels.length === 0) return (
+                                              <>
+                                                <span className="text-border">·</span>
+                                                <Users className="h-3 w-3" />
+                                                <span className="text-muted-foreground italic"><Trans>No group</Trans></span>
+                                              </>
+                                            );
+                                            return (
+                                              <>
+                                                <span className="text-border">·</span>
+                                                {groupRels.map((gr) => (
+                                                  <button
+                                                    key={gr.id}
+                                                    type="button"
+                                                    onClick={(e) => {
+                                                      e.stopPropagation();
+                                                      navigate({ to: '/group/mangadex/$groupId', params: { groupId: gr.id } });
+                                                    }}
+                                                    className="flex items-center gap-1 hover:underline text-muted-foreground hover:text-primary transition-colors"
+                                                  >
+                                                    <Users className="h-3 w-3" />
+                                                    <span className="line-clamp-1 max-w-[120px]">{gr.name}</span>
+                                                  </button>
+                                                ))}
+                                              </>
+                                            );
+                                          })()}
+                                        </div>
                                       </div>
-                                    )}
-                                    {description && (
-                                      <p className="line-clamp-2 text-xs text-muted-foreground">{description}</p>
-                                    )}
-                                  </div>
-                                </button>
-                              );
-                            })}
-                          </div>
-                        </div>
-                      ))}
-                    </div>
-                  )}
-                </div>
-              )}
-
-              {/* ── Recommendations Tab ── */}
-              {activeTab === 'recommendations' && (
-                <div className="flex flex-col items-center justify-center gap-4 py-16 text-center">
-                  <div className="rounded-full bg-muted p-4">
-                    <Star className="h-8 w-8 text-muted-foreground" />
+                                      {readChapterIds.has(chapterItem.id)
+                                        ? <EyeOff className="h-4 w-4 flex-shrink-0 text-muted-foreground/40 transition" />
+                                        : <Eye className="h-4 w-4 flex-shrink-0 text-foreground/70 transition group-hover:text-primary" />
+                                      }
+                                    </button>
+                                  );
+                                })}
+                              </div>
+                            </div>
+                          );
+                        })}
+                      </div>
+                    )}
                   </div>
-                  <p className="text-lg font-semibold text-foreground"><Trans>Recommendations coming soon</Trans></p>
-                  <p className="text-sm text-muted-foreground">
-                    <Trans>Personalized recommendations will be available in a future update.</Trans>
-                  </p>
-                </div>
-              )}
+                )}
+
+                {/* ── Comments Tab ── */}
+                {activeTab === 'comments' && (
+                  <div className="flex flex-col items-center justify-center gap-4 py-16 text-center">
+                    <div className="rounded-full bg-muted p-4">
+                      <Users className="h-8 w-8 text-muted-foreground" />
+                    </div>
+                    <p className="text-lg font-semibold text-foreground"><Trans>Comments coming soon</Trans></p>
+                    <p className="text-sm text-muted-foreground">
+                      <Trans>Community discussion will be available in a future update.</Trans>
+                    </p>
+                  </div>
+                )}
+
+                {/* ── Related Tab ── */}
+                {activeTab === 'related' && (
+                  <div className="space-y-6">
+                    <h2 className="text-2xl font-bold text-foreground"><Trans>Related Titles</Trans></h2>
+                    {relatedItems.length === 0 ? (
+                      <div className="rounded-xl border border-dashed border-border bg-muted/30 p-8 text-center text-muted-foreground">
+                        <Trans>No related titles found.</Trans>
+                      </div>
+                    ) : (
+                      <div className="space-y-8">
+                        {Object.entries(relatedByGroup)
+                          .sort(([a], [b]) => {
+                            const pa = RELATED_PRIORITY[a] ?? 500;
+                            const pb = RELATED_PRIORITY[b] ?? 500;
+                            return pa - pb;
+                          })
+                          .map(([group, items]) => (
+                            <div key={group} className="space-y-3">
+                              <h3 className="text-base font-semibold capitalize text-foreground">
+                                {RELATED_LABELS[group] ?? group}
+                              </h3>
+                              <div className="space-y-3">
+                                {items.map(({ id, queryIndex }) => {
+                                  const q = relatedQueries[queryIndex];
+                                  const relManga = (q?.data as { data?: { data?: Manga } } | undefined)?.data?.data;
+                                  const coverUrl = relManga ? mangaDexUtils.getCoverArt(relManga) : null;
+                                  const title = relManga ? mangaDexUtils.getTitle(relManga.attributes.title) : null;
+                                  const status = relManga?.attributes?.status;
+                                  const description = relManga
+                                    ? mangaDexUtils.getDescription(relManga.attributes.description)
+                                    : null;
+                                  const tags = relManga?.attributes?.tags ?? [];
+                                  if (q?.isLoading) return <Skeleton key={id} className="h-32 rounded-xl" />;
+                                  // Orphaned relation (manga deleted/private on MangaDex) — skip silently.
+                                  if (q?.isError || !relManga) return null;
+                                  return (
+                                    <button
+                                      key={relManga.id}
+                                      type="button"
+                                      onClick={() =>
+                                        navigate({
+                                          to: '/manga/$mangaId',
+                                          params: { mangaId: relManga.id },
+                                        })
+                                      }
+                                      className="flex w-full gap-4 rounded-xl border border-border bg-card p-4 text-left transition hover:border-primary/40 hover:bg-accent/30"
+                                    >
+                                      <div className="shrink-0 overflow-hidden rounded-lg">
+                                        {coverUrl ? (
+                                          <img
+                                            src={coverUrl}
+                                            alt={title ?? ''}
+                                            className="h-[120px] w-[80px] object-cover"
+                                            referrerPolicy="no-referrer"
+                                          />
+                                        ) : (
+                                          <div className="flex h-[120px] w-[80px] items-center justify-center bg-muted">
+                                            <BookOpen className="h-6 w-6 text-muted-foreground/40" />
+                                          </div>
+                                        )}
+                                      </div>
+                                      <div className="min-w-0 flex-1 space-y-1.5">
+                                        <div className="flex flex-wrap items-start justify-between gap-2">
+                                          <p className="font-semibold text-foreground line-clamp-1">{title}</p>
+                                          {status && (
+                                            <span
+                                              className={cn(
+                                                'shrink-0 rounded-full px-2 py-0.5 text-xs font-medium',
+                                                status === 'ongoing' && 'bg-sky-500/10 text-sky-600 dark:text-sky-400',
+                                                status === 'completed' && 'bg-emerald-500/10 text-emerald-600 dark:text-emerald-400',
+                                                status === 'hiatus' && 'bg-amber-500/10 text-amber-600 dark:text-amber-400',
+                                                status === 'cancelled' && 'bg-red-500/10 text-red-600 dark:text-red-400',
+                                              )}
+                                            >
+                                              {status.charAt(0).toUpperCase() + status.slice(1)}
+                                            </span>
+                                          )}
+                                        </div>
+                                        {tags.length > 0 && (
+                                          <div className="flex flex-wrap gap-1">
+                                            {tags.slice(0, 6).map((tag) => (
+                                              <span
+                                                key={tag.id}
+                                                className="rounded-sm border border-border/50 bg-muted/60 px-1.5 py-0.5 text-[11px] font-medium uppercase tracking-wide text-muted-foreground"
+                                              >
+                                                {mangaDexUtils.getTitle(tag.attributes.name)}
+                                              </span>
+                                            ))}
+                                          </div>
+                                        )}
+                                        {description && (
+                                          <p className="line-clamp-2 text-xs text-muted-foreground">{description}</p>
+                                        )}
+                                      </div>
+                                    </button>
+                                  );
+                                })}
+                              </div>
+                            </div>
+                          ))}
+                      </div>
+                    )}
+                  </div>
+                )}
+
+                {/* ── Recommendations Tab ── */}
+                {activeTab === 'recommendations' && (
+                  <div className="flex flex-col items-center justify-center gap-4 py-16 text-center">
+                    <div className="rounded-full bg-muted p-4">
+                      <Star className="h-8 w-8 text-muted-foreground" />
+                    </div>
+                    <p className="text-lg font-semibold text-foreground"><Trans>Recommendations coming soon</Trans></p>
+                    <p className="text-sm text-muted-foreground">
+                      <Trans>Personalized recommendations will be available in a future update.</Trans>
+                    </p>
+                  </div>
+                )}
 
               </div>
             </CardContent>

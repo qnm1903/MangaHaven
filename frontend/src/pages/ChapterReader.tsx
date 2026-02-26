@@ -247,7 +247,7 @@ const ChapterReader: React.FC = () => {
       coverUrl,
       timestamp: Date.now(),
     });
-  // eslint-disable-next-line react-hooks/exhaustive-deps
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [chapterId, !!chapterData?.data?.data, user]);
 
   const handleChapterChange = (newChapterId: string) => {
@@ -401,10 +401,10 @@ const ChapterReader: React.FC = () => {
                 <img
                   src={url}
                   alt={`Page ${index + 1}`}
-                  className={`${
-                    settings.imageOrientation === 'vertical' ? 'w-full h-auto' : 'h-screen w-auto'
-                  } ${!loadedImages.has(index) ? 'absolute opacity-0 pointer-events-none' : ''}`}
+                  className={`${settings.imageOrientation === 'vertical' ? 'w-full h-auto' : 'h-screen w-auto'
+                    } ${!loadedImages.has(index) ? 'absolute opacity-0 pointer-events-none' : ''}`}
                   onLoad={() => handleImageLoad(index)}
+                  referrerPolicy="no-referrer"
                   loading="lazy"
                 />
               </div>

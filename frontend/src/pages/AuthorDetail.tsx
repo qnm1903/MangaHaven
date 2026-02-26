@@ -193,6 +193,7 @@ const AuthorDetail: React.FC = () => {
                                 src={attrs.imageUrl}
                                 alt={attrs.name}
                                 className="h-full w-full object-cover"
+                                referrerPolicy="no-referrer"
                             />
                         ) : (
                             <User className="h-10 w-10 text-muted-foreground" />

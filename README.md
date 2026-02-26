@@ -1,4 +1,4 @@
-# MangaVerse - Manga Reading Application
+# MangaHaven - Manga Reading Application
 
 A modern manga reading application built with React, TanStack Router, Express.js, Prisma, and PostgreSQL.
 

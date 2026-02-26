@@ -11,7 +11,7 @@ services:
       - ./.env
     environment:
       NODE_ENV: production
-      FRONTEND_URL: https://mangahaven.app
+      FRONTEND_URL: ${FRONTEND_URL}
     expose:
       - "5000"
 
@@ -20,7 +20,7 @@ services:
       context: .
       dockerfile: nginx/Dockerfile
       args:
-        VITE_BACKEND_URL: https://mangahaven.app
+        VITE_BACKEND_URL: ${VITE_BACKEND_URL}
         VITE_OAUTH_CLIENT_ID: ${VITE_OAUTH_CLIENT_ID}
     container_name: manga_nginx
     restart: unless-stopped

@@ -18,6 +18,8 @@ export interface AuthResponse {
     displayName: string | null;
     role: string;
     timezone: string;
+    profilePicture?: string | null;
+    avatarPublicId?: string | null;
   };
   accessToken: string;
   refreshToken: string;

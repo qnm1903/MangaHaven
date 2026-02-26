@@ -3,9 +3,9 @@ import prisma from '../db/prisma';
 import { JWTUtils } from '../utils/jwt';
 import { ValidationUtils } from '../utils/validation';
 import { AuthResponse } from '../types/auth_types';
-import { 
-  BadRequestException, 
-  UnauthorizedException 
+import {
+  BadRequestException,
+  UnauthorizedException
 } from '../exceptions/http_exception';
 
 interface GoogleUserInfo {
@@ -54,7 +54,7 @@ export class GoogleOAuthService {
   static async authenticateWithGoogle(accessToken: string): Promise<AuthResponse> {
     try {
       console.log('Authenticating with Google access token:', accessToken.substring(0, 20) + '...');
-      
+
       // Get user info from Google API using access token in Authorization header
       const response = await fetch('https://www.googleapis.com/oauth2/v3/userinfo', {
         headers: {
@@ -62,9 +62,9 @@ export class GoogleOAuthService {
           'Content-Type': 'application/json'
         }
       });
-      
+
       console.log('Google API response status:', response.status);
-      
+
       if (!response.ok) {
         const errorText = await response.text();
         console.error('Google API error:', response.status, errorText);
@@ -151,21 +151,21 @@ export class GoogleOAuthService {
       } else {
         // User exists - login to existing account
         console.log('Logging in existing user with ID:', user.id);
-        
+
         // Update user info and last login
         user = await prisma.user.update({
           where: { id: user.id },
-          data: { 
+          data: {
             lastLoginAt: new Date(),
             // Update Google ID if not set
             ...((!user.googleId && googleUser.sub) && { googleId: googleUser.sub }),
             // Update profile picture from Google only if user has NOT uploaded a custom avatar
-            ...(!user.avatarPublicId && googleUser.picture && googleUser.picture !== user.profilePicture && { 
-              profilePicture: googleUser.picture 
+            ...(!user.avatarPublicId && googleUser.picture && googleUser.picture !== user.profilePicture && {
+              profilePicture: googleUser.picture
             }),
             // Update display name if not set or if Google provides a different one
-            ...((googleUser.name && (!user.displayName || user.displayName === 'Google User')) && { 
-              displayName: googleUser.name 
+            ...((googleUser.name && (!user.displayName || user.displayName === 'Google User')) && {
+              displayName: googleUser.name
             })
           },
           select: {
@@ -238,6 +238,8 @@ export class GoogleOAuthService {
           displayName: user.displayName,
           role: user.role,
           timezone: user.timezone,
+          profilePicture: user.profilePicture,
+          avatarPublicId: user.avatarPublicId,
         },
         accessToken: jwtAccessToken,
         refreshToken,
@@ -334,21 +336,21 @@ export class GoogleOAuthService {
       } else {
         // User exists - login to existing account
         console.log('Logging in existing user with ID:', user.id);
-        
+
         // Update user info and last login
         user = await prisma.user.update({
           where: { id: user.id },
-          data: { 
+          data: {
             lastLoginAt: new Date(),
             // Update Google ID if not set
             ...((!user.googleId && googleUser.sub) && { googleId: googleUser.sub }),
             // Update profile picture from Google only if user has NOT uploaded a custom avatar
-            ...(!user.avatarPublicId && googleUser.picture && googleUser.picture !== user.profilePicture && { 
-              profilePicture: googleUser.picture 
+            ...(!user.avatarPublicId && googleUser.picture && googleUser.picture !== user.profilePicture && {
+              profilePicture: googleUser.picture
             }),
             // Update display name if not set or if Google provides a different one
-            ...((googleUser.name && (!user.displayName || user.displayName === 'Google User')) && { 
-              displayName: googleUser.name 
+            ...((googleUser.name && (!user.displayName || user.displayName === 'Google User')) && {
+              displayName: googleUser.name
             })
           },
           select: {
@@ -421,6 +423,8 @@ export class GoogleOAuthService {
           displayName: user.displayName,
           role: user.role,
           timezone: user.timezone,
+          profilePicture: user.profilePicture,
+          avatarPublicId: user.avatarPublicId,
         },
         accessToken,
         refreshToken,

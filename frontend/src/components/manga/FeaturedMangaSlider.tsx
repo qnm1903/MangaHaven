@@ -55,7 +55,7 @@ export function FeaturedMangaSlider({ manga, className }: FeaturedMangaSliderPro
   // Handle autoplay pause on user interaction
   useEffect(() => {
     if (!emblaApi) return;
-    
+
     const autoplay = emblaApi.plugins().autoplay;
     if (!autoplay) return;
 
@@ -98,6 +98,7 @@ export function FeaturedMangaSlider({ manga, className }: FeaturedMangaSliderPro
                       src={coverUrl}
                       alt=""
                       className="h-full w-full object-cover opacity-15 blur-sm dark:opacity-25"
+                      referrerPolicy="no-referrer"
                     />
                     <div className="absolute inset-0 bg-gradient-to-r from-background/90 via-background/70 to-transparent dark:from-black/90 dark:via-black/70" />
                   </div>
@@ -114,6 +115,7 @@ export function FeaturedMangaSlider({ manga, className }: FeaturedMangaSliderPro
                         src={coverUrl}
                         alt={title}
                         className="h-[380px] w-[260px] object-cover"
+                        referrerPolicy="no-referrer"
                       />
                       <div className="absolute inset-0 bg-black/0 transition-colors group-hover:bg-black/10" />
                     </Link>

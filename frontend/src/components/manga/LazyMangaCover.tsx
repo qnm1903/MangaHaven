@@ -107,6 +107,7 @@ const LazyMangaCover: React.FC<LazyMangaCoverProps> = React.memo(
         fetchPriority={priority ? 'high' : 'low'}
         alt={title}
         className={clsx(className)}
+        referrerPolicy="no-referrer"
         onError={() => setHasError(true)}
       />
     );

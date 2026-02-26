@@ -54,6 +54,8 @@ export class AuthService {
         displayName: true,
         role: true,
         timezone: true,
+        profilePicture: true,
+        avatarPublicId: true,
       }
     });
 
@@ -80,7 +82,15 @@ export class AuthService {
     }
 
     return {
-      user,
+      user: {
+        id: user.id,
+        email: user.email,
+        displayName: user.displayName,
+        role: user.role,
+        timezone: user.timezone,
+        profilePicture: user.profilePicture ?? null,
+        avatarPublicId: user.avatarPublicId ?? null,
+      },
       accessToken,
       refreshToken,
     };
@@ -147,6 +157,8 @@ export class AuthService {
         displayName: user.displayName,
         role: user.role,
         timezone: user.timezone,
+        profilePicture: user.profilePicture,
+        avatarPublicId: user.avatarPublicId,
       },
       accessToken,
       refreshToken,

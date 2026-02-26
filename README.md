@@ -36,7 +36,7 @@ A modern manga reading application built with React, TanStack Router, Express.js
 - **JWT** for authentication tokens
 - **bcryptjs** for password hashing
 - **rate-limiter-flexible** for rate limiting
-- **Socket.IO** for realtime
+- **Socket.IO** for realtime features
 - **Helmet + compression** for security and performance
 
 ### Database

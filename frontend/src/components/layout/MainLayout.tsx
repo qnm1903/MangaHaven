@@ -17,10 +17,10 @@ export function MainLayout({ children, className }: MainLayoutProps) {
         isCollapsed={sidebarCollapsed}
         onToggle={() => setSidebarCollapsed(!sidebarCollapsed)}
       />
-      <div className="flex flex-1 flex-col">
+      <div className="flex flex-1 flex-col min-w-0 overflow-hidden">
         <Header />
         <main className={cn(
-          "flex-1 overflow-y-auto",
+          "flex-1 overflow-y-auto overflow-x-hidden",
           className
         )}>
           <div className="container mx-auto p-6">

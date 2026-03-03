@@ -190,13 +190,14 @@ button:disabled,
   * {
     @apply border-border outline-ring/50;
   }
-  
+
   body {
     @apply bg-background text-foreground antialiased;
+    overflow-x: hidden;
   }
 
-  /* Smooth scrolling */
   html {
+    overflow-x: hidden;
     scroll-behavior: smooth;
   }
 }
@@ -205,6 +206,7 @@ button:disabled,
    Animation Utilities
    ============================================ */
 @layer utilities {
+
   /* Fade in animation */
   .animate-fade-in {
     animation: fadeIn 0.3s ease-out forwards;
@@ -219,6 +221,7 @@ button:disabled,
   .hover-lift {
     @apply transition-all duration-200 ease-out;
   }
+
   .hover-lift:hover {
     @apply -translate-y-1 shadow-lg;
   }
@@ -239,6 +242,7 @@ button:disabled,
     opacity: 0;
     transform: translateY(8px);
   }
+
   to {
     opacity: 1;
     transform: translateY(0);
@@ -250,6 +254,7 @@ button:disabled,
     opacity: 0;
     transform: translateY(16px);
   }
+
   to {
     opacity: 1;
     transform: translateY(0);
@@ -276,6 +281,15 @@ button:disabled,
   animation: contentHide 200ms ease-out forwards;
 }
 
+/* Radix Popover animations */
+[data-slot="popover-content"][data-state="open"] {
+  animation: contentShow 200ms ease-out forwards;
+}
+
+[data-slot="popover-content"][data-state="closed"] {
+  animation: contentHide 150ms ease-in forwards;
+}
+
 /* Radix Sheet animations */
 [data-slot="sheet-overlay"][data-state="open"] {
   animation: fadeInSheet 200ms ease-out forwards;
@@ -298,6 +312,7 @@ button:disabled,
     opacity: 0;
     transform: scale(0.95) translateY(4px);
   }
+
   to {
     opacity: 1;
     transform: scale(1) translateY(0);
@@ -309,6 +324,7 @@ button:disabled,
     opacity: 1;
     transform: scale(1) translateY(0);
   }
+
   to {
     opacity: 0;
     transform: scale(0.95) translateY(4px);
@@ -319,6 +335,7 @@ button:disabled,
   from {
     opacity: 0;
   }
+
   to {
     opacity: 1;
   }
@@ -328,6 +345,7 @@ button:disabled,
   from {
     opacity: 1;
   }
+
   to {
     opacity: 0;
   }
@@ -338,6 +356,7 @@ button:disabled,
     transform: translateY(100%);
     opacity: 0;
   }
+
   to {
     transform: translateY(0);
     opacity: 1;
@@ -349,6 +368,7 @@ button:disabled,
     transform: translateY(0);
     opacity: 1;
   }
+
   to {
     transform: translateY(100%);
     opacity: 0;

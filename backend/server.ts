@@ -4,6 +4,7 @@ import dotenv from 'dotenv';
 import path from 'path';
 import http from 'http';
 import { initSocketServer } from './src/services/socket_service';
+import { initQueues, closeQueues } from './src/queues';
 
 dotenv.config({ path: path.resolve(process.cwd(), '../.env') });
 
@@ -21,6 +22,9 @@ async function startServer() {
     // Initialize Socket.io
     initSocketServer(server);
 
+    // Initialize BullMQ queues and workers
+    await initQueues();
+
     // Start server
     server.listen(BACKEND_PORT, () => {
       console.log(`Server running on port ${BACKEND_PORT}`);
@@ -36,12 +40,14 @@ async function startServer() {
 // Graceful shutdown
 process.on('SIGINT', async () => {
   console.log('\nShutting down gracefully...');
+  await closeQueues();
   await prisma.$disconnect();
   process.exit(0);
 });
 
 process.on('SIGTERM', async () => {
   console.log('\nShutting down gracefully...');
+  await closeQueues();
   await prisma.$disconnect();
   process.exit(0);
 });

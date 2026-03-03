@@ -266,7 +266,7 @@ model Comment {
   
   // Nested comments support
   parentId  String?
-  parent    Comment?       @relation("CommentReplies", fields: [parentId], references: [id])
+  parent    Comment?       @relation("CommentReplies", fields: [parentId], references: [id], onDelete: Cascade)
   replies   Comment[]      @relation("CommentReplies")
   
   createdAt DateTime       @default(now()) @db.Timestamptz

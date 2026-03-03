@@ -40,6 +40,16 @@ export class CommentService {
         });
     }
 
+    /**
+     * Get a single comment by ID (used for notification lookups).
+     */
+    static async getCommentById(commentId: string) {
+        return prisma.comment.findUnique({
+            where: { id: commentId },
+            select: { id: true, userId: true, mangaId: true, chapterId: true },
+        });
+    }
+
     static async getComments(params: {
         mangaId: string;
         chapterId?: string;

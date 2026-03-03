@@ -53,6 +53,10 @@ export const LatestCommentsWidget = () => {
                                         <Link
                                             to="/chapter/$chapterId"
                                             params={{ chapterId: comment.chapterId }}
+                                            onClick={() => {
+                                                sessionStorage.setItem('scrollToComment', comment.id);
+                                                if (comment.parentId) sessionStorage.setItem('expandParentComment', comment.parentId);
+                                            }}
                                             className="inline-flex items-center text-xs text-primary hover:underline group/link"
                                         >
                                             Xem tại chương này
@@ -62,6 +66,10 @@ export const LatestCommentsWidget = () => {
                                         <Link
                                             to="/manga/$mangaId"
                                             params={{ mangaId: comment.mangaId }}
+                                            onClick={() => {
+                                                sessionStorage.setItem('scrollToComment', comment.id);
+                                                if (comment.parentId) sessionStorage.setItem('expandParentComment', comment.parentId);
+                                            }}
                                             className="inline-flex items-center text-xs text-primary hover:underline group/link"
                                         >
                                             Xem tại truyện này

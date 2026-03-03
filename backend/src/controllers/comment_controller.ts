@@ -2,6 +2,7 @@ import { Request, Response } from 'express';
 import { CommentService } from '../services/comment_service';
 import { getIO } from '../services/socket_service';
 import { MangaSourceType } from '@prisma/client';
+import { queueCommentReplyNotification } from '../queues/notification/notification_queue';
 
 export const createComment = async (req: Request, res: Response): Promise<void> => {
     try {
@@ -24,7 +25,20 @@ export const createComment = async (req: Request, res: Response): Promise<void> 
         // Also emit to global "latest" room if we have one, or just general broadcast
         io.to(roomName).emit('new_comment', comment);
 
-        // If it's a reply, maybe notify the parent comment owner (future implementation)
+        // Queue notification for reply — non-blocking (fire & forget)
+        if (parentId && comment.parentId) {
+            const parentComment = await CommentService.getCommentById(comment.parentId);
+            if (parentComment) {
+                queueCommentReplyNotification({
+                    targetUserId: parentComment.userId,
+                    replyUserId: userId,
+                    mangaId,
+                    commentId: comment.id,
+                    parentCommentId: comment.parentId,
+                    chapterId: chapterId || undefined,
+                }).catch((err) => console.error('Failed to queue reply notification:', err));
+            }
+        }
 
         res.status(201).json({ success: true, data: comment });
     } catch (error: any) {

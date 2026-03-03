@@ -20,8 +20,7 @@ export const initSocketServer = (httpServer: HttpServer) => {
 
         if (!token) {
             // Allow anonymous connection for reading comments only?
-            // For now, let's allow everyone to connect, but maybe restrict actions later.
-            // Actually, if we want real-time updates for everyone (including guests), we should allow connection.
+            // For now, allow everyone to connect, but maybe restrict actions later.
             return next();
         }
 
@@ -31,13 +30,21 @@ export const initSocketServer = (httpServer: HttpServer) => {
             next();
         } catch (err) {
             // Token invalid but we still allow connection as guest?
-            // Or reject? Let's allow guest for now.
+            // Or reject? allow guest for now.
             next();
         }
     });
 
     io.on('connection', (socket: Socket) => {
         console.log(`Socket connected: ${socket.id} (User: ${socket.data.user?.userId || 'Guest'})`);
+
+        // ── User notification room ──
+        // Authenticated users auto-join their personal room for receiving notifications
+        if (socket.data.user?.userId) {
+            const userRoom = `user:${socket.data.user.userId}`;
+            socket.join(userRoom);
+            console.log(`Socket ${socket.id} joined ${userRoom}`);
+        }
 
         // Join a chapter room to receive comments
         socket.on('join_chapter', (chapterId: string) => {
@@ -72,3 +79,19 @@ export const getIO = (): SocketIOServer => {
     }
     return io;
 };
+
+/**
+ * Emit an event to a specific user's notification room.
+ * Used by the notification worker to deliver real-time notifications.
+ *
+ * @param userId - Target user ID
+ * @param event  - Socket event name (e.g. 'notification')
+ * @param data   - Payload to send
+ */
+export function emitToUser(userId: string, event: string, data: unknown): void {
+    if (!io) {
+        console.warn('[Socket.IO] Cannot emit — server not initialized');
+        return;
+    }
+    io.to(`user:${userId}`).emit(event, data);
+}

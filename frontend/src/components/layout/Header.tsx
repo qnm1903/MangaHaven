@@ -2,6 +2,7 @@ import { Link, useNavigate } from "@tanstack/react-router"
 import { cn } from "@/lib/utils"
 import { Button } from "@/components/ui/button"
 import { SearchBar } from "@/components/SearchBar"
+import { NotificationBell } from "@/components/notification/NotificationBell"
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar"
 import {
   DropdownMenu,
@@ -14,13 +15,12 @@ import {
 import { useAuth } from "@/hooks/useAuth"
 import { useTheme } from "@/hooks/useTheme"
 import {
-  Bell,
   Settings,
   User,
   Moon,
   Sun,
   LogOut,
-  UserIcon
+  UserIcon,
 } from "lucide-react"
 
 interface HeaderProps {
@@ -79,9 +79,7 @@ export function Header({ className }: HeaderProps) {
           </Button>
 
           {/* Notifications */}
-          <Button variant="ghost" size="icon" className="h-9 w-9">
-            <Bell className="h-4 w-4" />
-          </Button>
+          <NotificationBell />
 
           {/* User Menu */}
           {user ? (

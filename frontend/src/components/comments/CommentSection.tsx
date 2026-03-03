@@ -155,6 +155,66 @@ export const CommentSection = ({ mangaId, chapterId, sourceType = 'MANGADEX' }: 
 
     const comments = data?.pages.flatMap(page => page.comments) || [];
 
+    // Scroll to a specific comment — supports auto-expanding collapsed reply threads
+    // Uses sessionStorage: 'scrollToComment' = target ID, 'expandParentComment' = parent ID
+    useEffect(() => {
+        if (isLoading || comments.length === 0) return;
+
+        const targetId = sessionStorage.getItem('scrollToComment');
+        if (!targetId) return;
+
+        // Clear immediately to prevent re-trigger
+        sessionStorage.removeItem('scrollToComment');
+        const parentId = sessionStorage.getItem('expandParentComment');
+        sessionStorage.removeItem('expandParentComment');
+
+        const scrollAndHighlight = (el: Element) => {
+            el.scrollIntoView({ behavior: 'smooth', block: 'center' });
+            el.classList.add('ring-2', 'ring-blue-500/60', 'rounded-lg', 'transition-shadow');
+
+            // Re-scroll periodically for a few seconds to handle layout shifting
+            const scrollInterval = setInterval(() => {
+                const stillExists = document.getElementById(`comment-${targetId}`);
+                if (stillExists) stillExists.scrollIntoView({ behavior: 'smooth', block: 'center' });
+            }, 300);
+
+            setTimeout(() => {
+                clearInterval(scrollInterval);
+                el.classList.remove('ring-2', 'ring-blue-500/60', 'rounded-lg', 'transition-shadow');
+            }, 2500);
+        };
+
+        // Try direct scroll first (works for top-level comments)
+        const el = document.getElementById(`comment-${targetId}`);
+        if (el) {
+            requestAnimationFrame(() => scrollAndHighlight(el));
+            return;
+        }
+
+        // Element not found — it's inside a collapsed reply thread
+        // Auto-expand the parent thread, then watch DOM for the reply to appear
+        if (parentId) {
+            // Expand the parent's replies
+            setExpandedReplies(prev =>
+                prev.includes(parentId) ? prev : [...prev, parentId]
+            );
+
+            // Use MutationObserver to detect when reply element renders
+            const observer = new MutationObserver((_mutations, obs) => {
+                const replyEl = document.getElementById(`comment-${targetId}`);
+                if (replyEl) {
+                    obs.disconnect();
+                    // Small delay for layout to settle after replies render
+                    setTimeout(() => scrollAndHighlight(replyEl), 200);
+                }
+            });
+            observer.observe(document.body, { childList: true, subtree: true });
+
+            // Cleanup: disconnect after 10s if element never appears
+            setTimeout(() => observer.disconnect(), 10000);
+        }
+    }, [isLoading, comments.length]);
+
     const createMutation = useMutation({
         mutationFn: (text: string) => createComment({ mangaId, chapterId, content: text, sourceType }),
         onSuccess: () => {
@@ -327,7 +387,7 @@ const CommentItem = ({
     });
 
     return (
-        <div className="flex gap-4 group">
+        <div id={`comment-${comment.id}`} className="flex gap-4 group">
             <Avatar className="w-10 h-10 mt-1">
                 <AvatarImage src={comment.user.profilePicture || undefined} />
                 <AvatarFallback>{comment.user.displayName?.[0]?.toUpperCase() || 'U'}</AvatarFallback>

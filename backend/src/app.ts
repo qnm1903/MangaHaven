@@ -17,6 +17,7 @@ import groupRoutes from './routes/group_routes';
 import authorRoutes from './routes/author_routes';
 import commentRoutes from './routes/comment_routes';
 import followRoutes from './routes/follow_routes';
+import notificationRoutes from './routes/notification_routes';
 import compression from 'compression';
 import helmet from 'helmet';
 import { errorHandler, notFoundHandler } from './middlewares/auth_error_middleware';
@@ -65,6 +66,7 @@ app.use('/api/v1/groups', groupRoutes);
 app.use('/api/v1/authors', authorRoutes);
 app.use('/api/v1/comments', commentRoutes);
 app.use('/api/v1/follows', followRoutes);
+app.use('/api/v1/notifications', notificationRoutes);
 
 app.get('/', (req: Request, res: Response) => {
   res.json({

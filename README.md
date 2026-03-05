@@ -9,8 +9,9 @@ A modern manga reading application built with React, TanStack Router, Express.js
 - **Community**: Comments, follows, and group/author pages
 - **Admin Tools**: User and content management endpoints
 - **Media Handling**: Image uploads via Cloudinary
+- **Notifications**: Background workers for automated chapter updates and events
+- **Analytics**: User behavior tracking and insights via PostHog
 - **Type Safety**: Full TypeScript across frontend and backend
-- **Responsive UI**: Mobile-first UI with Tailwind CSS
 
 ## Tech Stack
 
@@ -22,6 +23,7 @@ A modern manga reading application built with React, TanStack Router, Express.js
 - **Tailwind CSS v4** for styling
 - **Radix UI + shadcn/ui** for components
 - **Framer Motion** for animations
+- **PostHog** for product analytics
 - **Lingui** for localization
 - **Vite** for build tooling
 - **@react-oauth/google** for Google authentication
@@ -35,6 +37,7 @@ A modern manga reading application built with React, TanStack Router, Express.js
 - **Google Auth Library** for OAuth verification
 - **JWT** for authentication tokens
 - **bcryptjs** for password hashing
+- **BullMQ** for robust background job queues
 - **rate-limiter-flexible** for rate limiting
 - **Socket.IO** for realtime features
 - **Helmet + compression** for security and performance
@@ -42,6 +45,10 @@ A modern manga reading application built with React, TanStack Router, Express.js
 ### Database
 - **PostgreSQL** with Prisma migrations
 - **User profile and OAuth provider tracking**
+
+### Deployment
+- **Docker & Docker Compose** for container orchestration
+- **Nginx** for reverse proxy and SSL termination
 
 ## Prerequisites
 
@@ -77,8 +84,8 @@ cp frontend/.env.example frontend/.env
 # For Prisma Accelerate (recommended for production)
 DATABASE_URL="prisma://accelerate.prisma-data.net/?api_key=your-accelerate-api-key"
 # Or for direct PostgreSQL connection (development only)
-# DATABASE_URL="postgresql://username:password@localhost:5432/mangaverse_db"
-DIRECT_DATABASE_URL="postgresql://username:password@localhost:5432/mangaverse_db"
+# DATABASE_URL="postgresql://username:password@localhost:5432/mangahaven_db"
+DIRECT_DATABASE_URL="postgresql://username:password@localhost:5432/mangahaven_db"
 
 # JWT Configuration
 JWT_SECRET="your-super-secret-jwt-key-here"
@@ -283,7 +290,7 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 ## Roadmap
 
-- [ ] Analytics: Tracking event + báo cáo admin
+- [x] Analytics: Tracking event + báo cáo admin
 - [ ] Chat: 1-1 messaging + inbox admin
 - [ ] Recommendations: Trending + đề xuất cá nhân
 

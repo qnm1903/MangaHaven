@@ -25,6 +25,21 @@ msgstr "{0}"
 msgid "{0} chapters read · saved on this device"
 msgstr "{0} chương đã đọc · lưu trên thiết bị này"
 
+#. placeholder {0}: Math.floor(diff / 86400)
+#: src/components/notification/NotificationItem.tsx:23
+msgid "{0} days ago"
+msgstr "{0} ngày trước"
+
+#. placeholder {0}: Math.floor(diff / 3600)
+#: src/components/notification/NotificationItem.tsx:22
+msgid "{0} hours ago"
+msgstr "{0} giờ trước"
+
+#. placeholder {0}: Math.floor(diff / 60)
+#: src/components/notification/NotificationItem.tsx:21
+msgid "{0} minutes ago"
+msgstr "{0} phút trước"
+
 #. placeholder {0}: totalResults.toLocaleString()
 #: src/pages/AdvancedSearch.tsx:329
 msgid "{0} results found"
@@ -137,6 +152,10 @@ msgstr "Đã xóa ảnh đại diện thành công!"
 #: src/pages/Profile.tsx:138
 msgid "Avatar updated successfully!"
 msgstr "Đã cập nhật ảnh đại diện thành công!"
+
+#: src/pages/MangaDetail.tsx:617
+msgid "Average"
+msgstr "Trung bình"
 
 #: src/pages/AuthorDetail.tsx:164
 #: src/pages/GroupDetail.tsx:254
@@ -296,6 +315,10 @@ msgstr "Trang chủ"
 #: src/pages/Settings.tsx:77
 msgid "Default translation language for chapter lists and home page."
 msgstr "Ngôn ngữ bản dịch mặc định cho danh sách chương và trang chủ."
+
+#: src/components/notification/NotificationItem.tsx:143
+msgid "Delete notification"
+msgstr "Xóa thông báo"
 
 #: src/pages/AdvancedSearch.tsx:289
 #: src/pages/MangaDetail.tsx:774
@@ -521,6 +544,7 @@ msgstr "Tham gia {0}"
 msgid "just now"
 msgstr "vừa xong"
 
+#: src/components/notification/NotificationItem.tsx:20
 #: src/pages/Dashboard.tsx:51
 msgid "Just now"
 msgstr "Vừa xong"
@@ -537,6 +561,10 @@ msgstr "Ngôn ngữ có bản dịch"
 msgid "Last Updated"
 msgstr "Cập nhật lần cuối"
 
+#: src/components/dashboard/LatestCommentsWidget.tsx:22
+msgid "Latest Comments"
+msgstr "Bình luận mới nhất"
+
 #: src/pages/AdvancedSearch.tsx:51
 msgid "Latest Update"
 msgstr "Cập nhật mới nhất"
@@ -551,6 +579,10 @@ msgstr "Cập nhật mới nhất"
 #: src/pages/MangaDetail.tsx:402
 msgid "Link copied"
 msgstr "Đã sao chép liên kết"
+
+#: src/components/notification/NotificationBell.tsx:119
+msgid "Load more"
+msgstr "Xem thêm"
 
 #: src/pages/GroupDetail.tsx:298
 msgid "Local"
@@ -579,6 +611,10 @@ msgstr "Manga được nhiều độc giả theo dõi trong tháng này."
 #: src/pages/Favorites.tsx:47
 msgid "Manga you're following"
 msgstr "Manga bạn đang theo dõi"
+
+#: src/components/notification/NotificationBell.tsx:79
+msgid "Mark all as read"
+msgstr "Đánh dấu tất cả đã đọc"
 
 #: src/pages/GroupDetail.tsx:307
 #: src/pages/GroupDetail.tsx:428
@@ -644,9 +680,17 @@ msgstr "Tiếp theo"
 msgid "No chapters found for the selected time range."
 msgstr "Không tìm thấy chương trong khoảng thời gian đã chọn."
 
+#: src/components/dashboard/LatestCommentsWidget.tsx:86
+msgid "No comments yet."
+msgstr "Chưa có bình luận nào."
+
 #: src/pages/Auth.tsx:36
 msgid "No credential received from Google."
 msgstr "Không nhận được thông tin đăng nhập từ Google."
+
+#: src/pages/MangaDetail.tsx:621
+msgid "No distribution data"
+msgstr "Không có dữ liệu phân phối"
 
 #: src/pages/MangaDetail.tsx:965
 msgid "No group"
@@ -665,7 +709,9 @@ msgstr "Chưa có chương mới. Thử lại sau vài phút."
 msgid "No new manga. Refresh or check back in a few minutes."
 msgstr "Chưa có manga mới. Làm mới hoặc quay lại sau vài phút."
 
-#: src/pages/MangaDetail.tsx:1025
+#: src/components/notification/NotificationBell.tsx:95
+msgid "No notifications yet"
+msgstr "Chưa có thông báo nào"
 msgid "No related titles found."
 msgstr "Không tìm thấy tiêu đề liên quan."
 
@@ -685,7 +731,9 @@ msgstr "Chưa có cập nhật"
 msgid "No Volume"
 msgstr "Không có tập"
 
-#: src/pages/GroupDetail.tsx:433
+#: src/components/notification/NotificationBell.tsx:70
+msgid "Notifications"
+msgstr "Thông báo"
 msgid "Official"
 msgstr "Chính thức"
 
@@ -785,9 +833,17 @@ msgstr "Năm xuất bản"
 msgid "Rankings"
 msgstr "Xếp hạng"
 
+#: src/pages/MangaDetail.tsx:641
+msgid "ratings"
+msgstr "lượt đánh giá"
+
 #: src/pages/Profile.tsx:485
 msgid "Re-enter new password"
 msgstr "Nhập lại mật khẩu mới"
+
+#: src/pages/MangaDetail.tsx:504
+msgid "Read Now"
+msgstr "Đọc ngay"
 
 #: src/pages/MangaDetail.tsx:789
 msgid "Read or Buy"
@@ -1100,6 +1156,18 @@ msgstr "Bản dịch tiếng Việt sẽ có trong phiên bản tới."
 #: src/pages/Favorites.tsx:175
 msgid "View"
 msgstr "Xem"
+
+#: src/components/manga/FeaturedMangaSlider.tsx:177
+msgid "View Details"
+msgstr "Xem Chi Tiết"
+
+#: src/components/dashboard/LatestCommentsWidget.tsx:63
+msgid "View in chapter"
+msgstr "Xem tại chương này"
+
+#: src/components/dashboard/LatestCommentsWidget.tsx:76
+msgid "View in manga"
+msgstr "Xem tại truyện này"
 
 #: src/pages/AuthorDetail.tsx:224
 #: src/pages/GroupDetail.tsx:452

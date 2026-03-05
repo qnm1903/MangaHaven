@@ -12,6 +12,7 @@ import { useNotifications } from '@/hooks/useNotifications';
 import { useAuth } from '@/hooks/useAuth';
 import { NotificationItem } from './NotificationItem';
 import { cn } from '@/lib/utils';
+import { Trans } from '@lingui/react/macro';
 
 // Check if Popover exists — if not we need to add it
 // shadcn/ui popover uses @radix-ui/react-popover
@@ -66,7 +67,7 @@ export function NotificationBell() {
             >
                 {/* Header */}
                 <div className="flex items-center justify-between px-4 py-3">
-                    <h3 className="font-semibold text-sm">Thông báo</h3>
+                    <h3 className="font-semibold text-sm"><Trans>Notifications</Trans></h3>
                     {unreadCount > 0 && (
                         <Button
                             variant="ghost"
@@ -75,7 +76,7 @@ export function NotificationBell() {
                             onClick={markAllRead}
                         >
                             <CheckCheck className="h-3.5 w-3.5 mr-1" />
-                            Đánh dấu tất cả đã đọc
+                            <Trans>Mark all as read</Trans>
                         </Button>
                     )}
                 </div>
@@ -91,7 +92,7 @@ export function NotificationBell() {
                     ) : notifications.length === 0 ? (
                         <div className="flex flex-col items-center justify-center py-8 text-muted-foreground">
                             <Bell className="h-8 w-8 mb-2 opacity-50" />
-                            <p className="text-sm">Chưa có thông báo nào</p>
+                            <p className="text-sm"><Trans>No notifications yet</Trans></p>
                         </div>
                     ) : (
                         <div className="divide-y divide-border">
@@ -115,7 +116,7 @@ export function NotificationBell() {
                                         className="text-xs text-muted-foreground"
                                         onClick={fetchMore}
                                     >
-                                        Xem thêm
+                                        <Trans>Load more</Trans>
                                     </Button>
                                 </div>
                             )}

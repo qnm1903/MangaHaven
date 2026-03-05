@@ -1,4 +1,5 @@
 import { useCallback, useEffect, useState } from 'react';
+import { Trans } from '@lingui/react/macro';
 import { Link } from '@tanstack/react-router';
 import useEmblaCarousel from 'embla-carousel-react';
 import Autoplay from 'embla-carousel-autoplay';
@@ -173,7 +174,7 @@ export function FeaturedMangaSlider({ manga, className }: FeaturedMangaSliderPro
                         <div className="flex gap-3">
                           <Button asChild size="lg" className="shadow-lg">
                             <Link to="/manga/$mangaId" params={{ mangaId: item.id }}>
-                              Xem Chi Tiết
+                              <Trans>View Details</Trans>
                             </Link>
                           </Button>
                         </div>

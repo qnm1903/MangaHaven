@@ -2,6 +2,7 @@ import { useNavigate } from '@tanstack/react-router';
 import { MessageSquare, BookOpen, Users, Star, Info, Trash2 } from 'lucide-react';
 import type { Notification } from '@/services/notification_service';
 import { cn } from '@/lib/utils';
+import { t } from '@lingui/core/macro';
 
 interface NotificationItemProps {
     notification: Notification;
@@ -16,11 +17,11 @@ function timeAgo(dateStr: string): string {
     const date = new Date(dateStr).getTime();
     const diff = Math.floor((now - date) / 1000);
 
-    if (diff < 60) return 'Vừa xong';
-    if (diff < 3600) return `${Math.floor(diff / 60)} phút trước`;
-    if (diff < 86400) return `${Math.floor(diff / 3600)} giờ trước`;
-    if (diff < 604800) return `${Math.floor(diff / 86400)} ngày trước`;
-    return new Date(dateStr).toLocaleDateString('vi-VN');
+    if (diff < 60) return t`Just now`;
+    if (diff < 3600) return t`${Math.floor(diff / 60)} minutes ago`;
+    if (diff < 86400) return t`${Math.floor(diff / 3600)} hours ago`;
+    if (diff < 604800) return t`${Math.floor(diff / 86400)} days ago`;
+    return new Date(dateStr).toLocaleDateString();
 }
 
 // Icon per notification type
@@ -139,7 +140,7 @@ export function NotificationItem({ notification, onRead, onDelete, onClose }: No
             <button
                 onClick={handleDelete}
                 className="shrink-0 p-1 rounded-sm opacity-0 group-hover:opacity-100 hover:bg-destructive/10 hover:text-destructive transition-opacity"
-                title="Xóa thông báo"
+                title={t`Delete notification`}
             >
                 <Trash2 className="h-3.5 w-3.5" />
             </button>

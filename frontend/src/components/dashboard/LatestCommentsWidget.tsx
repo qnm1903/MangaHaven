@@ -5,6 +5,7 @@ import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
 import { Loader2, MessageCircle, ArrowRight } from 'lucide-react';
 import { Link } from '@tanstack/react-router';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
+import { Trans } from '@lingui/react/macro';
 
 export const LatestCommentsWidget = () => {
     const { data: comments, isLoading } = useQuery({
@@ -18,7 +19,7 @@ export const LatestCommentsWidget = () => {
             <CardHeader className="pb-3">
                 <CardTitle className="text-xl font-semibold flex items-center gap-2">
                     <MessageCircle className="w-5 h-5 text-primary" />
-                    Bình luận mới nhất
+                    <Trans>Latest Comments</Trans>
                 </CardTitle>
             </CardHeader>
             <CardContent>
@@ -59,7 +60,7 @@ export const LatestCommentsWidget = () => {
                                             }}
                                             className="inline-flex items-center text-xs text-primary hover:underline group/link"
                                         >
-                                            Xem tại chương này
+                                            <Trans>View in chapter</Trans>
                                             <ArrowRight className="w-3 h-3 ml-1 transition-transform group-hover/link:translate-x-0.5" />
                                         </Link>
                                     ) : (
@@ -72,7 +73,7 @@ export const LatestCommentsWidget = () => {
                                             }}
                                             className="inline-flex items-center text-xs text-primary hover:underline group/link"
                                         >
-                                            Xem tại truyện này
+                                            <Trans>View in manga</Trans>
                                             <ArrowRight className="w-3 h-3 ml-1 transition-transform group-hover/link:translate-x-0.5" />
                                         </Link>
                                     )}
@@ -82,7 +83,7 @@ export const LatestCommentsWidget = () => {
                     </div>
                 ) : (
                     <p className="text-center text-muted-foreground py-6 text-sm">
-                        Chưa có bình luận nào.
+                        <Trans>No comments yet.</Trans>
                     </p>
                 )}
             </CardContent>

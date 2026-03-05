@@ -501,7 +501,7 @@ const MangaDetail: React.FC = () => {
               />
               <Button className="flex-1 min-w-[160px] bg-rose-600 hover:bg-rose-700 text-white shadow-lg" onClick={handleReadNow}>
                 <BookOpen className="mr-2 h-4 w-4" />
-                Read Now
+                <Trans>Read Now</Trans>
               </Button>
             </div>
 
@@ -614,11 +614,11 @@ const MangaDetail: React.FC = () => {
                 {/* Distribution tooltip */}
                 <div className="pointer-events-none absolute left-0 top-full z-50 mt-2 w-64 rounded-xl border border-border bg-card p-3 shadow-xl opacity-0 group-hover:opacity-100 transition-opacity duration-200">
                   <p className="mb-2 text-xs font-semibold text-foreground">
-                    {ratingDisplay} Bayesian · {typeof mangaEntity.statistics?.rating?.average === 'number' ? mangaEntity.statistics.rating.average.toFixed(4) : 'N/A'} Average
+                    {ratingDisplay} Bayesian · {typeof mangaEntity.statistics?.rating?.average === 'number' ? mangaEntity.statistics.rating.average.toFixed(4) : 'N/A'} <Trans>Average</Trans>
                   </p>
                   {(() => {
                     const dist = mangaEntity.statistics?.rating?.distribution;
-                    if (!dist) return <p className="text-xs text-muted-foreground">No distribution data</p>;
+                    if (!dist) return <p className="text-xs text-muted-foreground"><Trans>No distribution data</Trans></p>;
                     const entries = [10, 9, 8, 7, 6, 5, 4, 3, 2, 1].map(n => ({ star: n, count: dist[String(n)] ?? 0 }));
                     const maxCount = Math.max(...entries.map(e => e.count), 1);
                     const total = entries.reduce((s, e) => s + e.count, 0);
@@ -638,7 +638,7 @@ const MangaDetail: React.FC = () => {
                             </div>
                           ))}
                         </div>
-                        <p className="mt-2 text-right text-xs text-muted-foreground">{total} ratings</p>
+                        <p className="mt-2 text-right text-xs text-muted-foreground">{total} <Trans>ratings</Trans></p>
                       </>
                     );
                   })()}

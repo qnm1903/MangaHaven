@@ -25,6 +25,21 @@ msgstr "{0}"
 msgid "{0} chapters read · saved on this device"
 msgstr "{0} chapters read · saved on this device"
 
+#. placeholder {0}: Math.floor(diff / 86400)
+#: src/components/notification/NotificationItem.tsx:23
+msgid "{0} days ago"
+msgstr "{0} days ago"
+
+#. placeholder {0}: Math.floor(diff / 3600)
+#: src/components/notification/NotificationItem.tsx:22
+msgid "{0} hours ago"
+msgstr "{0} hours ago"
+
+#. placeholder {0}: Math.floor(diff / 60)
+#: src/components/notification/NotificationItem.tsx:21
+msgid "{0} minutes ago"
+msgstr "{0} minutes ago"
+
 #. placeholder {0}: totalResults.toLocaleString()
 #: src/pages/AdvancedSearch.tsx:329
 msgid "{0} results found"
@@ -137,6 +152,10 @@ msgstr "Avatar removed successfully!"
 #: src/pages/Profile.tsx:138
 msgid "Avatar updated successfully!"
 msgstr "Avatar updated successfully!"
+
+#: src/pages/MangaDetail.tsx:617
+msgid "Average"
+msgstr "Average"
 
 #: src/pages/AuthorDetail.tsx:164
 #: src/pages/GroupDetail.tsx:254
@@ -296,6 +315,10 @@ msgstr "Dashboard"
 #: src/pages/Settings.tsx:77
 msgid "Default translation language for chapter lists and home page."
 msgstr "Default translation language for chapter lists and home page."
+
+#: src/components/notification/NotificationItem.tsx:143
+msgid "Delete notification"
+msgstr "Delete notification"
 
 #: src/pages/AdvancedSearch.tsx:289
 #: src/pages/MangaDetail.tsx:774
@@ -521,6 +544,7 @@ msgstr "Joined {0}"
 msgid "just now"
 msgstr "just now"
 
+#: src/components/notification/NotificationItem.tsx:20
 #: src/pages/Dashboard.tsx:51
 msgid "Just now"
 msgstr "Just now"
@@ -537,6 +561,10 @@ msgstr "Languages"
 msgid "Last Updated"
 msgstr "Last Updated"
 
+#: src/components/dashboard/LatestCommentsWidget.tsx:22
+msgid "Latest Comments"
+msgstr "Latest Comments"
+
 #: src/pages/AdvancedSearch.tsx:51
 msgid "Latest Update"
 msgstr "Latest Update"
@@ -551,6 +579,10 @@ msgstr "Latest Updates"
 #: src/pages/MangaDetail.tsx:402
 msgid "Link copied"
 msgstr "Link copied"
+
+#: src/components/notification/NotificationBell.tsx:119
+msgid "Load more"
+msgstr "Load more"
 
 #: src/pages/GroupDetail.tsx:298
 msgid "Local"
@@ -579,6 +611,10 @@ msgstr "Manga that many readers are following this month."
 #: src/pages/Favorites.tsx:47
 msgid "Manga you're following"
 msgstr "Manga you're following"
+
+#: src/components/notification/NotificationBell.tsx:79
+msgid "Mark all as read"
+msgstr "Mark all as read"
 
 #: src/pages/GroupDetail.tsx:307
 #: src/pages/GroupDetail.tsx:428
@@ -644,9 +680,17 @@ msgstr "Next"
 msgid "No chapters found for the selected time range."
 msgstr "No chapters found for the selected time range."
 
+#: src/components/dashboard/LatestCommentsWidget.tsx:86
+msgid "No comments yet."
+msgstr "No comments yet."
+
 #: src/pages/Auth.tsx:36
 msgid "No credential received from Google."
 msgstr "No credential received from Google."
+
+#: src/pages/MangaDetail.tsx:621
+msgid "No distribution data"
+msgstr "No distribution data"
 
 #: src/pages/MangaDetail.tsx:965
 msgid "No group"
@@ -664,6 +708,10 @@ msgstr "No new chapters yet. Try again in a few minutes."
 #: src/pages/Dashboard.tsx:309
 msgid "No new manga. Refresh or check back in a few minutes."
 msgstr "No new manga. Refresh or check back in a few minutes."
+
+#: src/components/notification/NotificationBell.tsx:95
+msgid "No notifications yet"
+msgstr "No notifications yet"
 
 #: src/pages/MangaDetail.tsx:1025
 msgid "No related titles found."
@@ -684,6 +732,10 @@ msgstr "No updates yet"
 #: src/pages/MangaDetail.tsx:904
 msgid "No Volume"
 msgstr "No Volume"
+
+#: src/components/notification/NotificationBell.tsx:70
+msgid "Notifications"
+msgstr "Notifications"
 
 #: src/pages/GroupDetail.tsx:433
 msgid "Official"
@@ -785,9 +837,17 @@ msgstr "Publication Year"
 msgid "Rankings"
 msgstr "Rankings"
 
+#: src/pages/MangaDetail.tsx:641
+msgid "ratings"
+msgstr "ratings"
+
 #: src/pages/Profile.tsx:485
 msgid "Re-enter new password"
 msgstr "Re-enter new password"
+
+#: src/pages/MangaDetail.tsx:504
+msgid "Read Now"
+msgstr "Read Now"
 
 #: src/pages/MangaDetail.tsx:789
 msgid "Read or Buy"
@@ -1100,6 +1160,18 @@ msgstr "Vietnamese translation will be available in a future release."
 #: src/pages/Favorites.tsx:175
 msgid "View"
 msgstr "View"
+
+#: src/components/manga/FeaturedMangaSlider.tsx:177
+msgid "View Details"
+msgstr "View Details"
+
+#: src/components/dashboard/LatestCommentsWidget.tsx:63
+msgid "View in chapter"
+msgstr "View in chapter"
+
+#: src/components/dashboard/LatestCommentsWidget.tsx:76
+msgid "View in manga"
+msgstr "View in manga"
 
 #: src/pages/AuthorDetail.tsx:224
 #: src/pages/GroupDetail.tsx:452

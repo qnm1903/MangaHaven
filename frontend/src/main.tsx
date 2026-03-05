@@ -5,6 +5,7 @@ import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import { createRouter } from '@tanstack/react-router'
 import { routeTree } from './routeTree.gen'
 import { Provider as JotaiProvider } from 'jotai'
+import { jotaiStore } from './store/appAtoms'
 import { GoogleOAuthProvider } from '@react-oauth/google'
 import { ThemeProvider } from './contexts/ThemeContext'
 import { I18nApp } from './components/I18nApp'
@@ -22,7 +23,7 @@ const queryClient = new QueryClient();
 
 createRoot(document.getElementById('root')!).render(
   <StrictMode>
-    <JotaiProvider>
+    <JotaiProvider store={jotaiStore}>
       <ThemeProvider>
         <GoogleOAuthProvider clientId={import.meta.env.VITE_GOOGLE_CLIENT_ID || ''}>
           <QueryClientProvider client={queryClient}>

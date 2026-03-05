@@ -49,13 +49,14 @@ export interface SystemNotificationPayload {
     targetUserIds: string[] | 'all';
 }
 
-// Job name → Payload mapping
+// Job name -> Payload mapping
 export interface NotificationJobMap {
     'comment-reply': CommentReplyPayload;
     'new-chapter': NewChapterPayload;
     'group-upload': GroupUploadPayload;
     'favorite-update': FavoriteUpdatePayload;
     'system': SystemNotificationPayload;
+    'check-new-chapters': Record<string, never>;
 }
 
 export type NotificationJobName = keyof NotificationJobMap;

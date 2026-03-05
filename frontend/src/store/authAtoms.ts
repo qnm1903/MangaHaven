@@ -2,6 +2,7 @@ import { atom } from 'jotai';
 import { AuthService } from '../services/auth_service';
 import type { User } from '../services/auth_service';
 import { readingHistoryAtom } from './historyAtoms';
+import { resetUser, identifyUser } from '../lib/analytics';
 
 interface AuthAtomState {
   user: User | null;
@@ -78,6 +79,11 @@ export const initializeAuthAtom = atom(null, async (_get, set) => {
         token: nextToken,
         loading: false,
       }));
+
+      // PostHog: identify user after successful token refresh
+      if (refreshedUser) {
+        identifyUser(refreshedUser.id, { email: refreshedUser.email, name: refreshedUser.displayName });
+      }
     } catch (error) {
       const errorMessage = error instanceof Error ? error.message : '';
       const isNetworkError = errorMessage.includes('Network error');
@@ -129,6 +135,9 @@ export const loginAtom = atom(null, (_get, set, payload: LoginPayload) => {
     user: payload.user,
     loading: false,
   }));
+
+  // PostHog: identify user on login
+  identifyUser(payload.user.id, { email: payload.user.email, name: payload.user.displayName });
 });
 
 export const logoutAtom = atom(null, async (_get, set) => {
@@ -143,13 +152,16 @@ export const logoutAtom = atom(null, async (_get, set) => {
   } finally {
     // Clear reading history on logout
     set(readingHistoryAtom, []);
-    
+
     set(authStateAtom, previousState => ({
       ...previousState,
       token: null,
       user: null,
       loading: false,
     }));
+
+    // PostHog: reset user identity on logout
+    resetUser();
   }
 });
 

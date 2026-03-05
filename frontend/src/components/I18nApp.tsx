@@ -5,6 +5,14 @@ import { RouterProvider, type AnyRouter } from '@tanstack/react-router';
 import { useAtomValue } from 'jotai';
 import { Toaster } from '@/components/ui/sonner';
 import { uiLanguageAtom, type UiLocale } from '@/store/settingsAtoms';
+import posthog from 'posthog-js';
+import { PostHogProvider } from '@posthog/react';
+import { initPostHog } from '@/lib/analytics';
+import { isMaintenanceModeAtom } from '@/store/appAtoms';
+import { MaintenancePage } from '@/components/layout/MaintenancePage';
+
+// Initialise PostHog once at module load
+initPostHog();
 
 async function loadCatalog(locale: UiLocale) {
   const mod = await import(`../locales/${locale}/messages.po`) as { messages: Messages };
@@ -29,6 +37,7 @@ type I18nAppProps = {
 export const I18nApp = ({ router }: I18nAppProps) => {
   const locale = useAtomValue(uiLanguageAtom);
   const [ready, setReady] = useState(i18n.locale === locale);
+  const isMaintenanceMode = useAtomValue(isMaintenanceModeAtom);
 
   useEffect(() => {
     if (i18n.locale === locale) {
@@ -41,9 +50,19 @@ export const I18nApp = ({ router }: I18nAppProps) => {
 
   if (!ready) return null;
 
+  if (isMaintenanceMode) {
+    return (
+      <I18nProvider i18n={i18n}>
+        <MaintenancePage />
+      </I18nProvider>
+    );
+  }
+
   return (
     <I18nProvider i18n={i18n}>
-      <RouterProvider router={router} />
+      <PostHogProvider client={posthog}>
+        <RouterProvider router={router} />
+      </PostHogProvider>
       <Toaster />
     </I18nProvider>
   );

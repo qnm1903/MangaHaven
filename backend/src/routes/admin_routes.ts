@@ -17,4 +17,7 @@ router.get('/users/search', AdminController.searchUsersByEmail);
 router.post('/users/block', AdminController.blockUser);
 router.post('/users/unblock', AdminController.unblockUser);
 
+// Notification system
+router.post('/notifications/send', AdminController.sendSystemNotification);
+
 export default router;

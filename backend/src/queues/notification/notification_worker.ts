@@ -5,6 +5,7 @@ import { NotificationService } from '../../services/notification_service';
 import { emitToUser } from '../../services/socket_service';
 import prisma from '../../db/prisma';
 import type { NotificationJobMap, NotificationJobName } from './notification_types';
+import { checkNewChapters } from './new_chapter_checker';
 
 // ──────────────────────────────────────────────
 // Worker
@@ -28,21 +29,22 @@ export function createNotificationWorker(): Worker {
         async (job: Job) => {
             console.log(`[NotificationWorker] Processing job ${job.id} (${job.name})`);
 
-            switch (job.name as NotificationJobName) {
+            switch (job.name as NotificationJobName | 'check-new-chapters') {
                 case 'comment-reply':
                     await handleCommentReply(job.data as NotificationJobMap['comment-reply']);
                     break;
 
-                // Phase 2 handlers — uncomment when ready
-                // case 'new-chapter':
-                //     await handleNewChapter(job.data);
-                //     break;
-                // case 'group-upload':
-                //     await handleGroupUpload(job.data);
-                //     break;
-                // case 'system':
-                //     await handleSystem(job.data);
-                //     break;
+                case 'new-chapter':
+                    await handleNewChapter(job.data as NotificationJobMap['new-chapter']);
+                    break;
+
+                case 'system':
+                    await handleSystemNotification(job.data as NotificationJobMap['system']);
+                    break;
+
+                case 'check-new-chapters':
+                    await checkNewChapters();
+                    break;
 
                 default:
                     console.warn(`[NotificationWorker] Unknown job name: ${job.name}`);
@@ -123,4 +125,73 @@ async function handleCommentReply(
         read: notification.read,
         createdAt: notification.createdAt,
     });
+}
+
+async function handleNewChapter(
+    data: NotificationJobMap['new-chapter'],
+): Promise<void> {
+    const { targetUserId, mangaId, mangaTitle, chapterId, chapterNumber } = data;
+
+    const chapterLabel = chapterNumber ? `Ch.${chapterNumber}` : 'New chapter';
+    const message = `${mangaTitle} — ${chapterLabel}`;
+
+    const notification = await NotificationService.createNotification({
+        userId: targetUserId,
+        type: 'NEW_CHAPTER',
+        title: 'New Chapter',
+        message,
+        payload: { mangaId, chapterId, chapterNumber },
+    });
+
+    emitToUser(targetUserId, 'notification', {
+        id: notification.id,
+        type: notification.type,
+        title: notification.title,
+        message: notification.message,
+        payload: notification.payload,
+        read: notification.read,
+        createdAt: notification.createdAt,
+    });
+}
+
+async function handleSystemNotification(
+    data: NotificationJobMap['system'],
+): Promise<void> {
+    const { message, targetUserIds } = data;
+
+    // Determine recipient list
+    let userIds: string[];
+
+    if (targetUserIds === 'all') {
+        const users = await prisma.user.findMany({
+            where: { isActive: true },
+            select: { id: true },
+        });
+        userIds = users.map((u: { id: string }) => u.id);
+    } else {
+        userIds = targetUserIds;
+    }
+
+    // Create notifications in batch (one per user)
+    for (const userId of userIds) {
+        const notification = await NotificationService.createNotification({
+            userId,
+            type: 'SYSTEM',
+            title: 'System',
+            message,
+            payload: {},
+        });
+
+        emitToUser(userId, 'notification', {
+            id: notification.id,
+            type: notification.type,
+            title: notification.title,
+            message: notification.message,
+            payload: notification.payload,
+            read: notification.read,
+            createdAt: notification.createdAt,
+        });
+    }
+
+    console.log(`[NotificationWorker] System notification sent to ${userIds.length} users`);
 }

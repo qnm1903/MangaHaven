@@ -6,6 +6,7 @@ import { Button } from '@/components/ui/button';
 import { followService, type MangaSource } from '@/services/follow_service';
 
 import { useToast } from '@/hooks/use_toast';
+import { trackFollowManga, trackUnfollowManga } from '@/lib/analytics';
 
 interface FollowButtonProps {
     mangaId: string;
@@ -37,11 +38,13 @@ const FollowButton: React.FC<FollowButtonProps> = ({
                 await followService.unfollowManga(mangaId, source);
                 setIsFollowing(false);
                 onFollowChange?.(false);
+                trackUnfollowManga({ manga_id: mangaId });
                 toast({ title: t`Unfollowed`, description: t`Removed from your library.` });
             } else {
                 await followService.followManga(mangaId, source);
                 setIsFollowing(true);
                 onFollowChange?.(true);
+                trackFollowManga({ manga_id: mangaId });
                 toast({ title: t`Following!`, description: t`Added to your library. You'll see updates in your feed.` });
             }
         } catch (err: any) {

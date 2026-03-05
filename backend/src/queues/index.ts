@@ -13,6 +13,21 @@ export async function initQueues(): Promise<void> {
         // Start the notification worker
         createNotificationWorker();
 
+        // Schedule the new-chapter checker to run every 30 minutes.
+        // BullMQ stores the repeat config in Redis — it survives restarts
+        // and auto-deduplicates if multiple instances try to add the same job.
+        await notificationQueue.add(
+            'check-new-chapters',
+            {},
+            {
+                repeat: { every: 30 * 60 * 1000 }, // 30 minutes
+                jobId: 'recurring-chapter-check',
+                removeOnComplete: true,
+                removeOnFail: 5,
+            },
+        );
+        console.log('[BullMQ] New-chapter checker scheduled (every 30 min)');
+
         console.log('[BullMQ] All queues initialized');
     } catch (error) {
         console.error('[BullMQ] Failed to initialize queues:', error);

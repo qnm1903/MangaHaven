@@ -2,6 +2,7 @@ import { Request, Response, NextFunction } from 'express';
 import { z } from 'zod';
 import { prisma } from '../db/prisma';
 import StatusCodes from '../constants/status_codes';
+import { queueSystemNotification } from '../queues/notification/notification_queue';
 
 // Zod schemas for input validation
 const searchUsersSchema = z.object({
@@ -350,6 +351,43 @@ export class AdminController {
         success: true,
         message: `User ${updatedUser.email} has been unblocked successfully`,
         data: updatedUser,
+      });
+    } catch (error) {
+      next(error);
+    }
+  }
+
+  /**
+   * Send a system notification to all users or specific users
+   */
+  static async sendSystemNotification(
+    req: Request,
+    res: Response,
+    next: NextFunction
+  ): Promise<void> {
+    try {
+      const schema = z.object({
+        message: z.string().min(1).max(500),
+        targetUserIds: z.union([z.literal('all'), z.array(z.string().uuid())]).default('all'),
+      });
+
+      const validation = schema.safeParse(req.body);
+      if (!validation.success) {
+        res.status(StatusCodes.BAD_REQUEST).json({
+          success: false,
+          message: 'Invalid request body',
+          errors: validation.error.flatten().fieldErrors,
+        });
+        return;
+      }
+
+      const { message, targetUserIds } = validation.data;
+
+      await queueSystemNotification({ message, targetUserIds });
+
+      res.status(StatusCodes.OK).json({
+        success: true,
+        message: 'System notification queued successfully',
       });
     } catch (error) {
       next(error);

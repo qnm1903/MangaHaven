@@ -36,6 +36,7 @@ import { useAtom, useAtomValue } from 'jotai'
 import { chapterLanguagesAtom } from '@/store/settingsAtoms'
 import { readingHistoryAtom } from '@/store/historyAtoms';
 import { LanguageFlag } from '@/components/LanguageFlag';
+import { trackViewManga, trackShareManga } from '@/lib/analytics';
 
 type MangaDetailResponse = {
   success: boolean;
@@ -278,6 +279,16 @@ const MangaDetail: React.FC = () => {
     return { buy, track };
   }, [mangaEntity, mangaIdentifier]);
 
+  // Track manga view for PostHog analytics
+  useEffect(() => {
+    if (!mangaEntity) return;
+    trackViewManga({
+      manga_id: mangaIdentifier,
+      manga_title: mangaDexUtils.getTitle(mangaEntity.attributes.title),
+      content_rating: mangaEntity.attributes.contentRating,
+    });
+  }, [mangaIdentifier, mangaEntity]);
+
   if (isMangaLoading) {
     return (
       <div className="space-y-8">
@@ -398,6 +409,7 @@ const MangaDetail: React.FC = () => {
   const handleShareLink = async () => {
     try {
       await navigator.clipboard.writeText(window.location.href);
+      trackShareManga({ manga_id: mangaIdentifier, method: 'clipboard' });
       toast({
         title: t`Link copied`,
         description: t`Share this manga with your friends.`,

@@ -1,5 +1,6 @@
 import axios from 'axios';
 import type { AxiosError, AxiosResponse, InternalAxiosRequestConfig } from 'axios';
+import { jotaiStore, isMaintenanceModeAtom } from '../store/appAtoms';
 
 interface TokenRefreshResponse {
   success: boolean;
@@ -75,6 +76,18 @@ api.interceptors.response.use(
   async (error: AxiosError) => {
     const originalRequest = error.config as InternalAxiosRequestConfig & { _retry?: boolean };
 
+    // 1. Kiểm tra Lỗi Bảo Trì (MangaDex 503)
+    // Backend trả về HTTP 500 khi MangaDex trả về 503, với message nội bộ chứa chữ "503"
+    const backendErrorMsg = (error.response?.data as any)?.error;
+    if (
+      error.response?.status === 500 &&
+      typeof backendErrorMsg === 'string' &&
+      backendErrorMsg.includes('503')
+    ) {
+      // Bật cờ bảo trì toàn cục thay vì văng lỗi dồn dập
+      jotaiStore.set(isMaintenanceModeAtom, true);
+    }
+
     // Chỉ thử refresh token nếu:
     // 1. Lỗi 401 (Unauthorized)
     // 2. Không phải request đến auth endpoints
@@ -88,7 +101,7 @@ api.interceptors.response.use(
     ) {
       originalRequest._retry = true;
 
-      // Nếu đang refresh rồi → chờ refresh xong, dùng token mới
+      // Nếu đang refresh rồi -> chờ refresh xong, dùng token mới
       if (isRefreshing) {
         return new Promise((resolve) => {
           addRefreshSubscriber((newToken: string) => {

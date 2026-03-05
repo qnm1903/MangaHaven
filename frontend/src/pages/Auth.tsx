@@ -11,6 +11,7 @@ import { AuthService } from "@/services/auth_service"
 import { BookOpen, Mail, Lock, User, Eye, EyeOff } from "lucide-react"
 import { Trans } from '@lingui/react/macro'
 import { t } from '@lingui/core/macro'
+import { identifyUser } from '@/lib/analytics'
 
 const Auth: React.FC = () => {
   const [isLogin, setIsLogin] = useState(true)
@@ -41,6 +42,8 @@ const Auth: React.FC = () => {
     setIsLoading(true)
     try {
       await googleAuth(credentialResponse.credential)
+      // PostHog: we don't have the userId from Google flow directly,
+      // but identity will be set by the auth state listener after login
       navigate({ to: '/' })
       toast({
         title: t`Welcome!`,
@@ -121,6 +124,7 @@ const Auth: React.FC = () => {
           password: formData.password
         })
         login(response.data.accessToken, response.data.user)
+        identifyUser(response.data.user.id, { email: response.data.user.email, name: response.data.user.displayName })
       } else {
         const response = await AuthService.register({
           displayName: formData.name,
@@ -128,6 +132,7 @@ const Auth: React.FC = () => {
           password: formData.password
         })
         login(response.data.accessToken, response.data.user)
+        identifyUser(response.data.user.id, { email: response.data.user.email, name: response.data.user.displayName })
       }
 
       navigate({ to: '/' })
@@ -157,7 +162,7 @@ const Auth: React.FC = () => {
               <BookOpen className="h-5 w-5 text-violet-400" />
             </div>
           </div>
-          <h1 className="text-xl font-semibold text-white tracking-tight">MangaVerse</h1>
+          <h1 className="text-xl font-semibold text-white tracking-tight">MangaHaven</h1>
           <p className="text-zinc-500 text-sm mt-1">
             {isLogin ? <Trans>Welcome back</Trans> : <Trans>Create your account</Trans>}
           </p>
@@ -244,7 +249,7 @@ const Auth: React.FC = () => {
 
             {/* Email Field */}
             <div className="space-y-2">
-                <Label htmlFor="email" className="text-zinc-300 text-sm"><Trans>Email</Trans></Label>
+              <Label htmlFor="email" className="text-zinc-300 text-sm"><Trans>Email</Trans></Label>
               <div className="relative">
                 <Mail className="absolute left-3.5 top-1/2 -translate-y-1/2 text-zinc-500 h-4 w-4" />
                 <Input
@@ -262,7 +267,7 @@ const Auth: React.FC = () => {
 
             {/* Password Field */}
             <div className="space-y-2">
-                <Label htmlFor="password" className="text-zinc-300 text-sm"><Trans>Password</Trans></Label>
+              <Label htmlFor="password" className="text-zinc-300 text-sm"><Trans>Password</Trans></Label>
               <div className="relative">
                 <Lock className="absolute left-3.5 top-1/2 -translate-y-1/2 text-zinc-500 h-4 w-4" />
                 <Input
@@ -342,13 +347,13 @@ const Auth: React.FC = () => {
         {/* Footer */}
         <p className="text-center text-xs text-zinc-600 mt-6">
           <Trans>By continuing, you agree to our{' '}
-          <a href="#" title="Terms of Service" className="text-zinc-400 hover:text-violet-400 transition-colors">
-            Terms
-          </a>
-          {' '}and{' '}
-          <a href="#" title="Privacy Policy" className="text-zinc-400 hover:text-violet-400 transition-colors">
-            Privacy Policy
-          </a></Trans>
+            <a href="#" title="Terms of Service" className="text-zinc-400 hover:text-violet-400 transition-colors">
+              Terms
+            </a>
+            {' '}and{' '}
+            <a href="#" title="Privacy Policy" className="text-zinc-400 hover:text-violet-400 transition-colors">
+              Privacy Policy
+            </a></Trans>
         </p>
       </div>
     </div>

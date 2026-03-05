@@ -24,6 +24,7 @@ import { chapterLanguagesAtom } from '@/store/settingsAtoms'
 import { LanguageFlag } from '@/components/LanguageFlag';
 import { addToHistoryAtom } from '@/store/historyAtoms';
 import { useAuth } from '@/hooks/useAuth';
+import { trackReadChapter } from '@/lib/analytics';
 
 interface ChapterResponse {
   data: {
@@ -249,6 +250,21 @@ const ChapterReader: React.FC = () => {
     });
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [chapterId, !!chapterData?.data?.data, user]);
+
+  // Track chapter read event for PostHog analytics
+  useEffect(() => {
+    if (!chapterData?.data?.data || !mangaId) return;
+    const ch = chapterData.data.data;
+    const mangaRel = ch.relationships.find((r) => r.type === 'manga');
+    const titleMap = (mangaRel?.attributes as { title?: Record<string, string> } | undefined)?.title ?? {};
+    const title = titleMap['en'] || titleMap['vi'] || titleMap['ja-ro'] || Object.values(titleMap).find(Boolean) || 'Unknown';
+    trackReadChapter({
+      manga_id: mangaId,
+      manga_title: title,
+      chapter_number: ch.attributes.chapter ?? undefined,
+      language: ch.attributes.translatedLanguage,
+    });
+  }, [chapterId, chapterData, mangaId]);
 
   const handleChapterChange = (newChapterId: string) => {
     const target = allChapters.find((ch) => ch.id === newChapterId);

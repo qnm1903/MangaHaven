@@ -22,7 +22,12 @@ let worker: Worker | null = null;
  */
 export function createNotificationWorker(): Worker {
     const isLocal = !!process.env.REDIS_LOCAL_URL;
-    const drainDelay = isLocal ? 5_000 : 60_000; // Local = 5s, Upstash = 60s
+    // Upstash Serverless Redis charges for blocking commands per sleep interval.
+    // To fit within the 500k/month free tier, we must dramatically increase drainDelay 
+    // and stalledInterval. This delays notification processing when the queue is empty
+    // but saves massive amounts of Redis requests (from ~90k/day down to < 5k/day).
+    const drainDelay = isLocal ? 1_000 : 300_000; // Local = 1s, Upstash = 5 minutes
+    const stalledInterval = isLocal ? 30_000 : 300_000; // Local = 30s, Upstash = 5 minutes
 
     worker = new Worker(
         NOTIFICATION_QUEUE_NAME,
@@ -54,6 +59,8 @@ export function createNotificationWorker(): Worker {
             connection: bullmqConnection,
             concurrency: 5,
             drainDelay,
+            stalledInterval,
+            metrics: { maxDataPoints: 0 },
         },
     );
 

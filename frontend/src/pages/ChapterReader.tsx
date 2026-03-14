@@ -96,6 +96,7 @@ const ChapterReader: React.FC = () => {
   const [navBarVisible, setNavBarVisible] = useState(true);
   const [isAtBottom, setIsAtBottom] = useState(false);
   const [loadedImages, setLoadedImages] = useState<Set<number>>(new Set());
+  const [failedImages, setFailedImages] = useState<Set<number>>(new Set());
 
   const hideTimeoutRef = useRef<ReturnType<typeof setTimeout> | null>(null);
   const scrollContainerRef = useRef<HTMLDivElement>(null);
@@ -205,8 +206,9 @@ const ChapterReader: React.FC = () => {
     // Clear the "at bottom" flag so the scroll handler isn't permanently suppressed
     isAtBottomRef.current = false;
     setIsAtBottom(false);
-    // Clear loaded image set so skeletons show for the new chapter
+    // Clear loaded image list so skeletons show for the new chapter
     setLoadedImages(new Set());
+    setFailedImages(new Set());
     // Scroll the container back to the top
     if (scrollParentRef.current) {
       scrollParentRef.current.scrollTop = 0;
@@ -277,6 +279,18 @@ const ChapterReader: React.FC = () => {
 
   const handleImageLoad = (index: number) => {
     setLoadedImages((prev) => new Set(prev).add(index));
+  };
+
+  const handleImageError = (index: number, e: React.SyntheticEvent<HTMLImageElement>) => {
+    // If it fails on the @Home node, fallback to the main MangaDex uploads origin
+    if (!failedImages.has(index)) {
+      setFailedImages((prev) => new Set(prev).add(index));
+      const target = e.currentTarget;
+      const filename = pages?.data[index];
+      if (filename && pages?.hash) {
+        target.src = `https://uploads.mangadex.org/data/${pages.hash}/${filename}`;
+      }
+    }
   };
 
   if (isChapterLoading || isPagesLoading) {
@@ -420,6 +434,7 @@ const ChapterReader: React.FC = () => {
                   className={`${settings.imageOrientation === 'vertical' ? 'w-full h-auto' : 'h-screen w-auto'
                     } ${!loadedImages.has(index) ? 'absolute opacity-0 pointer-events-none' : ''}`}
                   onLoad={() => handleImageLoad(index)}
+                  onError={(e) => handleImageError(index, e)}
                   referrerPolicy="no-referrer"
                   loading="lazy"
                 />

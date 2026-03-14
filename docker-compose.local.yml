@@ -12,8 +12,21 @@ services:
     environment:
       NODE_ENV: production
       FRONTEND_URL: http://localhost
+      REDIS_LOCAL_URL: redis://manga_redis:6379
     expose:
       - "5000"
+    depends_on:
+      - redis
+
+  redis:
+    image: redis:7-alpine
+    container_name: manga_redis
+    restart: unless-stopped
+    command: redis-server --appendonly yes
+    volumes:
+      - redis_data:/data
+    expose:
+      - "6379"
 
   nginx:
     build:
@@ -36,3 +49,6 @@ services:
       # Local: dùng http-only config (không cần SSL cert)
       # VPS sau khi có cert: đổi thành ./nginx/nginx.conf
       - ./nginx/nginx-http-only.conf:/etc/nginx/conf.d/default.conf:ro
+
+volumes:
+  redis_data:
